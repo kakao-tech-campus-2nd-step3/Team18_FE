@@ -1,6 +1,5 @@
 import { InputHTMLAttributes } from 'react';
 import styled from '@emotion/styled';
-import palettes from '@assets/styles/global/pallets';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -16,7 +15,7 @@ export default function Input({ label, ...rest }: Props) {
 }
 
 const InputContainer = styled.input`
-  background-color: ${palettes.white};
-  border: 1px solid ${palettes.borderGray};
+  background-color: ${({ theme }) => theme.palettes.white};
+  border: 1px solid ${({ theme }) => theme.palettes.borderGray};
   border-radius: 5px;
 `;

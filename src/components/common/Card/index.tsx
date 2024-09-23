@@ -1,4 +1,3 @@
-import palettes from '@/assets/styles/global/pallets';
 import styled from '@emotion/styled';
 import { HTMLAttributes, ReactNode } from 'react';
 
@@ -17,7 +16,7 @@ export default function Card({ borderRadius = '12px', children, ...rest }: Props
 
 const CardContainer = styled.div<{ borderRadius: string }>`
   display: inline-block;
-  border: 1px solid ${palettes.borderGray};
+  border: 1px solid ${({ theme }) => theme.palettes.white};
   box-shadow: 0px 12px 32px 0px rgba(24, 25, 28, 0.08);
   border-radius: ${({ borderRadius }) => borderRadius};
 `;
