@@ -16,8 +16,10 @@ export const Default: Story = {
     direction: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    xGap: '10px',
-    yGap: '10px',
+    gap: {
+      x: '10px',
+      y: '10px',
+    },
   },
   render: (args) => (
     <Flex {...args}>

@@ -1,6 +1,5 @@
 import { InputHTMLAttributes } from 'react';
 import styled from '@emotion/styled';
-import Flex from '@components/common/Flex';
 import palettes from '@assets/styles/global/pallets';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
@@ -9,10 +8,10 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 
 export default function Input({ label, ...rest }: Props) {
   return (
-    <Flex xGap="8px" alignItems="center">
+    <>
       {label && <label>{label}</label>}
       <InputContainer {...rest} />
-    </Flex>
+    </>
   );
 }
 
