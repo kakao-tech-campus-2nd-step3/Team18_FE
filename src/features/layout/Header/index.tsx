@@ -115,6 +115,7 @@ const Dropdown = styled.select`
   cursor: pointer;
   text-align: center;
   font-size: 16px;
+  border: none;
 
   @media (max-width: 720px) {
     padding: 8px 10px;
