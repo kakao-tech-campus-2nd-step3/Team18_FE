@@ -26,11 +26,11 @@ const HeaderContainer = styled.header`
   background-color: #fff;
   height: 88px;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1200px) {
     padding: 0 15px;
   }
 
-  @media (max-width: 720px) {
+  @media (max-width: 768px) {
     flex-direction: column;
     height: auto;
     padding: 10px;
@@ -46,7 +46,7 @@ const Logo = styled.img`
   height: 70px;
   width: auto;
 
-  @media (max-width: 720px) {
+  @media (max-width: 768px) {
     height: 60px;
   }
 
@@ -60,7 +60,7 @@ const Nav = styled.nav`
   align-items: center;
   gap: 15px;
 
-  @media (max-width: 720px) {
+  @media (max-width: 768px) {
     width: 100%;
     justify-content: center;
     margin-top: 10px;
@@ -85,7 +85,7 @@ const ButtonStyle = styled.button`
   white-space: nowrap;
   font-size: 16px;
 
-  @media (max-width: 720px) {
+  @media (max-width: 768px) {
     font-size: 15px;
   }
 
@@ -117,7 +117,7 @@ const Dropdown = styled.select`
   font-size: 16px;
   border: none;
 
-  @media (max-width: 720px) {
+  @media (max-width: 768px) {
     padding: 8px 10px;
     font-size: 15px;
   }
