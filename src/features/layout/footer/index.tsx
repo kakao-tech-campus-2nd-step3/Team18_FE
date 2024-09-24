@@ -38,7 +38,7 @@ const Footer = () => {
 };
 const Container = styled.div`
   width: 100%;
-  max-width: 1920px;
+
   background-color: #18191c;
   font-size: 12px;
   color: #767f8c;
@@ -55,7 +55,7 @@ const Wrapper = styled.div`
   @media (max-width: 1024px) {
     padding: 0 150px;
   }
-  @media (max-width: 720px) {
+  @media (max-width: 768px) {
     padding: 0 50px;
   }
   @media (max-width: 480px) {
