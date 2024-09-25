@@ -1,13 +1,13 @@
 import { ReactNode } from 'react';
 import { ThemeProvider } from '@emotion/react';
-import GlobalStyles from './global/GlobalStyles';
-import theme from './theme';
+import GlobalStyles from './GlobalStyles';
+import theme from '@assets/styles/theme';
 
 interface Props {
   children: ReactNode;
 }
 
-const StyleProvider = ({ children }: Props) => {
+const GlobalStylesProvider = ({ children }: Props) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
@@ -16,4 +16,4 @@ const StyleProvider = ({ children }: Props) => {
   );
 };
 
-export default StyleProvider;
+export default GlobalStylesProvider;
