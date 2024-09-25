@@ -4,8 +4,8 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: 'default' | 'outlined' | 'textbutton';
 }
 
-export default function Button({ ...props }: Props) {
-  return <Wrapper {...props} />;
+export default function Button({ children, ...props }: Props) {
+  return <Wrapper {...props}>{children}</Wrapper>;
 }
 
 const Wrapper = styled.button(
