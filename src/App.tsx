@@ -1,12 +1,5 @@
-import GlobalStyles from './assets/styles';
-
 function App() {
-  return (
-    <>
-      <GlobalStyles />
-      <h1>hello world!</h1>
-    </>
-  );
+  return <h1>helloWorld!</h1>;
 }
 
 export default App;

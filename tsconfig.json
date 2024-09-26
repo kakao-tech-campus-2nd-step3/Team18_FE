@@ -35,7 +35,8 @@
       "@routes/*": ["src/routes/*"],
       "@utils/*": ["src/utils/*"],
       "@types/*": ["src/types/*"]
-    }
+    },
+    "jsxImportSource": "@emotion/react"
   },
   "include": [
     "src",
