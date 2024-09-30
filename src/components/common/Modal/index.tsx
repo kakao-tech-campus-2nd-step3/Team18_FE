@@ -7,7 +7,7 @@ export type Props = {
   borderRadius?: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export const Modal = ({ textChildren, buttonChildren, borderRadius = '12px', ...props }: Props) => {
+const Modal = ({ textChildren, buttonChildren, borderRadius = '12px', ...props }: Props) => {
   return (
     <Card borderRadius={borderRadius} {...props}>
       <Wrapper>
@@ -24,7 +24,7 @@ const Card = styled.div<{ borderRadius: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  backgroundcolor: #fff;
+  background-color: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 `;
 
@@ -51,3 +51,5 @@ const ButtonWrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export default Modal;

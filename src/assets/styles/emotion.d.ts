@@ -1,8 +1,9 @@
+// styles/emotion.d.ts
 import '@emotion/react';
-import { PalettesTypes } from './global/palettes';
+import { palettes } from './global/palettes';
 
 declare module '@emotion/react' {
   export interface Theme {
-    palettes: PalettesTypes;
+    palettes: typeof palettes;
   }
 }

@@ -3,8 +3,8 @@ import type * as CSS from 'csstype';
 import { HTMLAttributes } from 'react';
 
 type FlexGap = {
-  x: string;
-  y: string;
+  x?: string;
+  y?: string;
 };
 
 interface FlexProps {
