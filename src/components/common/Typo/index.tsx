@@ -7,13 +7,15 @@ type Props = {
   size?: string;
   color?: PalettesTypes;
   style?: React.CSSProperties;
+  bold?: boolean;
   children: React.ReactNode;
 };
 
-export default function Typo({ element = 'div', size, color, children, style }: Props) {
+export default function Typo({ element = 'div', size, color, children, style, bold }: Props) {
   const theme = useTheme();
   const Component = element;
   const textColor = color ? theme.palettes[color] : 'black';
+  const fontWeight = bold ? '700' : '400';
 
-  return <Component css={{ fontSize: size, color: textColor, ...style }}>{children}</Component>;
+  return <Component css={{ fontSize: size, color: textColor, fontWeight, ...style }}>{children}</Component>;
 }
