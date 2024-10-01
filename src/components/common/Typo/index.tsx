@@ -15,5 +15,5 @@ export default function Typo({ element = 'div', size, color, children, style }: 
   const Component = element;
   const textColor = color ? theme.palettes[color] : 'black';
 
-  return <Component style={{ fontSize: size, color: textColor, ...style }}>{children}</Component>;
+  return <Component css={{ fontSize: size, color: textColor, ...style }}>{children}</Component>;
 }

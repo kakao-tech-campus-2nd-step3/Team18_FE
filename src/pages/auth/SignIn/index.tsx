@@ -1,26 +1,72 @@
 import { InnerContainer, Flex, Typo, Button } from '@components/common';
-import Footer from '@features/layout/footer';
-import Header from '@features/layout/Header';
-
+import Layout from '@features/layout';
+import theme from '@assets/styles/theme';
 import GoogleIcon from '@assets/icons/icon-google.svg?react';
 import Illustration from '@assets/images/signin-Illustration.svg?react';
+import { responsiveSectionPadding, responsiveStyle } from '@/assets/styles/helpers/responsive';
 
 export default function SignIn() {
   return (
-    <>
-      <Header />
-      <section>
+    <Layout>
+      <section
+        css={{
+          backgroundColor: theme.palettes.backgroundGray,
+          ...responsiveStyle(responsiveSectionPadding),
+        }}
+      >
         <InnerContainer maxWidth="1300px">
-          <Flex justifyContent="space-between" alignItems="center">
-            <div>
-              <div css={{ marginBottom: '71px' }}>
-                <Typo element="h1" size="56px" style={{ marginBottom: '24px' }}>
+          <Flex
+            justifyContent="space-between"
+            alignItems="center"
+            css={responsiveStyle({
+              mobile: {
+                'flex-direction': 'column',
+              },
+            })}
+          >
+            <Flex
+              direction="column"
+              css={{
+                marginRight: '24px',
+                ...responsiveStyle({
+                  mobile: { 'margin-right': '0', 'align-items': 'center', 'margin-bottom': '32px' },
+                }),
+              }}
+            >
+              <Flex
+                direction="column"
+                css={responsiveStyle({
+                  default: {
+                    'margin-bottom': '72px',
+                  },
+                  tablet: {
+                    'margin-bottom': '56px',
+                  },
+                  mobile: {
+                    'margin-bottom': '42px',
+                    'align-items': 'center',
+                  },
+                })}
+              >
+                <Typo
+                  element="h1"
+                  size="58px"
+                  style={{
+                    marginBottom: '24px',
+                    ...responsiveStyle({ tablet: { 'font-size': '32px' }, mobile: { 'font-size': '28px' } }),
+                  }}
+                >
                   지금 바로 시작하세요. 🚀
                 </Typo>
-                <Typo element="p" size="18px" color="gray">
+                <Typo
+                  element="p"
+                  size="18px"
+                  color="gray"
+                  style={responsiveStyle({ tablet: { 'font-size': '16px' }, mobile: { 'font-size': '14px' } })}
+                >
                   안정적이고 투명한 고용 관계의 시작, 지금 바로 경험해보세요!
                 </Typo>
-              </div>
+              </Flex>
               <Button theme="outlined">
                 <Flex alignItems="center" gap={{ x: '12px' }}>
                   <GoogleIcon />
@@ -29,12 +75,11 @@ export default function SignIn() {
                   </Typo>
                 </Flex>
               </Button>
-            </div>
+            </Flex>
             <Illustration />
           </Flex>
         </InnerContainer>
       </section>
-      <Footer />
-    </>
+    </Layout>
   );
 }
