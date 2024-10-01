@@ -1,7 +1,6 @@
-import { InnerContainer, Flex, Typo, Button } from '@components/common';
+import { InnerContainer, Flex, Typo, Icon, Button } from '@components/common';
 import Layout from '@features/layout';
 import theme from '@assets/styles/theme';
-import GoogleIcon from '@assets/icons/icon-google.svg?react';
 import Illustration from '@assets/images/signin-Illustration.svg?react';
 import { responsiveSectionPadding, responsiveStyle } from '@/assets/styles/helpers/responsive';
 
@@ -69,7 +68,7 @@ export default function SignIn() {
               </Flex>
               <Button theme="outlined">
                 <Flex alignItems="center" gap={{ x: '12px' }}>
-                  <GoogleIcon />
+                  <Icon.Social.Google />
                   <Typo size="14px" color="gray" element="span" style={{ fontWeight: '300' }}>
                     Sign up with Google
                   </Typo>
