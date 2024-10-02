@@ -19,7 +19,7 @@ export default function SignIn() {
             alignItems="center"
             css={responsiveStyle({
               mobile: {
-                'flex-direction': 'column',
+                flexDirection: 'column',
               },
             })}
           >
@@ -28,7 +28,7 @@ export default function SignIn() {
               css={{
                 marginRight: '24px',
                 ...responsiveStyle({
-                  mobile: { 'margin-right': '0', 'align-items': 'center', 'margin-bottom': '32px' },
+                  mobile: { marginRight: '0', alignItems: 'center', marginBottom: '32px' },
                 }),
               }}
             >
@@ -36,23 +36,24 @@ export default function SignIn() {
                 direction="column"
                 css={responsiveStyle({
                   default: {
-                    'margin-bottom': '72px',
+                    marginBottom: '72px',
                   },
                   tablet: {
-                    'margin-bottom': '56px',
+                    marginBottom: '56px',
                   },
                   mobile: {
-                    'margin-bottom': '42px',
-                    'align-items': 'center',
+                    marginBottom: '42px',
+                    alignItems: 'center',
                   },
                 })}
               >
                 <Typo
                   element="h1"
                   size="58px"
+                  bold
                   style={{
                     marginBottom: '24px',
-                    ...responsiveStyle({ tablet: { 'font-size': '32px' }, mobile: { 'font-size': '28px' } }),
+                    ...responsiveStyle({ tablet: { fontSize: '32px' }, mobile: { fontSize: '28px' } }),
                   }}
                 >
                   지금 바로 시작하세요. 🚀
@@ -61,7 +62,7 @@ export default function SignIn() {
                   element="p"
                   size="18px"
                   color="gray"
-                  style={responsiveStyle({ tablet: { 'font-size': '16px' }, mobile: { 'font-size': '14px' } })}
+                  style={responsiveStyle({ tablet: { fontSize: '16px' }, mobile: { fontSize: '14px' } })}
                 >
                   안정적이고 투명한 고용 관계의 시작, 지금 바로 경험해보세요!
                 </Typo>
