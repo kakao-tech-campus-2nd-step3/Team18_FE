@@ -90,7 +90,18 @@ const Form = styled.form`
   gap: 40px;
   font-size: 16px;
   font-weight: bold;
-  width: 700px;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 15px;
+  }
 `;
 
 const InputWrapper = styled.div`
