@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { RecruitDetailProps } from '.';
-import RecruitDetail from './RecruitDetail';
-import cat from './cat.jpg';
+import { RecruitDetailProps } from '..';
+import RecruitDetail from '../RecruitDetail';
+import cat from '../cat.jpg';
 
 const meta: Meta<RecruitDetailProps> = {
   title: 'PAGES/Recruit/RecruitDetail',
