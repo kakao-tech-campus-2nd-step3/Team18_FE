@@ -1,8 +1,11 @@
+// styles/emotion.d.ts
 import '@emotion/react';
-import { PalettesTypes } from './global/palettes';
+import { palettes } from './global/palettes';
+import { mediaQueries } from './global/breakpoints';
 
 declare module '@emotion/react' {
   export interface Theme {
-    palettes: PalettesTypes;
+    mediaQueries: typeof mediaQueries;
+    palettes: typeof palettes;
   }
 }
