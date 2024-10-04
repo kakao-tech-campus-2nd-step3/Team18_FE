@@ -3,9 +3,10 @@ export const AUTH = {
   SIGN_UP: '/sign-up',
 } as const;
 
-export const ROUTE_PATH = {
+export default ROUTE_PATH;
   HOME: '/',
+  Recruit: '/recruit',
+  VISA_REGISTRATION: '/visa-registration',
+  POST_NOTICE: '/post-notice',
   AUTH,
 } as const;
-
-export default ROUTE_PATH;
