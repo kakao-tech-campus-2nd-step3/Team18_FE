@@ -3,6 +3,7 @@ import { ROUTE_PATH } from './path';
 import App from '@/App';
 import SignIn from '@/pages/auth/SignIn';
 import VisaRegistration from '@/pages/visaRegistration';
+import { PostNotice } from '@/pages/employer/postNotice';
 
 export const router = createBrowserRouter([
   {
@@ -11,6 +12,7 @@ export const router = createBrowserRouter([
     children: [
       { path: ROUTE_PATH.SIGN_IN, element: <SignIn /> },
       { path: ROUTE_PATH.VISA_REGISTRATION, element: <VisaRegistration /> },
+      { path: ROUTE_PATH.POST_NOTICE, element: <PostNotice /> },
     ],
   },
 ]);
