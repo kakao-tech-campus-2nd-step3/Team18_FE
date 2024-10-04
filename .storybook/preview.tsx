@@ -1,4 +1,6 @@
+import React from 'react';
 import type { Preview } from '@storybook/react';
+import AppProviders from '../src/components/providers/index.provider';
 
 const preview: Preview = {
   parameters: {
@@ -9,8 +11,14 @@ const preview: Preview = {
       },
     },
   },
-
   tags: ['autodocs'],
+  decorators: [
+    (Story) => (
+      <AppProviders>
+        <Story />
+      </AppProviders>
+    ),
+  ],
 };
 
 export default preview;
