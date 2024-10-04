@@ -1,34 +1,48 @@
 import styled from '@emotion/styled';
-import LogoImg from '@/assets/images/hirehigher-logo.svg';
+import LogoImg from '@assets/images/hirehigher-logo.svg?react';
+import Button from '@components/common/Button';
+import { Flex } from '@/components/common';
+import { css } from '@emotion/react';
 
-const Header = () => {
+export default function Header() {
   return (
     <HeaderContainer>
-      <Logo src={LogoImg} alt="Hire Higher" />
-      <Nav>
-        <Dropdown>
-          <option value="none">언어</option>
-          <option value="kr">한국어</option>
-        </Dropdown>
-        <OutlinedButton>채용공고 등록</OutlinedButton>
-        <TextButton>닉네임</TextButton>
-        <PrimaryButton>로그아웃</PrimaryButton>
-      </Nav>
+      <StyledFlex>
+        <LogoImg />
+        <Nav>
+          <Dropdown>
+            <option value="none">언어</option>
+            <option value="kr">한국어</option>
+          </Dropdown>
+          <Button theme="outlined" css={[commonButtonStyles]}>
+            채용공고 등록
+          </Button>
+          <Button theme="textbutton" css={[commonButtonStyles]}>
+            닉네임
+          </Button>
+          <Button
+            css={[
+              commonButtonStyles,
+              css`
+                background-color: #0a65cc;
+                color: #fff;
+              `,
+            ]}
+          >
+            로그아웃
+          </Button>
+        </Nav>
+      </StyledFlex>
     </HeaderContainer>
   );
-};
+}
 
 const HeaderContainer = styled.header`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 0 20px;
   background-color: #fff;
   height: 88px;
-
-  @media (max-width: 1200px) {
-    padding: 0 15px;
-  }
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -42,16 +56,14 @@ const HeaderContainer = styled.header`
   }
 `;
 
-const Logo = styled.img`
-  height: 70px;
-  width: auto;
+const StyledFlex = styled(Flex)`
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1300px;
 
   @media (max-width: 768px) {
-    height: 60px;
-  }
-
-  @media (max-width: 480px) {
-    height: 50px;
+    flex-direction: column;
   }
 `;
 
@@ -73,59 +85,16 @@ const Nav = styled.nav`
   }
 `;
 
-const ButtonStyle = styled.button`
-  padding: 10px 20px;
-  width: 100%;
-  background-color: #fff;
-  color: #0a65cc;
-  border: 1px solid #cee0f5;
-  border-radius: 3px;
-  cursor: pointer;
-  text-align: center;
-  white-space: nowrap;
-  font-size: 16px;
-
-  @media (max-width: 768px) {
-    font-size: 15px;
-  }
-
-  @media (max-width: 480px) {
-    padding: 8px 10px;
-    font-size: 14px;
-  }
-`;
-
-const PrimaryButton = styled(ButtonStyle)`
-  background-color: #0a65cc;
-  color: #fff;
-  border: none;
-`;
-
-const OutlinedButton = styled(ButtonStyle)``;
-
-const TextButton = styled(ButtonStyle)`
-  background-color: none;
-  border: none;
-`;
-
 const Dropdown = styled.select`
   padding: 10px 20px;
-  width: 100%;
   color: #0a65cc;
   cursor: pointer;
   text-align: center;
   font-size: 16px;
   border: none;
-
-  @media (max-width: 768px) {
-    padding: 8px 10px;
-    font-size: 15px;
-  }
-
-  @media (max-width: 480px) {
-    margin-top: 10px;
-    font-size: 14px;
-  }
 `;
 
-export default Header;
+const commonButtonStyles = css`
+  white-space: nowrap;
+  border-radius: 4px;
+`;
