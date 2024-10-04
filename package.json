@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint --cache 'src/**/*.{ts,tsx}'",
-    "tsc": "tsc --noEmit",
+    "tsc": "tsc --noEmit --project ./tsconfig.json",
     "format": "prettier --write --cache 'src/**/*.{ts,tsx}'",
     "lint-staged": "lint-staged",
     "preview": "vite preview",

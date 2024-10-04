@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Preview } from '@storybook/react';
-import AppProviders from '../src/components/providers';
+import AppProviders from '../src/components/providers/index.provider';
 
 const preview: Preview = {
   parameters: {

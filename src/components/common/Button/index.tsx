@@ -14,6 +14,7 @@ const Wrapper = styled.button(
     fontSize: '16px',
     fontWeight: 'bold',
     border: 'none',
+    borderRadius: '4px',
     justifyContent: 'center',
     alignItems: 'center',
     cursor: 'pointer',
