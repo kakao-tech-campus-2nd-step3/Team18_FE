@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { RecruitDetailProps } from '..';
+import { RecruitDetailProps } from '../RecruitDetail';
 import RecruitDetail from '../RecruitDetail';
 import cat from '../cat.jpg';
 
