@@ -5,6 +5,7 @@ import App from '@/App';
 import Recruit from '@/pages/recruit';
 import VisaRegistration from '@/pages/visaRegistration';
 import { PostNotice } from '@/pages/employer/postNotice';
+import ApplyGuide from '@/pages/apply/applyguide/ApplyGuide';
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ export const router = createBrowserRouter([
       { path: ROUTE_PATH.Recruit, element: <Recruit /> },
       { path: ROUTE_PATH.VISA_REGISTRATION, element: <VisaRegistration /> },
       { path: ROUTE_PATH.POST_NOTICE, element: <PostNotice /> },
+      { path: ROUTE_PATH.APPLY.GUIDE, element: <ApplyGuide /> },
     ],
   },
 ]);
