@@ -18,10 +18,18 @@ export default function CompanyInfo({ logo, company, industryOccupation, revenue
           {company}
         </Typo>
         <Flex alignItems="center" gap={{ x: '8px' }}>
-          <InfoName>업직종</InfoName>
-          <Info>{industryOccupation}</Info>
-          <InfoName>연평균 매출액</InfoName>
-          <Info>{revenuePerYear} 원</Info>
+          <Typo element="div" size="16px" style={infoNameStyle}>
+            업직종
+          </Typo>
+          <Typo element="span" style={infoStyle}>
+            {industryOccupation}
+          </Typo>
+          <Typo element="div" size="16px" style={infoNameStyle}>
+            연평균 매출액
+          </Typo>
+          <Typo element="span" style={infoStyle}>
+            {revenuePerYear} 원
+          </Typo>
         </Flex>
       </Flex>
       <Button style={{ backgroundColor: '#0A65CC', color: '#fff', borderRadius: '4px', whiteSpace: 'nowrap' }}>
@@ -42,16 +50,14 @@ const Logo = styled.img`
   margin-right: 100px;
 `;
 
-const InfoName = styled.div`
-  font-size: 16px;
-  color: #0a65cc;
-  background-color: #e7f0fa;
-  border-radius: 15px;
-  padding: 5px 10px;
-`;
+const infoNameStyle = {
+  backgroundColor: '#E7F0FA',
+  color: '#0A65CC',
+  borderRadius: '15px',
+  padding: '5px 10px',
+};
 
-const Info = styled.span`
-  font-size: 16px;
-  color: #474c54;
-  margin-right: 20px;
-`;
+const infoStyle = {
+  color: '#474C54',
+  marginRight: '20px',
+};
