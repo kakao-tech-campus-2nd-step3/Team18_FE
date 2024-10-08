@@ -1,11 +1,11 @@
-import GlobalStyles from './assets/styles';
+import AppProviders from '@components/providers/index.provider';
+import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
-    <>
-      <GlobalStyles />
-      <h1>hello world!</h1>
-    </>
+    <AppProviders>
+      <Outlet />
+    </AppProviders>
   );
 }
 

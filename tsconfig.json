@@ -5,7 +5,7 @@
     "lib": ["ES2023", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
-
+    "types": ["vite-plugin-svgr/client"],
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
@@ -35,11 +35,13 @@
       "@routes/*": ["src/routes/*"],
       "@utils/*": ["src/utils/*"],
       "@types/*": ["src/types/*"]
-    }
+    },
+    "jsxImportSource": "@emotion/react"
   },
   "include": [
     "src",
     "vite.config.ts",
-    ".storybook"
+    ".storybook",
+    "svg.d.ts"
   ]
 }
