@@ -1,48 +1,43 @@
-import { useState } from 'react';
 import useToggle from '@/hooks/useToggle';
+import { useState } from 'react';
+import { useForm, SubmitHandler } from 'react-hook-form';
 
-export default function useApplyHook() {
-  const [applyInfo, setApplyInfo] = useState({
-    name: '',
-    address: '',
-    phoneNumber: '',
-    applyMotivation: '',
-  });
+export interface ApplyInfoProps {
+  name: string;
+  address: string;
+  phoneNumber: string;
+  applyMotivation: string;
+}
 
+export function useApplyHook() {
   const [isToggle, toggle] = useToggle();
+  const [formData, setFormData] = useState<ApplyInfoProps | null>(null);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ApplyInfoProps>();
 
-  const handleChange = ({ target: { name, value } }: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setApplyInfo((prevInfo) => ({
-      ...prevInfo,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = () => {
-    const isFieldEmpty = Object.values(applyInfo).some((value) => value.trim() === '');
-    if (isFieldEmpty) {
-      alert('모든 값을 입력해주세요!!');
-      return;
-    }
+  const onSubmit: SubmitHandler<ApplyInfoProps> = (data) => {
+    setFormData(data);
     toggle();
   };
 
-  const goAhead = () => {
-    const NotError = true;
-    if (NotError) {
-      console.log('ApplyInfo:', applyInfo);
-      alert('지원 완료!');
+  const handleApplySubmit = () => {
+    // 추후 post 요청 여기서 하면 됨!.!
+    if (formData) {
+      console.log(formData);
       toggle();
-      // 나중에 리다이렉트 하기~,~
     }
   };
 
   return {
-    applyInfo,
-    handleChange,
-    handleSubmit,
     isToggle,
     toggle,
-    goAhead,
+    register,
+    handleSubmit,
+    onSubmit,
+    handleApplySubmit,
+    errors,
   };
 }

@@ -1,11 +1,12 @@
 import Layout from '@/features/layout';
 import styled from '@emotion/styled';
 import { Flex, Typo, Button, Modal } from '@/components/common';
-import useApplyHook from './useApplyHook';
-import { ApplyInput, ApplyTextArea } from './FormElements';
+import { useApplyHook } from './useApplyHook';
+import ApplyInput from './ApplyInput';
 
 export default function ApplyPage() {
-  const { applyInfo, handleSubmit, handleChange, toggle, isToggle, goAhead } = useApplyHook();
+  const { toggle, isToggle, register, handleSubmit, onSubmit, handleApplySubmit, errors } = useApplyHook();
+
   return (
     <Layout>
       <Flex justifyContent="center" alignItems="center">
@@ -13,40 +14,48 @@ export default function ApplyPage() {
           <Typo size="24px" bold={true}>
             지원서 작성
           </Typo>
-          <ApplyInput
-            name="name"
-            title="이름"
-            placeholder="이름을 입력하세요."
-            value={applyInfo.name}
-            onChange={handleChange}
-          />
-          <ApplyInput
-            name="address"
-            title="주소"
-            placeholder="주소를 입력하세요."
-            value={applyInfo.address}
-            onChange={handleChange}
-          />
-          <ApplyInput
-            name="phoneNumber"
-            title="번호"
-            placeholder="번호를 입력하세요. 010-0000-0000.."
-            value={applyInfo.phoneNumber}
-            onChange={handleChange}
-          />
-          <ApplyTextArea
-            name="applyMotivation"
-            title="지원 동기"
-            placeholder="지원 동기를 입력하세요"
-            value={applyInfo.applyMotivation}
-            onChange={handleChange}
-          />
-          <CustomBtn onClick={handleSubmit}>지원하기</CustomBtn>
+          <StyledForm onSubmit={handleSubmit(onSubmit)}>
+            <ApplyInput
+              errors={errors}
+              title="이름"
+              label="name"
+              register={register}
+              placeholder="이름을 입력해주세요."
+              required
+            />
+            <ApplyInput
+              errors={errors}
+              title="주소"
+              label="address"
+              register={register}
+              placeholder="주소를 입력해주세요. (예: 대전광역시 유성구 궁동)"
+              required
+            />
+            <ApplyInput
+              errors={errors}
+              title="번호"
+              label="phoneNumber"
+              register={register}
+              pattern={/^010-\d{4}-\d{4}$/}
+              patternMessage="올바른 전화번호 형식이 아닙니다. (예: 010-0000-0000)"
+              placeholder="010-0000-0000 형식의 번호를 입력해주세요."
+              required
+            />
+            <ApplyInput
+              errors={errors}
+              title="지원동기"
+              label="applyMotivation"
+              register={register}
+              placeholder="지원 동기를 입력해주세요."
+              required
+            />
+            <CustomBtn type="submit">지원하기</CustomBtn>
+          </StyledForm>
         </ApplyCard>
         {isToggle && (
           <Modal
-            textChildren={<ModalContainer>정말 지원하실겁니까?</ModalContainer>}
-            buttonChildren={<CustomBtn onClick={goAhead}>지원하기</CustomBtn>}
+            textChildren={<ModalContainer>정말 지원하시겠습니까?</ModalContainer>}
+            buttonChildren={<CustomBtn onClick={handleApplySubmit}>지원하기</CustomBtn>}
             onClose={toggle}
           />
         )}
@@ -82,9 +91,18 @@ const CustomBtn = styled(Button)`
   &:hover {
     opacity: 0.7;
   }
+  align-self: center;
 `;
 
 const ModalContainer = styled.div`
   font-size: 24px;
   margin: 30px 0;
+`;
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  align-items: start;
+  gap: 50px;
 `;
