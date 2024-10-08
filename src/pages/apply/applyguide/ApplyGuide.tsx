@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { Typo } from '@/components/common';
 import { ReactNode } from 'react';
 import { guideMent } from './guideMent';
+import { useNavigate } from 'react-router-dom';
 
 const IndentText = ({ children }: { children: ReactNode }) => <Typo style={{ marginLeft: '20px' }}>{children}</Typo>;
 
@@ -13,6 +14,12 @@ const SpacingText = ({ children, bold }: { children: ReactNode; bold?: boolean }
 );
 
 export default function ApplyGuide() {
+  const nav = useNavigate();
+
+  const navigateToApply = () => {
+    nav('/apply');
+  };
+
   return (
     <Layout>
       <ApplyContainer>
@@ -29,7 +36,7 @@ export default function ApplyGuide() {
             <SpacingText>{guideMent[3].description}</SpacingText>
             <SpacingText>{guideMent[4].description}</SpacingText>
           </TextArea>
-          <CustomBtn>{guideMent[5].description}</CustomBtn>
+          <CustomBtn onClick={navigateToApply}>{guideMent[5].description}</CustomBtn>
         </Wrapper>
       </ApplyContainer>
     </Layout>
