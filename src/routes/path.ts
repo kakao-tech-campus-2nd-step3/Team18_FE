@@ -5,6 +5,7 @@ export const AUTH = {
 
 export const APPLY = {
   GUIDE: '/applyguide',
+  APPLYPAGE: '/apply',
 };
 
 const ROUTE_PATH = {
