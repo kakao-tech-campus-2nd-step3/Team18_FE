@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import VisaRegistration from '.';
 import { ThemeProvider } from '@emotion/react';
-import theme from '@/assets/styles/theme';
+import theme from '@/assets/theme';
 
 const meta: Meta<typeof VisaRegistration> = {
   title: 'pages/VisaRegistration',

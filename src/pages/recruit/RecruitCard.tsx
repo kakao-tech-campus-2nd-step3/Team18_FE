@@ -1,5 +1,5 @@
 import { Button } from '@/components/common';
-import instagram from '@assets/styles/images/features/layout/footer/instagram_Icon.svg';
+import { Icon } from '@components/common';
 import cat from './cat.jpg';
 import styled from '@emotion/styled';
 import { RecruitCardProps } from './index';
@@ -29,7 +29,7 @@ export default function RecruitCard({
         <Info_Btn>
           <CustomBtn background="#0a65cc">지원하기</CustomBtn>
           <CustomBtn color="0a65cc" width="10px">
-            <img src={instagram} />
+            <Icon.Social.Instagram />
           </CustomBtn>
         </Info_Btn>
       </Info_Div>

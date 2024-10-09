@@ -1,5 +1,5 @@
 import { Button, Flex, Input, Typo } from '@/components/common';
-import Footer from '@/features/layout/footer';
+import Footer from '@/features/layout/Footer';
 import Header from '@/features/layout/Header';
 import styled from '@emotion/styled';
 
