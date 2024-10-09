@@ -4,16 +4,20 @@ export const AUTH = {
 } as const;
 
 export const EMPLOYER = {
-  MY_PAGE: '/employer-mypage',
+  MY_ACCOUNT: '/employer-my-account',
+} as const;
+
+export const EMPLOYEE = {
+  VISA_REGISTRATION: '/visa-registration',
 } as const;
 
 const ROUTE_PATH = {
   HOME: '/',
   Recruit: '/recruit',
-  VISA_REGISTRATION: '/visa-registration',
   POST_NOTICE: '/post-notice',
   AUTH,
   EMPLOYER,
+  EMPLOYEE,
 } as const;
 
 export default ROUTE_PATH;

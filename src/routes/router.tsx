@@ -3,9 +3,9 @@ import ROUTE_PATH from './path';
 import { SignIn, SignUp } from '@pages/auth';
 import App from '@/App';
 import Recruit from '@/pages/recruit';
-import VisaRegistration from '@/pages/visaRegistration';
+import VisaRegistration from '@/pages/employee/visaRegistration';
 import { PostNotice } from '@/pages/employer/postNotice';
-import EmployerMyPage from '@/pages/myPage/employer';
+import EmployerMyAccount from '@/pages/employer/myAccount';
 
 export const router = createBrowserRouter([
   {
@@ -18,9 +18,9 @@ export const router = createBrowserRouter([
         element: <SignUp />,
       },
       { path: ROUTE_PATH.Recruit, element: <Recruit /> },
-      { path: ROUTE_PATH.VISA_REGISTRATION, element: <VisaRegistration /> },
+      { path: ROUTE_PATH.EMPLOYEE.VISA_REGISTRATION, element: <VisaRegistration /> },
       { path: ROUTE_PATH.POST_NOTICE, element: <PostNotice /> },
-      { path: ROUTE_PATH.EMPLOYER.MY_PAGE, element: <EmployerMyPage /> },
+      { path: ROUTE_PATH.EMPLOYER.MY_ACCOUNT, element: <EmployerMyAccount /> },
     ],
   },
 ]);

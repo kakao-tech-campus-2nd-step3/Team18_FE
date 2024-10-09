@@ -1,9 +1,9 @@
 import Layout from '@/features/layout';
-import CompanyLogo from '@/features/myPage/CompanyInfo/coupang.png';
-import CompanyInfo from '@/features/myPage/CompanyInfo';
+import CompanyLogo from '@/features/employer/CompanyInfo/coupang.png';
+import CompanyInfo from '@/features/employer/CompanyInfo';
 import styled from '@emotion/styled';
 import { Flex, InnerContainer } from '@/components/common';
-import MyRecruitments from '@/features/myPage/MyRecruitments';
+import MyRecruitments from '@/features/employer/MyRecruitments';
 
 const initialCompanyData = {
   company: '쿠팡 유성점',
@@ -31,7 +31,7 @@ const initialRecruitmentsData = [
   },
 ];
 
-export default function EmployerMyPage() {
+export default function EmployerMyAccount() {
   return (
     <Layout>
       <MainContainer>

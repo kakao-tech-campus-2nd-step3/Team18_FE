@@ -1,11 +1,11 @@
 import { Meta, StoryObj } from '@storybook/react';
-import EmployerMyPage from '.';
+import EmployerMyAccount from '../../employer/myAccount';
 import { ThemeProvider } from '@emotion/react';
 import theme from '@/assets/styles/theme';
 
-const meta: Meta<typeof EmployerMyPage> = {
-  title: 'pages/myPage/employer',
-  component: EmployerMyPage,
+const meta: Meta<typeof EmployerMyAccount> = {
+  title: 'pages/MyAccount/employer',
+  component: EmployerMyAccount,
   tags: ['autodocs'],
   decorators: [
     (Story) => {
@@ -20,6 +20,6 @@ const meta: Meta<typeof EmployerMyPage> = {
 
 export default meta;
 
-type Story = StoryObj<typeof EmployerMyPage>;
+type Story = StoryObj<typeof EmployerMyAccount>;
 
 export const Default: Story = {};
