@@ -1,5 +1,5 @@
 import { Flex } from '@components/common';
-import RoleSelector from './RoleSelector';
+import RoleSelector from './components/RoleSelector';
 import { ReactNode } from 'react';
 
 type Props = {

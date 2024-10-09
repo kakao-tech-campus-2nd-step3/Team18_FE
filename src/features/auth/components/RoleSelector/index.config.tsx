@@ -1,8 +1,17 @@
+import { responsiveStyle } from '@utils/responsive';
 import { Icon } from '@components/common';
 
 export const roleConfig = {
   employer: {
-    icon: <Icon.Role.Employer />,
+    icon: (
+      <Icon.Role.Employer
+        css={responsiveStyle({
+          mobile: {
+            width: '52px',
+          },
+        })}
+      />
+    ),
     text: '사업주 가입',
     modalContent: (
       <>
@@ -13,7 +22,15 @@ export const roleConfig = {
     ),
   },
   worker: {
-    icon: <Icon.Role.Worker />,
+    icon: (
+      <Icon.Role.Worker
+        css={responsiveStyle({
+          mobile: {
+            width: '52px',
+          },
+        })}
+      />
+    ),
     text: '근로자 가입',
     modalContent: (
       <>
