@@ -62,10 +62,10 @@ const LogoImg = styled(LogoIcon)`
 
   ${responsiveStyle({
     tablet: {
-      width: '130px',
+      width: '150px',
     },
     mobile: {
-      width: '150px',
+      width: '160px',
     },
   })}
 `;
