@@ -1,8 +1,8 @@
 import { InnerContainer, Flex, Typo, Icon, Button } from '@components/common';
 import Layout from '@features/layout';
-import theme from '@assets/styles/theme';
+import theme from '@/assets/theme';
 import Illustration from '@assets/images/signin-Illustration.svg?react';
-import { responsiveSectionPadding, responsiveStyle } from '@/assets/styles/helpers/responsive';
+import { responsiveSectionPadding, responsiveStyle } from '@utils/responsive';
 
 export default function SignIn() {
   return (
@@ -13,7 +13,7 @@ export default function SignIn() {
           ...responsiveStyle(responsiveSectionPadding),
         }}
       >
-        <InnerContainer maxWidth="1300px">
+        <InnerContainer>
           <Flex
             justifyContent="space-between"
             alignItems="center"
@@ -25,12 +25,12 @@ export default function SignIn() {
           >
             <Flex
               direction="column"
-              css={{
-                marginRight: '24px',
-                ...responsiveStyle({
-                  mobile: { marginRight: '0', alignItems: 'center', marginBottom: '32px' },
-                }),
-              }}
+              css={responsiveStyle({
+                default: {
+                  marginRight: '24px',
+                },
+                mobile: { marginRight: '0', alignItems: 'center', marginBottom: '32px' },
+              })}
             >
               <Flex
                 direction="column"
@@ -51,10 +51,13 @@ export default function SignIn() {
                   element="h1"
                   size="58px"
                   bold
-                  style={{
-                    marginBottom: '24px',
-                    ...responsiveStyle({ tablet: { fontSize: '32px' }, mobile: { fontSize: '28px' } }),
-                  }}
+                  style={responsiveStyle({
+                    default: {
+                      marginBottom: '24px',
+                    },
+                    tablet: { fontSize: '32px' },
+                    mobile: { fontSize: '28px' },
+                  })}
                 >
                   지금 바로 시작하세요. 🚀
                 </Typo>
