@@ -1,5 +1,5 @@
 import Header from '@/features/layout/Header';
-import Footer from '@/features/layout/footer';
+import Footer from '@/features/layout/Footer';
 import styled from '@emotion/styled';
 import RecruitCard from './RecruitCard';
 import RecruitDetail from './RecruitDetail';
