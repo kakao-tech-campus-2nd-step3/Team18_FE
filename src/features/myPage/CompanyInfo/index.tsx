@@ -1,16 +1,20 @@
 import { Button, Flex, Typo } from '@/components/common';
 import styled from '@emotion/styled';
+import IndustryIcon from '@assets/icons/companyInfo/industry.svg?react';
+import BrandIcon from '@assets/icons/companyInfo/brand.svg?react';
+import RevenueIcon from '@assets/icons/companyInfo/revenue.svg?react';
 import RightArrow from '@assets/icons/companyInfo/arrow-right.svg?react';
 import { responsiveStyle } from '@/assets/styles/helpers/responsive';
 
 interface CompanyInfoProps {
-  logo: string;
   company: string;
   industryOccupation: string;
+  brand: string;
   revenuePerYear: string;
+  logo: string;
 }
 
-export default function CompanyInfo({ logo, company, industryOccupation, revenuePerYear }: CompanyInfoProps) {
+export default function CompanyInfo({ company, industryOccupation, brand, revenuePerYear, logo }: CompanyInfoProps) {
   return (
     <CompanyFlex justifyContent="space-between" alignItems="center">
       <Logo src={logo} />
@@ -20,17 +24,19 @@ export default function CompanyInfo({ logo, company, industryOccupation, revenue
         </Typo>
         <InfoGroup>
           <Flex alignItems="center" gap={{ x: '12px' }}>
-            <Typo element="div" size="16px" style={infoNameStyle}>
-              업직종
-            </Typo>
+            <IndustryIcon />
             <Typo element="div" style={infoStyle}>
               {industryOccupation}
             </Typo>
           </Flex>
           <Flex alignItems="center" gap={{ x: '12px' }}>
-            <Typo element="div" size="16px" style={infoNameStyle}>
-              연평균 매출액
+            <BrandIcon />
+            <Typo element="div" style={infoStyle}>
+              {brand}
             </Typo>
+          </Flex>
+          <Flex alignItems="center" gap={{ x: '12px' }}>
+            <RevenueIcon />
             <Typo element="div" style={infoStyle}>
               {revenuePerYear} 원
             </Typo>
@@ -117,14 +123,6 @@ const InfoGroup = styled(Flex)`
     },
   })}
 `;
-
-const infoNameStyle = {
-  backgroundColor: '#E7F0FA',
-  color: '#0A65CC',
-  borderRadius: '15px',
-  padding: '5px 10px',
-  whiteSpace: 'nowrap',
-};
 
 const infoStyle = {
   color: '#474C54',

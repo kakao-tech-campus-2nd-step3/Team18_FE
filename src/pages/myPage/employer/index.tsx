@@ -6,10 +6,11 @@ import { Flex, InnerContainer } from '@/components/common';
 import MyRecruitments from '@/features/myPage/MyRecruitments';
 
 const initialCompanyData = {
-  logo: CompanyLogo,
   company: '쿠팡 유성점',
   industryOccupation: '온라인 소매',
+  brand: '쿠팡',
   revenuePerYear: '15조',
+  logo: CompanyLogo,
 };
 
 const initialRecruitmentsData = [
@@ -37,10 +38,11 @@ export default function EmployerMyPage() {
         <InnerContainer maxWidth="1300px">
           <Flex direction="column" gap={{ y: '60px' }}>
             <CompanyInfo
-              logo={initialCompanyData.logo}
               company={initialCompanyData.company}
               industryOccupation={initialCompanyData.industryOccupation}
+              brand={initialCompanyData.brand}
               revenuePerYear={initialCompanyData.revenuePerYear}
+              logo={initialCompanyData.logo}
             />
             <MyRecruitments recruitmentsList={initialRecruitmentsData} />
           </Flex>
