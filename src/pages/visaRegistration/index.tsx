@@ -37,7 +37,6 @@ export default function VisaRegistration() {
       <Header />
       <MainContainer>
         <InnerContainer
-          maxWidth="1300px"
           style={{ height: '520px', padding: '50px 0', border: '1px solid #E9E9E9', borderRadius: '12px' }}
         >
           <Flex justifyContent="center" alignItems="center" direction="column" style={{ height: '100%' }}>
