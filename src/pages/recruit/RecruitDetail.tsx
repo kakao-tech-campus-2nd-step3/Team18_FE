@@ -1,25 +1,17 @@
 import { ReactNode } from 'react';
-import cat from './cat.jpg';
 import styled from '@emotion/styled';
-import { RecruitDetailProps } from './index';
 
-const initialData: RecruitDetailProps = {
-  detailedDescription: '김밥 만들기 아르바이트',
-  majorBusiness: [
-    { id: 1, text: '김밥 만들기' },
-    { id: 2, text: '재료 전처리' },
-    { id: 3, text: '마감 청소' },
-  ],
-  eligibilityCriteria: [
-    { id: 1, text: '비자를 가진 사람' },
-    { id: 2, text: '주 2회 이상 근무 가능한 사람' },
-  ],
-  preferredConditions: [
-    { id: 1, text: '한국어 의사 소통이 잘 되는 사람' },
-    { id: 2, text: '지각하지 않는 사람' },
-    { id: 3, text: '김밥에 있는 오이를 빼지 않는 사람' },
-  ],
-};
+interface Item {
+  id: number;
+  text: string;
+}
+export interface RecruitDetailProps {
+  detailedDescription: string;
+  majorBusiness: Item[];
+  eligibilityCriteria: Item[];
+  preferredConditions: Item[];
+  companyImage?: string;
+}
 
 const SectionWithTitle = ({ title, children }: { title: string; children: ReactNode }) => (
   <Section>
@@ -29,11 +21,11 @@ const SectionWithTitle = ({ title, children }: { title: string; children: ReactN
 );
 
 export default function RecruitDetail({
-  detailedDescription = initialData.detailedDescription,
-  majorBusiness = initialData.majorBusiness,
-  eligibilityCriteria = initialData.eligibilityCriteria,
-  preferredConditions = initialData.preferredConditions,
-  companyImage = cat,
+  detailedDescription,
+  majorBusiness,
+  eligibilityCriteria,
+  preferredConditions,
+  companyImage,
 }: RecruitDetailProps) {
   return (
     <RecruitDetailContainer>

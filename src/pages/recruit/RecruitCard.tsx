@@ -1,23 +1,15 @@
 import { Button } from '@/components/common';
 import { Icon } from '@components/common';
-import cat from './cat.jpg';
 import styled from '@emotion/styled';
-import { RecruitCardProps } from './index';
 
-const initialData = {
-  title: '김밥천국 채용 (1년 계약직)',
-  companySize: '대기업',
-  area: '대구 달서구',
-  requestedCareer: '경력 1~2년',
-};
-
-export default function RecruitCard({
-  title = initialData.title,
-  companySize = initialData.companySize,
-  area = initialData.area,
-  requestedCareer = initialData.requestedCareer,
-  companyImage = cat,
-}: RecruitCardProps) {
+export interface RecruitCardProps {
+  title: string;
+  companySize: string;
+  area: string;
+  requestedCareer: string;
+  companyImage?: string;
+}
+export default function RecruitCard({ title, companySize, area, requestedCareer, companyImage }: RecruitCardProps) {
   return (
     <RecruitContainer>
       <CompanyImg alt="a" src={companyImage} />

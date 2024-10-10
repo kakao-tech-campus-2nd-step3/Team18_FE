@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import RecruitCard from '../RecruitCard';
-import { RecruitCardProps } from '..';
+import { RecruitCardProps } from '../RecruitCard';
 import cat from '../cat.jpg';
 
 const meta: Meta<RecruitCardProps> = {
