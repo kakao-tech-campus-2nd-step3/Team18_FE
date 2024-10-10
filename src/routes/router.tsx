@@ -4,7 +4,7 @@ import { SignIn, SignUp } from '@pages/auth';
 import App from '@/App';
 import Recruit from '@/pages/recruit';
 import VisaRegistration from '@/pages/employee/visaRegistration';
-import { PostNotice } from '@/pages/employer/postNotice';
+import PostNotice from '@/pages/employer/postNotice/PostNotice';
 import Home from '@/pages/home';
 import ApplyGuide from '@/pages/apply/applyguide/ApplyGuide';
 import ApplyPage from '@/pages/apply/applypage/ApplyPage';
