@@ -4,7 +4,7 @@ import CloseIcon from '@assets/icons/navigation/menu-close.svg?react';
 import MenuIcon from '@assets/icons/navigation/menu-open.svg?react';
 import Button from '@components/common/Button';
 import { Flex } from '@/components/common';
-import { responsiveStyle } from '@/assets/styles/helpers/responsive';
+import { responsiveStyle } from '@utils/responsive';
 import useToggle from '@/hooks/useToggle';
 
 interface NavProps {
@@ -27,6 +27,7 @@ export default function Header() {
           <Button theme="outlined" style={commonButtonStyle}>
             채용공고 등록
           </Button>
+          {/* Avatar */}
           <Button theme="textbutton" style={commonButtonStyle}>
             닉네임
           </Button>

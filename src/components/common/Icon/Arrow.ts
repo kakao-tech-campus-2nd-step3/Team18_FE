@@ -1,7 +1,9 @@
-import Right from '@assets/icons/arrow/right.svg?react';
+import RightWhite from '@assets/icons/arrow/right-white.svg?react';
+import RightBlue from '@assets/icons/arrow/right-blue.svg?react';
 
 const Arrow = {
-  Right,
+  RightWhite,
+  RightBlue,
 };
 
 export default Arrow;

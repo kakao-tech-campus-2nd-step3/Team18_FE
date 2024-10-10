@@ -1,10 +1,9 @@
-import { Button, Flex, Typo } from '@/components/common';
+import { Button, Flex, Typo, Icon } from '@/components/common';
 import styled from '@emotion/styled';
 import IndustryIcon from '@assets/icons/companyInfo/industry.svg?react';
 import BrandIcon from '@assets/icons/companyInfo/brand.svg?react';
 import RevenueIcon from '@assets/icons/companyInfo/revenue.svg?react';
-import RightArrow from '@assets/icons/companyInfo/arrow-right.svg?react';
-import { responsiveStyle } from '@/assets/styles/helpers/responsive';
+import { responsiveStyle } from '@utils/responsive';
 
 interface CompanyInfoProps {
   company: string;
@@ -48,7 +47,9 @@ export default function CompanyInfo({ company, industryOccupation, brand, revenu
           <Typo size="16px" style={{ color: '#fff' }}>
             회사 정보 수정하기
           </Typo>
-          <RightArrow />
+          <div>
+            <Icon.Arrow.RightBlue />
+          </div>
         </Flex>
       </Button>
     </CompanyFlex>

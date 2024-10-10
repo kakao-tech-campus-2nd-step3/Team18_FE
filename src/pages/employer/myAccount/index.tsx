@@ -35,7 +35,7 @@ export default function EmployerMyAccount() {
   return (
     <Layout>
       <MainContainer>
-        <InnerContainer maxWidth="1300px">
+        <InnerContainer>
           <Flex direction="column" gap={{ y: '60px' }}>
             <CompanyInfo
               company={initialCompanyData.company}

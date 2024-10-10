@@ -6,7 +6,7 @@ export default function Detail() {
       <Typo element="span" size="16px" color="blue">
         Read More
       </Typo>
-      <Icon.Arrow.Right />
+      <Icon.Arrow.RightWhite />
     </Flex>
   );
 }

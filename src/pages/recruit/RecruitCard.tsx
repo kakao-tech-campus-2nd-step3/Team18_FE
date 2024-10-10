@@ -9,6 +9,7 @@ export interface RecruitCardProps {
   requestedCareer: string;
   companyImage?: string;
 }
+
 export default function RecruitCard({ title, companySize, area, requestedCareer, companyImage }: RecruitCardProps) {
   return (
     <RecruitContainer>
@@ -21,7 +22,9 @@ export default function RecruitCard({ title, companySize, area, requestedCareer,
         <Info_Btn>
           <CustomBtn background="#0a65cc">지원하기</CustomBtn>
           <CustomBtn color="0a65cc" width="10px">
-            <Icon.Social.Instagram />
+            <div>
+              <Icon.Social.Instagram />
+            </div>
           </CustomBtn>
         </Info_Btn>
       </Info_Div>
@@ -66,6 +69,7 @@ const Info_Div = styled.div`
     gap: 5px;
   }
 `;
+
 const Info_p = styled.div`
   margin-top: 30px;
   display: flex;

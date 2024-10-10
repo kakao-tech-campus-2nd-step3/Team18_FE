@@ -1,4 +1,4 @@
-import { responsiveStyle } from '@/assets/styles/helpers/responsive';
+import { responsiveStyle } from '@utils/responsive';
 import { Flex, InnerContainer } from '@/components/common';
 import Layout from '@/features/layout';
 import VisaRegistrationForm from '@/features/employee/visaRegistration';
@@ -8,7 +8,7 @@ export default function VisaRegistration() {
   return (
     <Layout>
       <MainContainer>
-        <InnerContainer maxWidth="1300px" style={innerContainerStyle}>
+        <InnerContainer style={innerContainerStyle}>
           <Flex
             justifyContent="center"
             alignItems="center"

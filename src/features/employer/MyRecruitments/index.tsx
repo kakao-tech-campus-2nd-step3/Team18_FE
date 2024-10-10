@@ -1,4 +1,4 @@
-import { responsiveStyle } from '@/assets/styles/helpers/responsive';
+import { responsiveStyle } from '@utils/responsive';
 import { Button, Flex, Typo } from '@/components/common';
 import styled from '@emotion/styled';
 
