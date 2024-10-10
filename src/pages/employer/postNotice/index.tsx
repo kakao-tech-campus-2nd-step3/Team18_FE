@@ -1,12 +1,10 @@
 import { Button, Flex, Input, Typo } from '@/components/common';
-import Footer from '@/features/layout/footer';
-import Header from '@/features/layout/Header';
+import Layout from '@/features/layout';
 import styled from '@emotion/styled';
 
 export const PostNotice = () => {
   return (
-    <>
-      <Header />
+    <Layout>
       <section>
         <Flex direction="column" alignItems="center">
           <LineWrapper>
@@ -63,8 +61,7 @@ export const PostNotice = () => {
           </LineWrapper>
         </Flex>
       </section>
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

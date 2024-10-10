@@ -1,16 +1,13 @@
+import { Icon } from '@components/common';
 import styled from '@emotion/styled';
-import facebookIcon from '@/assets/styles/images/features/layout/footer/facebook_Icon.svg';
-import instagramIcon from '@/assets/styles/images/features/layout/footer/instagram_Icon.svg';
-import twitterIcon from '@/assets/styles/images/features/layout/footer/twitter_Icon.svg';
-import youtubeIcon from '@/assets/styles/images/features/layout/footer/youtube_Icon.svg';
-import mainIcon from '@/assets/styles/images/features/layout/footer/hire_higher_Icon.svg';
+import Logo from '@assets/images/hirehigher-logo.svg?react';
 
 const Footer = () => {
   return (
     <Container>
       <Wrapper>
         <Content>
-          <Icon width="140px" height="77px" src={mainIcon} alt="메인_아이콘" />
+          <Logo />
           <Gap height="24px" />
           <p>(주)Hire Higher 임OO</p>
           <p>대전광역시 유성구 궁동</p>
@@ -26,10 +23,10 @@ const Footer = () => {
         <Copyright>
           <p>@ 2024 Hire Higher. All rights Rserved</p>
           <IconContainer>
-            <Icon src={facebookIcon} alt="페이스북" />
-            <Icon src={youtubeIcon} alt="유튜브" />
-            <Icon src={instagramIcon} alt="인스타" />
-            <Icon src={twitterIcon} alt="트위터" />
+            <Icon.Social.Facebook />
+            <Icon.Social.Youtube />
+            <Icon.Social.Instagram />
+            <Icon.Social.Twitter />
           </IconContainer>
         </Copyright>
       </Wrapper>
@@ -96,10 +93,6 @@ const Gap = styled.div<{ height?: string; border?: string }>`
 const IconContainer = styled.div`
   display: flex;
   gap: 20px;
-`;
-const Icon = styled.img`
-  width: ${(props) => props.width || '20px'};
-  height: ${(props) => props.height || '20px'};
 `;
 
 export default Footer;

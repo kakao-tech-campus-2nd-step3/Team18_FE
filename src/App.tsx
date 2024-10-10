@@ -1,4 +1,4 @@
-import AppProviders from '@components/providers';
+import AppProviders from '@components/providers/index.provider';
 import { Outlet } from 'react-router-dom';
 
 function App() {
