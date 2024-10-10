@@ -14,46 +14,25 @@ export const PostNotice = () => {
                   구인 글 업로드
                 </Typo>
                 <InputContainer>
-                  <Typo element="p" size="16px" style={{ fontWeight: 'bold' }}>
-                    급여
-                  </Typo>
-                  <Input style={{ width: '700px', height: '48px', marginTop: '12px' }}></Input>
+                  <Input label="급여" style={{ width: '700px', height: '48px', marginTop: '12px' }}></Input>
                 </InputContainer>
                 <InputContainer>
-                  <Typo element="p" size="16px" style={{ fontWeight: 'bold' }}>
-                    근무기간
-                  </Typo>
-                  <Input style={{ width: '700px', height: '48px', marginTop: '12px' }}></Input>
+                  <Input label="근무기간" style={{ width: '700px', height: '48px', marginTop: '12px' }}></Input>
                 </InputContainer>
                 <InputContainer>
-                  <Typo element="p" size="16px" style={{ fontWeight: 'bold' }}>
-                    근무요일
-                  </Typo>
-                  <Input style={{ width: '700px', height: '48px', marginTop: '12px' }}></Input>
+                  <Input label="근무요일" style={{ width: '700px', height: '48px', marginTop: '12px' }}></Input>
                 </InputContainer>
                 <InputContainer>
-                  <Typo element="p" size="16px" style={{ fontWeight: 'bold' }}>
-                    근무시간
-                  </Typo>
-                  <Input style={{ width: '700px', height: '48px', marginTop: '12px' }}></Input>
+                  <Input label="근무시간" style={{ width: '700px', height: '48px', marginTop: '12px' }}></Input>
                 </InputContainer>
                 <InputContainer>
-                  <Typo element="p" size="16px" style={{ fontWeight: 'bold' }}>
-                    고용형태
-                  </Typo>
-                  <Input style={{ width: '700px', height: '48px', marginTop: '12px' }}></Input>
+                  <Input label="고용형태" style={{ width: '700px', height: '48px', marginTop: '12px' }}></Input>
                 </InputContainer>
                 <InputContainer>
-                  <Typo element="p" size="16px" style={{ fontWeight: 'bold' }}>
-                    비자조건
-                  </Typo>
-                  <Input style={{ width: '700px', height: '48px', marginTop: '12px' }}></Input>
+                  <Input label="비자조건" style={{ width: '700px', height: '48px', marginTop: '12px' }}></Input>
                 </InputContainer>
                 <InputContainer>
-                  <Typo element="p" size="16px" style={{ fontWeight: 'bold' }}>
-                    우대사항
-                  </Typo>
-                  <Input style={{ width: '700px', height: '48px', marginTop: '12px' }}></Input>
+                  <Input label="우대사항" style={{ width: '700px', height: '48px', marginTop: '12px' }}></Input>
                 </InputContainer>
                 <Button theme="default" style={{ marginTop: '52px' }}>
                   등록하기
