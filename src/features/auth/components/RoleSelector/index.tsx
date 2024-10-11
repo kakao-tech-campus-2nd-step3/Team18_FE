@@ -34,7 +34,6 @@ export default function RoleSelector({ role, onClick }: Props) {
         >
           {roleConfig[role].icon}
         </div>
-
         <Typo element="h2" color="blue" size="18px" bold>
           {roleConfig[role].text}
         </Typo>
