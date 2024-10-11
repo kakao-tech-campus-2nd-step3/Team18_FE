@@ -1,23 +1,16 @@
 import { Button } from '@/components/common';
-import instagram from '@assets/styles/images/features/layout/footer/instagram_Icon.svg';
-import cat from './cat.jpg';
+import { Icon } from '@components/common';
 import styled from '@emotion/styled';
-import { RecruitCardProps } from './index';
 
-const initialData = {
-  title: '김밥천국 채용 (1년 계약직)',
-  companySize: '대기업',
-  area: '대구 달서구',
-  requestedCareer: '경력 1~2년',
-};
+export interface RecruitCardProps {
+  title: string;
+  companySize: string;
+  area: string;
+  requestedCareer: string;
+  companyImage?: string;
+}
 
-export default function RecruitCard({
-  title = initialData.title,
-  companySize = initialData.companySize,
-  area = initialData.area,
-  requestedCareer = initialData.requestedCareer,
-  companyImage = cat,
-}: RecruitCardProps) {
+export default function RecruitCard({ title, companySize, area, requestedCareer, companyImage }: RecruitCardProps) {
   return (
     <RecruitContainer>
       <CompanyImg alt="a" src={companyImage} />
@@ -29,7 +22,9 @@ export default function RecruitCard({
         <Info_Btn>
           <CustomBtn background="#0a65cc">지원하기</CustomBtn>
           <CustomBtn color="0a65cc" width="10px">
-            <img src={instagram} />
+            <div>
+              <Icon.Social.Instagram />
+            </div>
           </CustomBtn>
         </Info_Btn>
       </Info_Div>
@@ -74,6 +69,7 @@ const Info_Div = styled.div`
     gap: 5px;
   }
 `;
+
 const Info_p = styled.div`
   margin-top: 30px;
   display: flex;
