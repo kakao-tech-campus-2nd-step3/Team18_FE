@@ -13,9 +13,6 @@ export default meta;
 type Story = StoryObj<typeof InnerContainer>;
 
 export const Default: Story = {
-  args: {
-    maxWidth: '1000px',
-  },
   render: (args) => (
     <InnerContainer {...args}>
       <Flex>

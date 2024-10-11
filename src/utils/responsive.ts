@@ -1,4 +1,4 @@
-import theme from '../theme';
+import theme from '@assets/theme';
 
 export const responsiveSectionPadding = {
   default: {
