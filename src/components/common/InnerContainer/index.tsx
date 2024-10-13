@@ -1,20 +1,30 @@
-import styled from '@emotion/styled';
+import { breakpoints } from '@assets/styles/global/breakpoints';
+import { responsiveStyle } from '@utils/responsive';
 import { HTMLAttributes, ReactNode } from 'react';
 
 type Props = {
-  maxWidth: string;
   children: ReactNode;
 } & HTMLAttributes<HTMLDivElement>;
 
-export default function InnerContainer({ maxWidth, children, ...rest }: Props) {
+export default function InnerContainer({ children, ...rest }: Props) {
   return (
-    <Container maxWidth={maxWidth} {...rest}>
+    <div
+      {...rest}
+      css={responsiveStyle({
+        default: {
+          maxWidth: '1300px',
+          margin: '0 auto',
+        },
+        tablet: {
+          maxWidth: breakpoints.tablet,
+          padding: '0 12px',
+        },
+        mobile: {
+          maxWidth: breakpoints.mobile,
+        },
+      })}
+    >
       {children}
-    </Container>
+    </div>
   );
 }
-
-const Container = styled.div<{ maxWidth: string }>`
-  max-width: ${({ maxWidth }) => maxWidth};
-  margin: 0 auto;
-`;

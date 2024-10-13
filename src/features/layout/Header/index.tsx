@@ -1,36 +1,37 @@
 import styled from '@emotion/styled';
-import LogoImg from '@assets/images/hirehigher-logo.svg?react';
+import LogoIcon from '@assets/images/hirehigher-logo.svg?react';
+import CloseIcon from '@assets/icons/navigation/menu-close.svg?react';
+import MenuIcon from '@assets/icons/navigation/menu-open.svg?react';
 import Button from '@components/common/Button';
 import { Flex } from '@/components/common';
-import { css } from '@emotion/react';
+import { responsiveStyle } from '@utils/responsive';
+import useToggle from '@/hooks/useToggle';
+
+interface NavProps {
+  open: boolean;
+}
 
 export default function Header() {
+  const [menuOpen, toggleMenu] = useToggle();
+
   return (
     <HeaderContainer>
       <StyledFlex>
         <LogoImg />
-        <Nav>
+        <MobileMenuIcon onClick={toggleMenu}>{menuOpen ? <CloseIcon /> : <MenuIcon />}</MobileMenuIcon>
+        <Nav open={menuOpen}>
           <Dropdown>
             <option value="none">언어</option>
             <option value="kr">한국어</option>
           </Dropdown>
-          <Button theme="outlined" css={[commonButtonStyles]}>
+          <Button theme="outlined" style={commonButtonStyle}>
             채용공고 등록
           </Button>
-          <Button theme="textbutton" css={[commonButtonStyles]}>
+          {/* Avatar */}
+          <Button theme="textbutton" style={commonButtonStyle}>
             닉네임
           </Button>
-          <Button
-            css={[
-              commonButtonStyles,
-              css`
-                background-color: #0a65cc;
-                color: #fff;
-              `,
-            ]}
-          >
-            로그아웃
-          </Button>
+          <Button style={customButtonStyle}>로그아웃</Button>
         </Nav>
       </StyledFlex>
     </HeaderContainer>
@@ -44,16 +45,30 @@ const HeaderContainer = styled.header`
   background-color: #fff;
   height: 88px;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    height: auto;
-    padding: 10px;
-  }
+  ${responsiveStyle({
+    tablet: {
+      flexDirection: 'column',
+      height: 'auto',
+      padding: '10px',
+    },
+    mobile: {
+      padding: '5px',
+    },
+  })}
+`;
 
-  @media (max-width: 480px) {
-    flex-direction: column;
-    padding: 5px;
-  }
+const LogoImg = styled(LogoIcon)`
+  cursor: pointer;
+  height: auto;
+
+  ${responsiveStyle({
+    tablet: {
+      width: '150px',
+    },
+    mobile: {
+      width: '160px',
+    },
+  })}
 `;
 
 const StyledFlex = styled(Flex)`
@@ -62,26 +77,50 @@ const StyledFlex = styled(Flex)`
   width: 100%;
   max-width: 1300px;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
+  ${responsiveStyle({
+    tablet: {
+      flexDirection: 'column',
+    },
+  })}
 `;
 
-const Nav = styled.nav`
+const MobileMenuIcon = styled(Flex)`
+  display: none;
+  justify-content: flex-end;
+
+  svg {
+    cursor: pointer;
+  }
+
+  ${responsiveStyle({
+    mobile: {
+      display: 'flex',
+    },
+  })}
+`;
+
+const Nav = styled.nav<NavProps>`
   display: flex;
   align-items: center;
   gap: 15px;
+  transition: all 0.3s linear;
 
-  @media (max-width: 768px) {
-    width: 100%;
-    justify-content: center;
-    margin-top: 10px;
-  }
+  ${responsiveStyle({
+    tablet: {
+      width: '100%',
+      justifyContent: 'center',
+      marginTop: '10px',
+    },
+    mobile: {
+      flexDirection: 'column',
+      alignItems: 'stretch',
+    },
+  })}
 
   @media (max-width: 480px) {
-    flex-direction: column;
-    width: 100%;
-    align-items: stretch;
+    max-height: ${({ open }) => (open ? '420px' : '0')};
+    opacity: ${({ open }) => (open ? '1' : '0')};
+    visibility: ${({ open }) => (open ? 'visible' : 'hidden')};
   }
 `;
 
@@ -94,7 +133,13 @@ const Dropdown = styled.select`
   border: none;
 `;
 
-const commonButtonStyles = css`
-  white-space: nowrap;
-  border-radius: 4px;
-`;
+const commonButtonStyle = {
+  whiteSpace: 'nowrap',
+  borderRadius: '4px',
+};
+
+const customButtonStyle = {
+  ...commonButtonStyle,
+  backgroundColor: '#0a65cc',
+  color: '#fff',
+};
