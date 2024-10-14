@@ -7,12 +7,14 @@ import Employer from '@features/home/Employer';
 import RecruitmentHeader from '@features/home/components/RecruitmentHeader';
 import RecruitmentList from '@features/home/RecruitmentList';
 
+const sectionStyle = responsiveStyle(responsiveSectionPadding);
+
 export default function Home() {
   return (
     <Layout>
       {/* <Worker /> */}
       <Employer />
-      <section css={responsiveStyle(responsiveSectionPadding)}>
+      <section css={sectionStyle}>
         <InnerContainer>
           <RecruitmentHeader />
           <RecruitmentList recruitmentList={recruitmentList} />

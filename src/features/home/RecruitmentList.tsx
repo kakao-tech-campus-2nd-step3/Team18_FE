@@ -3,28 +3,25 @@ import RecruitmentCard from './components/RecruitmentCard/RecruitmentCard';
 import { RecruitmentItem } from '@/types';
 import { responsiveStyle } from '@utils/responsive';
 
+const listContainerStyle = responsiveStyle({
+  default: {
+    gap: '32px',
+  },
+  tablet: {
+    gap: '26px',
+  },
+  mobile: {
+    gap: '18px',
+  },
+});
+
 type Props = {
   recruitmentList: RecruitmentItem[];
 };
 
 export default function RecruitmentList({ recruitmentList }: Props) {
   return (
-    <Flex
-      justifyContent="center"
-      alignItems="center"
-      wrap
-      css={responsiveStyle({
-        default: {
-          gap: '32px',
-        },
-        tablet: {
-          gap: '26px',
-        },
-        mobile: {
-          gap: '18px',
-        },
-      })}
-    >
+    <Flex justifyContent="center" alignItems="center" wrap css={listContainerStyle}>
       <List
         items={recruitmentList}
         renderItem={(recruitment) => (
