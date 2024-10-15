@@ -6,11 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import styled from '@emotion/styled';
 import { BannerItem } from '@/types';
 
-type Props = {
-  images: BannerItem[];
-  isSlider?: boolean;
-  children?: ReactNode;
-};
+const BANNER_SIZE_CONFIG = { width: '100%', height: '400px' };
 
 const settings = {
   infinite: true,
@@ -21,27 +17,32 @@ const settings = {
   autoplaySpeed: 3000,
 };
 
+type Props = {
+  images: BannerItem[];
+  isSlider?: boolean;
+  children?: ReactNode;
+};
+
 export default function Banner({ images, isSlider = false, children }: Props) {
   return (
-    <section css={{ position: 'relative' }}>
+    <Section>
       {isSlider ? (
         <Slider {...settings}>
           {images.map((image) => (
-            <Image url={image.imageUrl} size={bannerImageSize} />
+            <Image url={image.imageUrl} size={BANNER_SIZE_CONFIG} />
           ))}
         </Slider>
       ) : (
-        <Image url={images[0].imageUrl} size={bannerImageSize} />
+        <Image url={images[0].imageUrl} size={BANNER_SIZE_CONFIG} />
       )}
       {children && <ChildrenContent>{children}</ChildrenContent>}
-    </section>
+    </Section>
   );
 }
 
-const bannerImageSize = {
-  width: '100%',
-  height: '400px',
-};
+const Section = styled.section`
+  position: relative;
+`;
 
 const ChildrenContent = styled.div`
   position: absolute;

@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import ROUTE_PATH from './path';
-import { SignIn, SignUp } from '@pages/auth';
+import SignIn from '@pages/auth/SignIn';
+import SignUp from '@pages/auth/SignUp';
 import App from '@/App';
 import Recruit from '@/pages/recruit';
 import VisaRegistration from '@/pages/employee/visaRegistration';

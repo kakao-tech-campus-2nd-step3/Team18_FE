@@ -6,6 +6,16 @@ import { RecruitmentCardContextProvider } from './RecruitmentCard.context';
 import { Title, Button, CompanyName, CompanyImage, Detail, Salary } from '.';
 import { responsiveStyle } from '@utils/responsive';
 
+const recruitmentCardStyle = responsiveStyle({
+  default: {
+    padding: '24px',
+    cursor: 'pointer',
+  },
+  mobile: {
+    padding: '16px',
+  },
+});
+
 type Props = {
   recruitment: RecruitmentItem;
   children: ReactNode;
@@ -14,21 +24,7 @@ type Props = {
 export default function RecruitmentCard({ recruitment, children }: Props) {
   return (
     <RecruitmentCardContextProvider recruitment={recruitment}>
-      <Card
-        borderColor="white"
-        css={[
-          responsiveStyle({
-            default: {
-              padding: '24px',
-              cursor: 'pointer',
-            },
-            mobile: {
-              padding: '16px',
-            },
-          }),
-          bounceAnimation,
-        ]}
-      >
+      <Card borderColor="white" css={[bounceAnimation, recruitmentCardStyle]}>
         {children}
       </Card>
     </RecruitmentCardContextProvider>

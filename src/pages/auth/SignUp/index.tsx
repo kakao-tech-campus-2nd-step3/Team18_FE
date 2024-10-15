@@ -1,10 +1,13 @@
 import { ReactNode, useState } from 'react';
 import Layout from '@features/layout';
-import { Flex, Typo, InnerContainer } from '@components/common';
+import { InnerContainer } from '@components/common';
 import { responsiveStyle, responsiveSectionPadding } from '@utils/responsive';
-import RoleSelection from '@/features/auth/RoleSelection';
-import RoleModal from '@/features/auth/RoleModal';
+import RoleSelection from '@/features/auth/SignUp/RoleSelection';
+import RoleModal from '@/features/auth/SignUp/components/RoleModal';
 import useToggle from '@hooks/useToggle';
+import SignUpText from '@/features/auth/SignUp/SignUpText';
+
+const sectionStyle = responsiveStyle(responsiveSectionPadding);
 
 export default function SignUp() {
   const [isToggle, toggle] = useToggle();
@@ -17,48 +20,9 @@ export default function SignUp() {
 
   return (
     <Layout>
-      <section css={responsiveStyle(responsiveSectionPadding)}>
+      <section css={sectionStyle}>
         <InnerContainer>
-          <Flex direction="column" justifyContent="center" alignItems="center">
-            <Typo
-              element="h1"
-              size="24px"
-              bold
-              style={responsiveStyle({
-                default: {
-                  marginBottom: '38px',
-                },
-                tablet: {
-                  marginBottom: '28px',
-                },
-                mobile: {
-                  marginBottom: '20px',
-                  fontSize: '20px',
-                },
-              })}
-            >
-              가입자 정보 선택
-            </Typo>
-            <Typo
-              element="p"
-              size="20px"
-              color="gray"
-              style={responsiveStyle({
-                default: {
-                  marginBottom: '38px',
-                },
-                tablet: {
-                  marginBottom: '28px',
-                },
-                mobile: {
-                  marginBottom: '20px',
-                  fontSize: '16px',
-                },
-              })}
-            >
-              대상에 해당하는 가입자 정보를 선택해주세요.
-            </Typo>
-          </Flex>
+          <SignUpText />
           <RoleSelection onRoleSelect={handleRoleSelect} />
         </InnerContainer>
       </section>
