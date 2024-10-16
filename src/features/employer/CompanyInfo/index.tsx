@@ -47,9 +47,7 @@ export default function CompanyInfo({ company, industryOccupation, brand, revenu
           <Typo size="16px" style={{ color: '#fff' }}>
             회사 정보 수정하기
           </Typo>
-          <div>
-            <Icon.Arrow.RightBlue />
-          </div>
+          <Icon.Arrow.RightWhite />
         </Flex>
       </Button>
     </CompanyFlex>

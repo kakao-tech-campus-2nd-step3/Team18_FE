@@ -1,5 +1,5 @@
 import Layout from '@/features/layout';
-import CompanyLogo from '@/features/employer/CompanyInfo/coupang.png';
+import CompanyLogo from '@assets/images/coupang.png';
 import CompanyInfo from '@/features/employer/CompanyInfo';
 import styled from '@emotion/styled';
 import { Flex, InnerContainer } from '@/components/common';
