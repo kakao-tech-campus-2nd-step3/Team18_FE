@@ -8,10 +8,6 @@ export const APPLY = {
   APPLYPAGE: '/apply',
 };
 
-export const EMPLOYEE = {
-  VISA_REGISTRATION: '/visa-registration',
-} as const;
-
 const ROUTE_PATH = {
   HOME: '/',
   RECRUIT: '/recruit',
@@ -20,7 +16,7 @@ const ROUTE_PATH = {
   AUTH,
   APPLICANTS: '/applicants',
   COMPANY_RECRUITMENTS: '/company-recruitments',
-  EMPLOYEE,
+  VISA_REGISTRATION: '/visa-registration',
 } as const;
 
 export default ROUTE_PATH;

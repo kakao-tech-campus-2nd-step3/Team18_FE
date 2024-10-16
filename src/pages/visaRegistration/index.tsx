@@ -1,7 +1,7 @@
 import { responsiveStyle } from '@utils/responsive';
 import { Flex, InnerContainer } from '@/components/common';
 import Layout from '@/features/layout';
-import VisaRegistrationForm from '@/features/employee/visaRegistration';
+import VisaRegistrationForm from '@/features/visaRegistration';
 import styled from '@emotion/styled';
 
 export default function VisaRegistration() {
