@@ -9,7 +9,7 @@ import PostNotice from '@/pages/employer/postNotice/PostNotice';
 import Home from '@/pages/home';
 import ApplyGuide from '@/pages/apply/applyguide/ApplyGuide';
 import ApplyPage from '@/pages/apply/applypage/ApplyPage';
-import EmployerMyAccount from '@/pages/employer/myAccount';
+import CompanyRecruitments from '@/pages/companyRecruitments';
 import Applicants from '@/pages/applicants';
 
 export const router = createBrowserRouter([
@@ -30,7 +30,7 @@ export const router = createBrowserRouter([
       { path: ROUTE_PATH.RECRUIT, element: <Recruit /> },
       { path: ROUTE_PATH.EMPLOYEE.VISA_REGISTRATION, element: <VisaRegistration /> },
       { path: ROUTE_PATH.POST_NOTICE, element: <PostNotice /> },
-      { path: ROUTE_PATH.EMPLOYER.MY_ACCOUNT, element: <EmployerMyAccount /> },
+      { path: ROUTE_PATH.COMPANY_RECRUITMENTS, element: <CompanyRecruitments /> },
       { path: ROUTE_PATH.APPLICANTS, element: <Applicants /> },
     ],
   },
