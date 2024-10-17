@@ -53,5 +53,5 @@ export default function CompanyRecruitments() {
 }
 
 const MainContainer = styled.div`
-  padding: 60px 0;
+  padding: 60px;
 `;

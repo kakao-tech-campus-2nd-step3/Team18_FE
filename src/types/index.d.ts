@@ -13,3 +13,12 @@ export type RecruitmentItem = {
   workHours: string;
   area: string;
 };
+
+export type CompanyItem = {
+  id: number;
+  name: string;
+  industryOccupation: string;
+  brand: string;
+  revenuePerYear: number;
+  logoImage: string;
+};
