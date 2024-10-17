@@ -15,7 +15,7 @@ const ROUTE_PATH = {
   APPLY,
   AUTH,
   APPLICANTS: '/applicants',
-  COMPANY_RECRUITMENTS: '/company-recruitments',
+  MY_COMPANY: '/my-company',
   VISA_REGISTRATION: '/visa-registration',
 } as const;
 

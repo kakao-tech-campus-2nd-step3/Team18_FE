@@ -3,11 +3,11 @@ import { Flex, InnerContainer, Image, Typo, Button, Icon } from '@/components/co
 import CompanyLogo from '@assets/images/coupang.png';
 import CompanyInfo from '@/features/companies/CompanyInfo';
 import MyRecruitments from '@/features/companies/MyRecruitments';
-import { company, recruitments } from '@/pages/companyRecruitments/index.mock';
+import { company, recruitments } from '@/pages/myCompany/index.mock';
 import { palettes } from '@/assets/styles/global/palettes';
 import { buttonStyle, imageStyle, companyWrapperStyle } from './index.styles';
 
-export default function CompanyRecruitments() {
+export default function MyCompany() {
   return (
     <Layout>
       <div>
