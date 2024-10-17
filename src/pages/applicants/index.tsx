@@ -1,6 +1,6 @@
 import { Flex, InnerContainer } from '@/components/common';
 import ApplicantList from '@/features/applicants/ApplicantList';
-import RecruitmentsInfo from '@/features/applicants/RecruitmentInfo';
+import RecruitmentsInfo from '@/features/recruitments/RecruitmentInfo';
 import Layout from '@/features/layout';
 import styled from '@emotion/styled';
 

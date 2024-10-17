@@ -2,8 +2,8 @@ import Layout from '@/features/layout';
 import { Flex, InnerContainer, Image, Typo, Button, Icon } from '@/components/common';
 import CompanyLogo from '@assets/images/coupang.png';
 import CompanyInfo from '@/features/companies/CompanyInfo';
-import MyRecruitments from '@/features/companies/MyRecruitments';
-import { company, recruitments } from '@/pages/myCompany/index.mock';
+import RecruitmentList from '@/features/recruitments/RecruitmentList';
+import { company, recruitmentList } from '@/pages/myCompany/index.mock';
 import { palettes } from '@/assets/styles/global/palettes';
 import { buttonStyle, imageStyle, companyWrapperStyle } from './index.styles';
 
@@ -30,7 +30,7 @@ export default function MyCompany() {
                 </Flex>
               </Button>
             </Flex>
-            <MyRecruitments recruitmentsList={recruitments} />
+            <RecruitmentList recruitmentsList={recruitmentList} />
           </Flex>
         </InnerContainer>
       </div>

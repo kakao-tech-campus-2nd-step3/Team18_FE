@@ -12,7 +12,7 @@ interface RecruitmentsListProps {
   recruitmentsList: RecruitmentProps[];
 }
 
-export default function MyRecruitments({ recruitmentsList }: RecruitmentsListProps) {
+export default function RecruitmentList({ recruitmentsList }: RecruitmentsListProps) {
   return (
     <Flex direction="column" justifyContent="center" gap={{ y: '15px' }} style={{ maxWidth: '1300px' }}>
       <Flex alignItems="center" gap={{ x: '20px' }}>

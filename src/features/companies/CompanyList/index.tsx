@@ -1,20 +1,12 @@
 import { Flex, Typo } from '@/components/common';
 import CompaniesTable from './CompaniesTable';
+import { CompanyItem } from '@/types';
 
-interface MyCompanyProps {
-  id: number;
-  name: string;
-  industryOccupation: string;
-  brand: string;
-  revenuePerYear: number;
-  logoImage: string;
-}
+type Props = {
+  companyList: CompanyItem[];
+};
 
-interface MyCompanyListProps {
-  companyList: MyCompanyProps[];
-}
-
-export default function CompanyList({ companyList }: MyCompanyListProps) {
+export default function CompanyList({ companyList }: Props) {
   return (
     <Flex direction="column" justifyContent="center" gap={{ y: '15px' }}>
       <Flex alignItems="center" gap={{ x: '20px' }}>

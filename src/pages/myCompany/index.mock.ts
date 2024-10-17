@@ -8,7 +8,7 @@ export const company = {
   logoImage: CompanyLogo,
 };
 
-export const recruitments = [
+export const recruitmentList = [
   {
     koreanTitle: '제목1',
     area: '대전 유성구',
