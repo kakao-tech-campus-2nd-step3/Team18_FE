@@ -11,6 +11,7 @@ import ApplyGuide from '@/pages/apply/applyguide/ApplyGuide';
 import ApplyPage from '@/pages/apply/applypage/ApplyPage';
 import MyCompany from '@/pages/myCompany';
 import Applicants from '@/pages/applicants';
+import EmployerMyAccount from '@/pages/myAccount/employer';
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +33,7 @@ export const router = createBrowserRouter([
       { path: ROUTE_PATH.POST_NOTICE, element: <PostNotice /> },
       { path: ROUTE_PATH.MY_COMPANY, element: <MyCompany /> },
       { path: ROUTE_PATH.APPLICANTS, element: <Applicants /> },
+      { path: ROUTE_PATH.MY_ACCOUNT.EMPLOYER, element: <EmployerMyAccount /> },
     ],
   },
 ]);
