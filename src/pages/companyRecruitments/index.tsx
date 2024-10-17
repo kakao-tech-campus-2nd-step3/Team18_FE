@@ -1,57 +1,39 @@
 import Layout from '@/features/layout';
+import { Flex, InnerContainer, Image, Typo, Button, Icon } from '@/components/common';
 import CompanyLogo from '@assets/images/coupang.png';
-import CompanyInfo from '@/features/companyRecruitments/CompanyInfo';
-import styled from '@emotion/styled';
-import { Flex, InnerContainer } from '@/components/common';
-import MyRecruitments from '@/features/companyRecruitments/MyRecruitments';
-
-const initialCompanyData = {
-  company: '쿠팡 유성점',
-  industryOccupation: '온라인 소매',
-  brand: '쿠팡',
-  revenuePerYear: '15조',
-  logo: CompanyLogo,
-};
-
-const initialRecruitmentsData = [
-  {
-    koreanTitle: '제목1',
-    area: '대전 유성구',
-    koreanDetailedDescription: '쿠팡 유성점에서 아르바이트 모집합니다.',
-  },
-  {
-    koreanTitle: '제목2',
-    area: '대전 유성구',
-    koreanDetailedDescription: '쿠팡 유성점에서 아르바이트 모집합니다.',
-  },
-  {
-    koreanTitle: '제목3',
-    area: '대전 유성구',
-    koreanDetailedDescription: '쿠팡 유성점에서 아르바이트 모집합니다.',
-  },
-];
+import CompanyInfo from '@/features/companies/CompanyInfo';
+import MyRecruitments from '@/features/companies/MyRecruitments';
+import { company, recruitments } from '@/pages/companyRecruitments/index.mock';
+import { palettes } from '@/assets/styles/global/palettes';
+import { buttonStyle, imageStyle, companyWrapperStyle } from './index.styles';
 
 export default function CompanyRecruitments() {
   return (
     <Layout>
-      <MainContainer>
-        <InnerContainer>
+      <div>
+        <InnerContainer css={{ padding: '60px 0 80px 0' }}>
           <Flex direction="column" gap={{ y: '60px' }}>
-            <CompanyInfo
-              company={initialCompanyData.company}
-              industryOccupation={initialCompanyData.industryOccupation}
-              brand={initialCompanyData.brand}
-              revenuePerYear={initialCompanyData.revenuePerYear}
-              logo={initialCompanyData.logo}
-            />
-            <MyRecruitments recruitmentsList={initialRecruitmentsData} />
+            <Flex justifyContent="space-between" alignItems="center" gap={{ x: '100px' }} css={companyWrapperStyle}>
+              <Image url={CompanyLogo} size={{ width: '280px', height: '120px' }} css={imageStyle} />
+              <CompanyInfo
+                name={company.name}
+                industryOccupation={company.industryOccupation}
+                brand={company.brand}
+                revenuePerYear={company.revenuePerYear}
+              />
+              <Button css={buttonStyle}>
+                <Flex gap={{ x: '15px' }}>
+                  <Typo size="16px" style={{ color: `${palettes.white}` }}>
+                    회사 정보 수정하기
+                  </Typo>
+                  <Icon.Arrow.RightWhite />
+                </Flex>
+              </Button>
+            </Flex>
+            <MyRecruitments recruitmentsList={recruitments} />
           </Flex>
         </InnerContainer>
-      </MainContainer>
+      </div>
     </Layout>
   );
 }
-
-const MainContainer = styled.div`
-  padding: 60px;
-`;
