@@ -1,5 +1,5 @@
 import { Typo } from '@components/common';
-import { useRecruitmentCardContext } from './RecruitmentCard.context';
+import { useRecruitmentCardContext } from '../index.context';
 
 const SALARY_STYLE = { marginBottom: '4px' };
 

@@ -1,4 +1,4 @@
-import Banner from './components/Banner';
+import Banner from './common/Banner';
 import { images } from '@/pages/home/data/index.mock';
 
 export default function Worker() {

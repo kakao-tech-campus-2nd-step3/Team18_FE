@@ -2,10 +2,10 @@ import { ReactNode, useState } from 'react';
 import Layout from '@features/layout';
 import { InnerContainer } from '@components/common';
 import { responsiveStyle, responsiveSectionPadding } from '@utils/responsive';
-import RoleSelection from '@/features/auth/SignUp/RoleSelection';
-import RoleModal from '@/features/auth/SignUp/components/RoleModal';
+import RoleSelection from '@/features/auth/SignUp/components/RoleSelection';
+import RoleModal from '@/features/auth/SignUp/components/common/RoleModal';
 import useToggle from '@hooks/useToggle';
-import SignUpText from '@/features/auth/SignUp/SignUpText';
+import SignUpText from '@/features/auth/SignUp/components/SignUpText';
 
 const sectionStyle = responsiveStyle(responsiveSectionPadding);
 

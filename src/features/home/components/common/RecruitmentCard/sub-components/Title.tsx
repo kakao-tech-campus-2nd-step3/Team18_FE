@@ -1,5 +1,5 @@
 import { Typo } from '@components/common';
-import { useRecruitmentCardContext } from './RecruitmentCard.context';
+import { useRecruitmentCardContext } from '../index.context';
 import { responsiveStyle } from '@utils/responsive';
 
 const titleStyle = responsiveStyle({
