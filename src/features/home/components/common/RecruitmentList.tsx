@@ -1,5 +1,5 @@
 import { List, Flex } from '@/components/common';
-import RecruitmentCard from './components/RecruitmentCard/RecruitmentCard';
+import RecruitmentCard from './RecruitmentCard';
 import { RecruitmentItem } from '@/types';
 import { responsiveStyle } from '@utils/responsive';
 

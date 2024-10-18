@@ -6,6 +6,7 @@ import Button from '@components/common/Button';
 import { Flex } from '@/components/common';
 import { responsiveStyle } from '@utils/responsive';
 import useToggle from '@/hooks/useToggle';
+import LanguageFilter from './components/LanguageFilter';
 
 interface NavProps {
   open: boolean;
@@ -20,10 +21,7 @@ export default function Header() {
         <LogoImg />
         <MobileMenuIcon onClick={toggleMenu}>{menuOpen ? <CloseIcon /> : <MenuIcon />}</MobileMenuIcon>
         <Nav open={menuOpen}>
-          <Dropdown>
-            <option value="none">언어</option>
-            <option value="kr">한국어</option>
-          </Dropdown>
+          <LanguageFilter />
           <Button theme="outlined" style={commonButtonStyle}>
             채용공고 등록
           </Button>
@@ -122,15 +120,6 @@ const Nav = styled.nav<NavProps>`
     opacity: ${({ open }) => (open ? '1' : '0')};
     visibility: ${({ open }) => (open ? 'visible' : 'hidden')};
   }
-`;
-
-const Dropdown = styled.select`
-  padding: 10px 20px;
-  color: #0a65cc;
-  cursor: pointer;
-  text-align: center;
-  font-size: 16px;
-  border: none;
 `;
 
 const commonButtonStyle = {

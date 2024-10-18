@@ -1,5 +1,5 @@
 import { Flex, Typo, Button } from '@/components/common';
-import Banner from './components/Banner';
+import Banner from './common/Banner';
 import { images } from '@pages/home/data/index.mock';
 import { responsiveStyle } from '@utils/responsive';
 

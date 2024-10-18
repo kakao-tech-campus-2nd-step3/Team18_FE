@@ -1,5 +1,5 @@
 import { Image } from '@components/common';
-import { useRecruitmentCardContext } from './RecruitmentCard.context';
+import { useRecruitmentCardContext } from '../index.context';
 import { responsiveStyle } from '@utils/responsive';
 
 const IMAGE_SIZE_CONFIG = {
