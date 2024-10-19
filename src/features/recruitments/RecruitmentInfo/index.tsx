@@ -1,25 +1,25 @@
 import { Button, Flex, Icon, Image, Typo } from '@/components/common';
-import { responsiveStyle } from '@/utils/responsive';
-import { css } from '@emotion/react';
 import AreaIcon from '@assets/icons/recruitmentInfo/area.svg?react';
 import SalaryIcon from '@assets/icons/recruitmentInfo/salary.svg?react';
-import styled from '@emotion/styled';
-import theme from '@/assets/theme';
-import { palettes } from '@/assets/styles/global/palettes';
+import { RecruitmentItem } from '@/types';
+import {
+  buttonStyle,
+  buttonTextStyle,
+  imageSize,
+  imageStyle,
+  ImageWrapper,
+  infoFlexStyle,
+  infoGroupStyle,
+  recruitmentFlexStyle,
+} from './index.style';
 
-interface RecruitmentProps {
-  companyImage: string;
-  companyName: string;
-  koreanTitle: string;
-  area: string;
-  salary: number;
-}
+type Props = Pick<RecruitmentItem, 'image' | 'companyName' | 'koreanTitle' | 'area' | 'salary'>;
 
-export default function RecruitmentInfo({ companyImage, companyName, koreanTitle, area, salary }: RecruitmentProps) {
+export default function RecruitmentInfo({ image, companyName, koreanTitle, area, salary }: Props) {
   return (
     <Flex justifyContent="space-between" alignItems="center" gap={{ y: '100px' }} css={recruitmentFlexStyle}>
       <ImageWrapper>
-        <Image url={companyImage} size={imageSize} css={imageStyle} />
+        <Image url={image} size={imageSize} css={imageStyle} />
       </ImageWrapper>
       <Flex css={infoFlexStyle}>
         <Typo color="blue">{companyName}</Typo>
@@ -48,92 +48,3 @@ export default function RecruitmentInfo({ companyImage, companyName, koreanTitle
     </Flex>
   );
 }
-
-const recruitmentFlexStyle = css`
-  ${responsiveStyle({
-    default: {
-      gap: '100px',
-      border: `1px solid ${theme.palettes.borderGray}`,
-      borderRadius: '8px',
-      padding: '15px 30px',
-    },
-    tablet: {
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      padding: '20px 30px',
-      gap: '30px',
-    },
-    mobile: {
-      padding: '30px',
-    },
-  })}
-`;
-
-const ImageWrapper = styled.div`
-  width: 280px;
-  height: 120px;
-`;
-
-const imageStyle = css`
-  height: 100%;
-
-  ${responsiveStyle({
-    tablet: {
-      margin: '0 auto',
-      width: '50%',
-    },
-    mobile: {
-      width: '70%',
-    },
-  })}
-`;
-
-const imageSize = {
-  width: '277px',
-  height: 'auto',
-};
-
-const infoFlexStyle = css`
-  ${responsiveStyle({
-    default: {
-      flexDirection: 'column',
-      justifyContent: 'space-between',
-      gap: '10px',
-    },
-    tablet: {
-      width: '80%',
-      alignItems: 'center',
-    },
-    mobile: {
-      gap: '15px',
-    },
-  })}
-`;
-
-const infoGroupStyle = css`
-  ${responsiveStyle({
-    default: {
-      alignItems: 'center',
-      gap: '30px',
-    },
-    tablet: {
-      width: '80%',
-      gap: '20px',
-      justifyContent: 'center',
-    },
-    mobile: {
-      flexDirection: 'column',
-      gap: '10px',
-    },
-  })}
-`;
-
-const buttonStyle = css`
-  background-color: ${palettes.blue};
-`;
-
-const buttonTextStyle = {
-  fontWeight: '600',
-  whiteSpace: 'nowrap',
-};

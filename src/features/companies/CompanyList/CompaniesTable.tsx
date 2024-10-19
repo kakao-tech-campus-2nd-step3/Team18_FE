@@ -1,9 +1,9 @@
 import { Button, Flex, Icon, List, Image, Table, Th, Td } from '@/components/common';
-import { CompanyItem } from '@/types';
+import { CompanyData } from '@/types';
 import CompanyInfo from '@/features/companies/CompanyInfo';
 
 type Props = {
-  companyList: CompanyItem[];
+  companyList: CompanyData[];
 };
 
 export default function CompaniesTable({ companyList }: Props) {

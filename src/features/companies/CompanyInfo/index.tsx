@@ -1,11 +1,11 @@
 import { Flex, Typo } from '@/components/common';
-import { CompanyItem } from '@/types';
+import { CompanyData } from '@/types';
 import IndustryIcon from '@assets/icons/companyInfo/industry.svg?react';
 import BrandIcon from '@assets/icons/companyInfo/brand.svg?react';
 import RevenueIcon from '@assets/icons/companyInfo/revenue.svg?react';
 import { infoStyle, infoWrapperStyle } from './index.styles';
 
-type Props = Pick<CompanyItem, 'name' | 'industryOccupation' | 'brand' | 'revenuePerYear'>;
+type Props = Pick<CompanyData, 'name' | 'industryOccupation' | 'brand' | 'revenuePerYear'>;
 
 export default function CompanyInfo({ name, industryOccupation, brand, revenuePerYear }: Props) {
   return (

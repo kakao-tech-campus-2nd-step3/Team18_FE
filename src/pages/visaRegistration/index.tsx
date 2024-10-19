@@ -1,8 +1,7 @@
-import { responsiveStyle } from '@utils/responsive';
 import { Flex, InnerContainer } from '@/components/common';
 import Layout from '@/features/layout';
 import VisaRegistrationForm from '@/features/visaRegistration';
-import styled from '@emotion/styled';
+import { BreakableText, innerContainerStyle, MainContainer, Title } from './index.style';
 
 export default function VisaRegistration() {
   return (
@@ -26,31 +25,3 @@ export default function VisaRegistration() {
     </Layout>
   );
 }
-
-const MainContainer = styled.div`
-  padding: 40px 0;
-`;
-
-const innerContainerStyle = {
-  height: '520px',
-  padding: '50px 0',
-  border: '1px solid #E9E9E9',
-  borderRadius: '12px',
-};
-
-const Title = styled.div`
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-`;
-
-const BreakableText = styled.span`
-  ${responsiveStyle({
-    default: {
-      display: 'inline',
-    },
-    mobile: {
-      display: 'block',
-    },
-  })}
-`;

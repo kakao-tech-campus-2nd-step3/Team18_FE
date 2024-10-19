@@ -1,20 +1,12 @@
 import { Flex, Typo } from '@/components/common';
 import ApplicantsTable from './ApplicantsTable';
+import { ApplicantData } from '@/types';
 
-interface ApplicantProps {
-  userId: number;
-  name: string;
-  resumeId: number;
-  applyId: number;
-  applicantNation: string;
-  korean: string;
-}
+type Props = {
+  applicantList: ApplicantData[];
+};
 
-interface ApplicantListProps {
-  applicantList: ApplicantProps[];
-}
-
-export default function ApplicantList({ applicantList }: ApplicantListProps) {
+export default function ApplicantList({ applicantList }: Props) {
   return (
     <Flex direction="column" justifyContent="center" gap={{ y: '15px' }}>
       <Flex alignItems="center" gap={{ x: '20px' }}>

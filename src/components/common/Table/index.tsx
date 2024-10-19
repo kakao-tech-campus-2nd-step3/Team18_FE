@@ -6,7 +6,7 @@ type TableProps = {
 } & HTMLAttributes<HTMLTableElement>;
 
 type ThProps = {
-  children: ReactNode;
+  children?: ReactNode;
 } & HTMLAttributes<HTMLTableCellElement>;
 
 type TdProps = {

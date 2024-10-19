@@ -1,9 +1,9 @@
 import { Flex, Typo } from '@/components/common';
 import CompaniesTable from './CompaniesTable';
-import { CompanyItem } from '@/types';
+import { CompanyData } from '@/types';
 
 type Props = {
-  companyList: CompanyItem[];
+  companyList: CompanyData[];
 };
 
 export default function CompanyList({ companyList }: Props) {
