@@ -1,22 +1,29 @@
+import { palettes } from '@/assets/styles/global/palettes';
 import { responsiveStyle } from '@/utils/responsive';
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-export const MainContainer = styled.div`
-  padding: 40px 0;
+export const innerContainerStyle = css`
+  ${responsiveStyle({
+    default: {
+      border: `1px solid ${palettes.borderGray}`,
+      padding: '80px 0',
+      borderRadius: '12px',
+      marginTop: '60px',
+      marginBottom: '80px',
+    },
+    tablet: {
+      padding: '80px 0',
+    },
+    mobile: {
+      padding: '60px 0',
+    },
+  })}
 `;
 
-export const innerContainerStyle = {
-  height: '520px',
-  padding: '50px 0',
-  border: '1px solid #E9E9E9',
-  borderRadius: '12px',
+export const titleStyle = {
+  fontWeight: 'bold',
 };
-
-export const Title = styled.div`
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-`;
 
 export const BreakableText = styled.span`
   ${responsiveStyle({

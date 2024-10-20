@@ -44,7 +44,7 @@ export default function VisaRegistrationForm() {
             type="text"
             value={foreignerNumber}
             onChange={handleForeignerNumberChange}
-            style={inputStyle}
+            css={inputStyle}
             required
           />
           {error && <ErrorMessage>{error}</ErrorMessage>}
@@ -55,12 +55,12 @@ export default function VisaRegistrationForm() {
             type="date"
             value={visaGenerateDate}
             onChange={(e) => setVisaGenerateDate(e.target.value)}
-            style={inputStyle}
+            css={inputStyle}
             required
           />
         </Flex>
         <Flex justifyContent="center">
-          <Button type="submit" style={buttonStyle} disabled={!isFormValid}>
+          <Button type="submit" css={buttonStyle} disabled={!isFormValid}>
             등록하기
           </Button>
         </Flex>

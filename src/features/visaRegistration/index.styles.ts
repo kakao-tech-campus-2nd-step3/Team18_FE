@@ -1,4 +1,6 @@
+import { palettes } from '@/assets/styles/global/palettes';
 import { responsiveStyle } from '@/utils/responsive';
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const Form = styled.form`
@@ -22,16 +24,16 @@ export const Form = styled.form`
   })}
 `;
 
-export const inputStyle = {
-  padding: '15px 20px',
-  width: '100%',
-};
+export const inputStyle = css`
+  padding: 15px 20px;
+  width: 100%;
+`;
 
-export const buttonStyle = {
-  backgroundColor: '#0A65CC',
-  color: '#fff',
-  borderRadius: '4px',
-};
+export const buttonStyle = css`
+  background-color: ${palettes.blue};
+  color: ${palettes.white};
+  border-radius: 4px;
+`;
 
 export const ErrorMessage = styled.div`
   color: red;
