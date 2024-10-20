@@ -1,7 +1,7 @@
 import { palettes } from '@/assets/styles/global/palettes';
 import { ForeignerData } from '@/types';
 import { Typo } from '@/components/common';
-import { headingStyle, paragraphStyle, titleStyle } from './index.style';
+import { headingStyle, paragraphStyle, titleStyle } from './index.styles';
 
 type Props = Pick<ForeignerData, 'foreignerIdNumber' | 'visaGenerateDate'>;
 

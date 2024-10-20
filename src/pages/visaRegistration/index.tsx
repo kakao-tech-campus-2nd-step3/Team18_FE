@@ -1,7 +1,7 @@
 import { Flex, InnerContainer } from '@/components/common';
 import Layout from '@/features/layout';
 import VisaRegistrationForm from '@/features/visaRegistration';
-import { BreakableText, innerContainerStyle, MainContainer, Title } from './index.style';
+import { BreakableText, innerContainerStyle, MainContainer, Title } from './index.styles';
 
 export default function VisaRegistration() {
   return (

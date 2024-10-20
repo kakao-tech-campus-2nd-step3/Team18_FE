@@ -1,6 +1,6 @@
 import { Button, Flex, List, Table, Td, Th, Typo } from '@/components/common';
 import { RecruitmentItem } from '@/types';
-import { buttonGroupStyle, buttonStyle, recruitmentStyle, recruitmentTitleStyle } from './index.style';
+import { buttonGroupStyle, buttonStyle, recruitmentStyle, recruitmentTitleStyle } from './index.styles';
 
 type Props = {
   recruitmentList: RecruitmentItem[];

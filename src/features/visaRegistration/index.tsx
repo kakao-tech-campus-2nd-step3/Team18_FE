@@ -1,6 +1,6 @@
 import { Button, Flex, Input, Modal } from '@/components/common';
 import { ChangeEvent, useState } from 'react';
-import { buttonStyle, ErrorMessage, Form, inputStyle } from './index.style';
+import { buttonStyle, ErrorMessage, Form, inputStyle } from './index.styles';
 
 export default function VisaRegistrationForm() {
   const [foreignerNumber, setForeignerNumber] = useState('');

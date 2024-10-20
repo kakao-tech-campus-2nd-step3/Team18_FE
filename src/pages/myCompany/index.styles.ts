@@ -2,6 +2,20 @@ import { palettes } from '@/assets/styles/global/palettes';
 import { responsiveStyle } from '@/utils/responsive';
 import { css } from '@emotion/react';
 
+export const innerContainerStyle = css`
+  ${responsiveStyle({
+    default: {
+      padding: '60px 0 80px 0',
+    },
+    tablet: {
+      padding: '60px 0 80px 0',
+    },
+    mobile: {
+      padding: '40px 0 80px 0',
+    },
+  })}
+`;
+
 export const companyWrapperStyle = css`
   ${responsiveStyle({
     tablet: {
@@ -9,6 +23,7 @@ export const companyWrapperStyle = css`
       justifyContent: 'center',
       alignItems: 'center',
       gap: '15px',
+      width: '100%',
     },
     mobile: {
       flexDirection: 'column',

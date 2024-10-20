@@ -4,15 +4,15 @@ import CompanyLogo from '@assets/images/coupang.png';
 import CompanyInfo from '@/features/companies/CompanyInfo';
 import { company, recruitmentList } from '@/pages/myCompany/index.mock';
 import { palettes } from '@/assets/styles/global/palettes';
-import { buttonStyle, imageStyle, companyWrapperStyle } from './index.styles';
+import { buttonStyle, imageStyle, companyWrapperStyle, innerContainerStyle } from './index.styles';
 import RecruitmentList from '@/features/recruitments/RecruitmentList';
 
 export default function MyCompany() {
   return (
     <Layout>
       <div>
-        <InnerContainer css={{ padding: '60px 0 80px 0' }}>
-          <Flex direction="column" gap={{ y: '60px' }}>
+        <InnerContainer css={innerContainerStyle}>
+          <Flex direction="column" alignItems="center" gap={{ y: '60px' }}>
             <Flex justifyContent="space-between" alignItems="center" gap={{ x: '100px' }} css={companyWrapperStyle}>
               <Image url={CompanyLogo} size={{ width: '280px', height: '120px' }} css={imageStyle} />
               <CompanyInfo

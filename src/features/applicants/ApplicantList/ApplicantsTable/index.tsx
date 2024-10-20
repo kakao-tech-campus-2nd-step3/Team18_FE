@@ -2,7 +2,7 @@ import { Button, Flex, List, Table, Td, Th } from '@/components/common';
 import { useState } from 'react';
 import ContractModal from '../ContractModal';
 import { ApplicantData } from '@/types';
-import { buttonGroupStyle, buttonsCellStyle, buttonStyle } from './index.style';
+import { buttonGroupStyle, buttonsCellStyle, buttonStyle } from './index.styles';
 
 type Props = {
   applicantList: ApplicantData[];

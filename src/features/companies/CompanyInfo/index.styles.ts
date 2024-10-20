@@ -10,12 +10,20 @@ export const infoWrapperStyle = css`
       gap: '15px',
     },
     tablet: {
-      alignItems: 'center',
+      alignItems: 'flex-start',
       margin: '10px 0 20px 0',
-      width: '70%',
+      width: '100%',
+      padding: '0 40px',
+    },
+    mobile: {
+      padding: '0',
     },
   })}
 `;
+
+export const companyNameStyle = {
+  fontWeight: 'bold',
+};
 
 export const infoStyle = css`
   ${responsiveStyle({
@@ -26,8 +34,8 @@ export const infoStyle = css`
     tablet: {
       flexDirection: 'row',
       justifyContent: 'center',
-      width: '80%',
-      gap: '20px',
+      width: '100%',
+      gap: '10px',
     },
     mobile: {
       flexDirection: 'column',

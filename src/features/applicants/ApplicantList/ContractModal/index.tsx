@@ -1,7 +1,7 @@
 import { Button, Flex, Icon, Modal, Typo } from '@/components/common';
 import ModalText from './ModalText';
 import { foreigner } from './index.mock';
-import { buttonTextStyle, customButtonStyle, modalStyle } from './index.style';
+import { buttonTextStyle, customButtonStyle, modalStyle } from './index.styles';
 
 interface ContractModalProps {
   isOpen: boolean;
