@@ -37,3 +37,8 @@ export type ForeignerData = {
   visaGenerateDate: string;
   visaExpiryDate: string;
 };
+
+export type UserData = {
+  type: string;
+  profileImage: string;
+};
