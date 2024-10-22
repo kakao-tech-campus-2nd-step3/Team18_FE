@@ -1,27 +1,21 @@
 import { Button, Flex, Input, Modal } from '@/components/common';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useMemo, useState } from 'react';
 import { buttonStyle, ErrorMessage, Form, inputStyle } from './index.styles';
+import { validateForeignerNumber } from './validateForeignerNumber';
 
 export default function VisaRegistrationForm() {
   const [foreignerNumber, setForeignerNumber] = useState('');
   const [visaGenerateDate, setVisaGenerateDate] = useState('');
   const [error, setError] = useState('');
-  const [isFormValid, setIsFormValid] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const validateForeignerNumber = (number: string) => {
-    const regex = /^\d{6}-\d{7}$/;
-    return regex.test(number);
-  };
+  const formValid = useMemo(() => !error, [error]);
 
   const handleForeignerNumberChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     if (!validateForeignerNumber(value) && value !== '') {
       setError('올바른 형식으로 입력해주세요. (형식: 000000-0000000)');
-      setIsFormValid(false);
     } else {
       setError('');
-      setIsFormValid(true);
     }
     setForeignerNumber(value);
   };
@@ -60,7 +54,7 @@ export default function VisaRegistrationForm() {
           />
         </Flex>
         <Flex justifyContent="center">
-          <Button type="submit" css={buttonStyle} disabled={!isFormValid}>
+          <Button type="submit" css={buttonStyle} disabled={!formValid}>
             등록하기
           </Button>
         </Flex>
@@ -69,6 +63,7 @@ export default function VisaRegistrationForm() {
         <Modal
           textChildren="등록이 완료되었습니다."
           buttonChildren={<Button onClick={closeModal}>확인</Button>}
+          /* onClose 부분 추후 수정 예정 */
           onClose={closeModal}
         />
       )}

@@ -29,6 +29,7 @@ export default function ContractModal({ isOpen, onClose }: ContractModalProps) {
               </Button>
             </Flex>
           }
+          /* onClose 부분 추후 수정 예정 */
           onClose={onClose}
           style={modalStyle}
         />
