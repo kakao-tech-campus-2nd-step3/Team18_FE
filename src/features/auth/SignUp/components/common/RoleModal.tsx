@@ -6,10 +6,11 @@ const FLEX_GAP_CONFIG = { x: '16px' };
 
 type Props = {
   content: ReactNode;
+  onSubmit: () => void;
   onClose: () => void;
 };
 
-export default function RoleModal({ content, onClose }: Props) {
+export default function RoleModal({ content, onSubmit, onClose }: Props) {
   return (
     <Modal
       textChildren={
@@ -27,8 +28,12 @@ export default function RoleModal({ content, onClose }: Props) {
       }
       buttonChildren={
         <Flex gap={FLEX_GAP_CONFIG}>
-          <Button theme="default">등록할게요</Button>
-          <Button theme="outlined">괜찮아요</Button>
+          <Button theme="default" onClick={() => onSubmit()}>
+            등록할게요
+          </Button>
+          <Button theme="outlined" onClick={() => onClose()}>
+            괜찮아요
+          </Button>
         </Flex>
       }
       onClose={onClose}
