@@ -1,8 +1,9 @@
 import { Card, Flex, Typo } from '@components/common';
 import { roleConfig } from './index.config';
 import { bounceAnimation } from '@assets/styles/animations';
-import { ReactNode } from 'react';
 import { responsiveStyle } from '@utils/responsive';
+import useModals from '@components/common/Modal/hooks/useModals';
+import { modals } from '@/components/common/Modal/Modals';
 
 const cardStyle = responsiveStyle({
   default: { padding: '60px 120px', cursor: 'pointer' },
@@ -18,17 +19,20 @@ const iconStyle = responsiveStyle({
 
 type Props = {
   role: 'employer' | 'worker';
-  onClick: (modalContent: ReactNode) => void;
 };
 
-export default function RoleSelector({ role, onClick }: Props) {
+export default function RoleSelector({ role }: Props) {
+  const { openModal } = useModals();
+
+  const handleClick = () => {
+    openModal(modals.roleModal, {
+      content: roleConfig[role].modalContent,
+      onSubmit: () => console.log('이력서 등록 페이지로 이동'),
+    });
+  };
+
   return (
-    <Card
-      borderColor="blue"
-      borderRadius="12px"
-      css={[bounceAnimation, cardStyle]}
-      onClick={() => onClick(roleConfig[role].modalContent)}
-    >
+    <Card borderColor="blue" borderRadius="12px" css={[bounceAnimation, cardStyle]} onClick={handleClick}>
       <Flex direction="column" alignItems="center">
         <div css={iconStyle}>{roleConfig[role].icon}</div>
         <Typo element="h2" color="blue" size="18px" bold>

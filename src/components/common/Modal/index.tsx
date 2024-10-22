@@ -4,14 +4,13 @@ import { ReactNode } from 'react';
 export type Props = {
   textChildren: ReactNode;
   buttonChildren: ReactNode;
-  borderRadius?: string;
   onClose: () => void;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-const Modal = ({ textChildren, buttonChildren, borderRadius = '12px', onClose, ...props }: Props) => {
+const Modal = ({ textChildren, buttonChildren, onClose, ...props }: Props) => {
   return (
     <Overlay onClick={onClose}>
-      <Card borderRadius={borderRadius} {...props} onClick={(e) => e.stopPropagation()}>
+      <Card borderRadius="12px" {...props} onClick={(e) => e.stopPropagation()}>
         <Wrapper>
           <TextWrapper>{textChildren}</TextWrapper>
           <ButtonWrapper>{buttonChildren}</ButtonWrapper>

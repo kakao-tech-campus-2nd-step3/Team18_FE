@@ -22,6 +22,7 @@ export default tseslint.config(
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       'react-refresh/only-export-components': 'off',
       'react-hooks/rules-of-hooks': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
     },
   },
 );
