@@ -1,5 +1,4 @@
 import { setupWorker } from 'msw/browser';
-import { recruitmentsMockHandler } from '@/apis/home/mocks/recruitmentsMockHandler';
-import { slidesMockHandler } from '@/apis/home/mocks/slidesMockHandler';
+import { handlers } from './handlers';
 
-export const worker = setupWorker(...recruitmentsMockHandler, ...slidesMockHandler);
+export const worker = setupWorker(...handlers);
