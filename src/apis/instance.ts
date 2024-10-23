@@ -1,7 +1,7 @@
 import axios, { AxiosError, AxiosInstance } from 'axios';
 import { QueryClient } from '@tanstack/react-query';
 
-const BASE_URL = import.meta.env.BASE_URL;
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const setInterceptors = (instance: AxiosInstance) => {
   instance.interceptors.response.use(
