@@ -26,6 +26,7 @@ const ROUTE_PATH = {
   APPLICANTS: '/applicants',
   EMPLOYER,
   EMPLOYEE,
+  RESUME: '/resume',
 } as const;
 
 export default ROUTE_PATH;
