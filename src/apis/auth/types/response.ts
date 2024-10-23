@@ -3,3 +3,7 @@ export interface OAuthResponse {
   type: 'first' | 'employee' | 'employer';
   profileImage: string;
 }
+
+export interface RegisterResponse {
+  status: boolean;
+}
