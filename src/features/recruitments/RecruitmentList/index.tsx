@@ -1,23 +1,23 @@
 import { Flex, Typo } from '@/components/common';
-import ApplicantsTable from './ApplicantsTable';
-import { ApplicantData } from '@/types';
+import RecruitmentsTable from './RecruitmentsTable';
+import { RecruitmentItem } from '@/types';
 
 type Props = {
-  applicantList: ApplicantData[];
+  recruitmentList: RecruitmentItem[];
 };
 
-export default function ApplicantList({ applicantList }: Props) {
+export default function RecruitmentList({ recruitmentList }: Props) {
   return (
     <Flex direction="column" justifyContent="center" gap={{ y: '15px' }}>
       <Flex alignItems="center" gap={{ x: '20px' }}>
         <Typo element="h3" size="24px" style={{ fontWeight: 'bold' }}>
-          지원자 목록
+          내 공고글
         </Typo>
         <Typo element="span" size="16px">
-          총 {applicantList.length}건
+          총 {recruitmentList.length}건
         </Typo>
       </Flex>
-      <ApplicantsTable applicantList={applicantList} />
+      <RecruitmentsTable recruitmentList={recruitmentList} />
     </Flex>
   );
 }
