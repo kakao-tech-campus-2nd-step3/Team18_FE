@@ -1,6 +1,7 @@
 export const AUTH = {
   SIGN_IN: '/sign-in',
   SIGN_UP: '/sign-up',
+  LOADING: '/loading',
 } as const;
 
 export const APPLY = {

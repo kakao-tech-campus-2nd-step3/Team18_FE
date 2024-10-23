@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import ROUTE_PATH from './path';
 import SignIn from '@pages/auth/SignIn';
 import SignUp from '@pages/auth/SignUp';
+import LoadingPage from '@/pages/auth/Loading';
 import App from '@/App';
 import Recruit from '@/pages/recruit';
 import VisaRegistration from '@/pages/employee/visaRegistration';
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
       {
         path: ROUTE_PATH.AUTH.SIGN_UP,
         element: <SignUp />,
+      },
+      {
+        path: ROUTE_PATH.AUTH.LOADING,
+        element: <LoadingPage />,
       },
       { path: ROUTE_PATH.RECRUIT, element: <Recruit /> },
       { path: ROUTE_PATH.POST_NOTICE, element: <PostNotice /> },
