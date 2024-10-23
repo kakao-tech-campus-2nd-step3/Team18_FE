@@ -1,10 +1,10 @@
-import { RecruitmentItem } from '@/types';
 import { bounceAnimation } from '@assets/styles/animations';
 import { Card } from '@components/common';
 import { ReactNode } from 'react';
 import { RecruitmentCardContextProvider } from './index.context';
 import { Title, Button, CompanyName, CompanyImage, Detail, Salary } from './sub-components';
 import { responsiveStyle } from '@utils/responsive';
+import { RecruitmentResponse } from '@/apis/home/types/response';
 
 const recruitmentCardStyle = responsiveStyle({
   default: {
@@ -17,7 +17,7 @@ const recruitmentCardStyle = responsiveStyle({
 });
 
 type Props = {
-  recruitment: RecruitmentItem;
+  recruitment: RecruitmentResponse;
   children: ReactNode;
 };
 

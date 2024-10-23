@@ -1,22 +1,14 @@
-export const images = [
-  {
-    id: 1,
-    imageUrl: 'https://www.v-on.kr/wp-content/uploads/2022/06/IT_twi001t2302755-1024x683.jpg',
-  },
-  {
-    id: 2,
-    imageUrl: 'https://www.v-on.kr/wp-content/uploads/2022/06/IT_twi001t2302755-1024x683.jpg',
-  },
-  {
-    id: 3,
-    imageUrl: 'https://www.v-on.kr/wp-content/uploads/2022/06/IT_twi001t2302755-1024x683.jpg',
-  },
+import { http, HttpResponse } from 'msw';
+import { HOME_PATH } from '../path';
+
+export const recruitmentsMockHandler = [
+  http.get(HOME_PATH.RECRUITMENTS, () => HttpResponse.json(RECRUITMENTS_RESPONSE_DATA)),
 ];
 
-export const recruitmentList = [
+const RECRUITMENTS_RESPONSE_DATA = [
   {
     recruitmentId: 1,
-    image:
+    imageUrl:
       'https://img.freepik.com/free-photo/low-angle-view-of-skyscrapers_1359-1105.jpg?size=626&ext=jpg&ga=GA1.1.1297763733.1727740800&semt=ais_hybrid',
     koreanTitle: '제목',
     vietnameseTitle: '제목',
@@ -27,7 +19,7 @@ export const recruitmentList = [
   },
   {
     recruitmentId: 2,
-    image:
+    imageUrl:
       'https://img.freepik.com/free-photo/low-angle-view-of-skyscrapers_1359-1105.jpg?size=626&ext=jpg&ga=GA1.1.1297763733.1727740800&semt=ais_hybrid',
     koreanTitle: '제목',
     vietnameseTitle: '제목',
@@ -38,7 +30,7 @@ export const recruitmentList = [
   },
   {
     recruitmentId: 3,
-    image:
+    imageUrl:
       'https://img.freepik.com/free-photo/low-angle-view-of-skyscrapers_1359-1105.jpg?size=626&ext=jpg&ga=GA1.1.1297763733.1727740800&semt=ais_hybrid',
     koreanTitle: '제목',
     vietnameseTitle: '제목',
