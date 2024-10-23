@@ -1,5 +1,6 @@
 import { responsiveStyle } from '@utils/responsive';
 import { Icon } from '@components/common';
+import ROUTE_PATH from '@/routes/path';
 
 export const roleConfig = {
   employer: {
@@ -20,8 +21,9 @@ export const roleConfig = {
         이력서 정보를 등록하러 가실까요?
       </>
     ),
+    toNavigate: ROUTE_PATH.HOME, // 이력서 등록 페이지로 변경
   },
-  worker: {
+  employee: {
     icon: (
       <Icon.Role.Worker
         css={responsiveStyle({
@@ -39,5 +41,6 @@ export const roleConfig = {
         사업주 정보를 등록하러 가실까요?
       </>
     ),
+    toNavigate: ROUTE_PATH.HOME, // 회사 등록 페이지로 변경
   },
 };
