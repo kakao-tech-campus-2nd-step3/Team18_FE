@@ -4,9 +4,12 @@ import styled from '@emotion/styled';
 import MyRecruitList from '../../../features/employee/myPage/MyRecruitList';
 import CardButton from '../../../features/employee/myPage/CardButton';
 import EmployeeProfile from '../../../features/employee/myPage/EmployeeProfile';
-import { myRecruitList } from './data/index.mock';
+// import { myRecruitList } from './data/index.mock';
+import { useGetMyApplication } from '@/apis/employee/hooks/useGetMyApplication';
 
 export default function EmployeeMyPage() {
+  const { data: myRecruitList } = useGetMyApplication();
+
   return (
     <Layout>
       <InnerContainer style={{ justifyContent: 'center', width: '70%', padding: '60px 0' }}>
@@ -31,7 +34,7 @@ export default function EmployeeMyPage() {
           <Typo bold element="h3" size="20px" style={{ marginBottom: '24px' }}>
             내가 지원한 공고
           </Typo>
-          <MyRecruitList myRecruitList={myRecruitList} />
+          {myRecruitList && <MyRecruitList myRecruitList={myRecruitList} />}
         </Section>
       </InnerContainer>
     </Layout>
