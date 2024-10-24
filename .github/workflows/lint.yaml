@@ -1,0 +1,43 @@
+name: Lint and Type Check
+
+on:
+  pull_request:
+    # 모든 브랜치에 대해 PR 시 실행
+    branches:
+      - '**'
+  push:
+    # 모든 브랜치에 대해 푸시 시 실행
+    branches:
+      - '**'
+
+jobs:
+  lint:
+    name: Lint and Type Check
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # Run ESLint to check for linting errors
+      - name: Run ESLint
+        run: npm run lint
+
+      # Run Prettier to check formatting
+      - name: Run Prettier Check
+        run: npm run format -- --check
+
+      # Run TypeScript compiler to check for type errors
+      - name: Run TypeScript Check
+        run: npm run tsc
