@@ -8,3 +8,7 @@ export { default as Typo } from './Typo';
 export { default as Icon } from './Icon';
 export { default as List } from './List';
 export { default as Image } from './Image';
+export { default as Select } from './Select';
+export { default as AsyncBoundary } from './AsyncBoundary';
+export { default as Spinner } from './Spinner';
+export { Table, Th, Td } from './Table';
