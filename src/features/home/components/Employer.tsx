@@ -29,7 +29,7 @@ export default function Employer() {
         <Typo element="h1" size="48px" color="white" bold style={headerStyle}>
           {`사장님,\n 공고 등록은 하셨나요? 🤔`}
         </Typo>
-        <Button theme="textbutton">등록하러 가기</Button>
+        <Button design="textbutton">등록하러 가기</Button>
       </Flex>
     </Banner>
   );

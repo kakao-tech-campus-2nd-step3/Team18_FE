@@ -30,7 +30,7 @@ export default function Header({ profileImage }: Props) {
         </Flex>
         <Nav open={menuOpen}>
           <LanguageFilter />
-          <Button theme="outlined" style={commonButtonStyle}>
+          <Button design="outlined" style={commonButtonStyle}>
             채용공고 등록
           </Button>
           <Flex justifyContent="center" alignItems="center">

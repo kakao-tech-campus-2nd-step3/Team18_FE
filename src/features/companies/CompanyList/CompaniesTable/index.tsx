@@ -30,7 +30,7 @@ export default function CompaniesTable({ companyList }: Props) {
                       brand={company.brand}
                       revenuePerYear={company.revenuePerYear}
                     />
-                    <Button theme="textbutton">
+                    <Button design="textbutton">
                       <Icon.Arrow.BigRightBlue />
                     </Button>
                   </Flex>

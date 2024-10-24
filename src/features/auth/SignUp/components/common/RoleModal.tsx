@@ -28,10 +28,10 @@ export default function RoleModal({ content, onSubmit, onClose }: Props) {
       }
       buttonChildren={
         <Flex gap={FLEX_GAP_CONFIG}>
-          <Button theme="default" onClick={() => onSubmit()}>
+          <Button design="default" onClick={() => onSubmit()}>
             등록할게요
           </Button>
-          <Button theme="outlined" onClick={() => onClose()}>
+          <Button design="outlined" onClick={() => onClose()}>
             괜찮아요
           </Button>
         </Flex>

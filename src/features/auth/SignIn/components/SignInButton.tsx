@@ -8,7 +8,7 @@ export function SignInButton() {
   const { redirectToGoogleLogin } = useGoogleOAuth();
 
   return (
-    <Button theme="outlined" onClick={redirectToGoogleLogin}>
+    <Button design="outlined" onClick={redirectToGoogleLogin}>
       <Flex alignItems="center" gap={FLEX_GAP_CONFIG}>
         <Icon.Social.Google />
         <Typo size="14px" color="gray" element="span" style={BUTTON_STYLE}>

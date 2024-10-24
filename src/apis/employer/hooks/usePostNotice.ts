@@ -1,5 +1,5 @@
 import { APIPath } from '@/apis/apiPath';
-import { BASE_URL, fetchInstanceWithAuth } from '@/apis/instance';
+import { clientInstance } from '@/apis/instance';
 import { useMutation } from '@tanstack/react-query';
 
 export type NoticeRequestData = {
@@ -19,11 +19,10 @@ export type NoticeRequestData = {
   companyName?: string;
 };
 
-export const getPostNoticePath = () => `${BASE_URL}${APIPath.postNotice}`;
+export const getPostNoticePath = () => `${APIPath.postNotice}`;
 
 export const postNotice = async (req: NoticeRequestData) => {
-  const token = localStorage.getItem('token') ?? '';
-  const response = await fetchInstanceWithAuth(token).post(getPostNoticePath(), req);
+  const response = await clientInstance.post(getPostNoticePath(), req);
   return response.data;
 };
 

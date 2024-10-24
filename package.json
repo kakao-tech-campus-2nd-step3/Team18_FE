@@ -18,6 +18,7 @@
   },
   "lint-staged": {
     "**/*.{tsx,ts,jsx,js}": [
+      "bash -c tsc -p tsconfig.json --noEmit",
       "eslint --fix --cache",
       "prettier --write --cache"
     ]

@@ -131,7 +131,7 @@ export const EmployerContract = () => {
               </Typo>
               <ButtonWrapper>
                 <div>
-                  <Button theme="outlined" style={{ marginRight: '16px' }}>
+                  <Button design="outlined" style={{ marginRight: '16px' }}>
                     미리보기
                   </Button>
                   <>
@@ -140,12 +140,10 @@ export const EmployerContract = () => {
                   </>
                 </div>
                 <div>
-                  <Button theme="default" style={{ marginRight: '16px' }}>
+                  <Button design="default" style={{ marginRight: '16px' }}>
                     다운로드
                   </Button>
-                  <Button theme="default" style={{}}>
-                    제출하기
-                  </Button>
+                  <Button design="default">제출하기</Button>
                 </div>
               </ButtonWrapper>
             </Flex>
