@@ -1,14 +1,14 @@
 import styled from '@emotion/styled';
 
-interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  theme?: 'default' | 'outlined' | 'textbutton';
+export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  design?: 'default' | 'outlined' | 'textbutton' | 'deactivate';
 }
 
 export default function Button({ children, ...props }: Props) {
   return <Wrapper {...props}>{children}</Wrapper>;
 }
 
-const Wrapper = styled.button(
+const Wrapper = styled.button<Props>(
   {
     padding: '10px 40px',
     fontSize: '16px',
@@ -20,8 +20,8 @@ const Wrapper = styled.button(
     cursor: 'pointer',
     transition: 'background-color 200ms',
   },
-  ({ theme = 'default' }) => {
-    if (theme === 'outlined') {
+  ({ design = 'default' }) => {
+    if (design === 'outlined') {
       return {
         backgroundColor: '#fff',
         color: '#0A65CC',
@@ -34,10 +34,17 @@ const Wrapper = styled.button(
       };
     }
 
-    if (theme === 'textbutton') {
+    if (design === 'textbutton') {
       return {
         color: '#0A65CC',
         backgroundColor: '#fff',
+      };
+    }
+
+    if (design === 'deactivate') {
+      return {
+        color: '#9A9A9A',
+        backgroundColor: '#D9D9D9',
       };
     }
 

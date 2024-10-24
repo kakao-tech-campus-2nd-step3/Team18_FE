@@ -13,6 +13,11 @@ export const MY_ACCOUNT = {
   EMPLOYER: '/employer-my-account',
 };
 
+export const EMPLOYEE = {
+  EMPLOYEE_PAGE: '/employee-my-page',
+  VISA_REGISTRATION: '/visa-registration',
+} as const;
+
 const ROUTE_PATH = {
   HOME: '/',
   RECRUIT: '/recruit',
@@ -20,7 +25,6 @@ const ROUTE_PATH = {
   APPLY,
   AUTH,
   APPLICANTS: '/applicants',
-  EMPLOYER,
   EMPLOYEE,
   RESUME: '/resume',
   MY_COMPANY: '/my-company',
