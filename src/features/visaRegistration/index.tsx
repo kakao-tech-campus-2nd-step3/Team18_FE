@@ -1,28 +1,21 @@
-import { responsiveStyle } from '@utils/responsive';
 import { Button, Flex, Input, Modal } from '@/components/common';
-import styled from '@emotion/styled';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useMemo, useState } from 'react';
+import { buttonStyle, ErrorMessage, Form, inputStyle } from './index.styles';
+import { validateForeignerNumber } from './validateForeignerNumber';
 
 export default function VisaRegistrationForm() {
   const [foreignerNumber, setForeignerNumber] = useState('');
   const [visaGenerateDate, setVisaGenerateDate] = useState('');
   const [error, setError] = useState('');
-  const [isFormValid, setIsFormValid] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const validateForeignerNumber = (number: string) => {
-    const regex = /^\d{6}-\d{7}$/;
-    return regex.test(number);
-  };
+  const formValid = useMemo(() => !error, [error]);
 
   const handleForeignerNumberChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     if (!validateForeignerNumber(value) && value !== '') {
       setError('올바른 형식으로 입력해주세요. (형식: 000000-0000000)');
-      setIsFormValid(false);
     } else {
       setError('');
-      setIsFormValid(true);
     }
     setForeignerNumber(value);
   };
@@ -45,7 +38,7 @@ export default function VisaRegistrationForm() {
             type="text"
             value={foreignerNumber}
             onChange={handleForeignerNumberChange}
-            style={inputStyle}
+            css={inputStyle}
             required
           />
           {error && <ErrorMessage>{error}</ErrorMessage>}
@@ -56,12 +49,12 @@ export default function VisaRegistrationForm() {
             type="date"
             value={visaGenerateDate}
             onChange={(e) => setVisaGenerateDate(e.target.value)}
-            style={inputStyle}
+            css={inputStyle}
             required
           />
         </Flex>
         <Flex justifyContent="center">
-          <Button type="submit" style={buttonStyle} disabled={!isFormValid}>
+          <Button type="submit" css={buttonStyle} disabled={!formValid}>
             등록하기
           </Button>
         </Flex>
@@ -70,46 +63,10 @@ export default function VisaRegistrationForm() {
         <Modal
           textChildren="등록이 완료되었습니다."
           buttonChildren={<Button onClick={closeModal}>확인</Button>}
+          /* onClose 부분 추후 수정 예정 */
           onClose={closeModal}
         />
       )}
     </>
   );
 }
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  font-size: 16px;
-  font-weight: bold;
-  width: 100%;
-  max-width: 700px;
-  margin: 0 auto;
-
-  ${responsiveStyle({
-    tablet: {
-      gap: '20px',
-      padding: '0 20px',
-    },
-    mobile: {
-      padding: '0 15px',
-    },
-  })}
-`;
-
-const inputStyle = {
-  padding: '15px 20px',
-  width: '100%',
-};
-
-const buttonStyle = {
-  backgroundColor: '#0A65CC',
-  color: '#fff',
-  borderRadius: '4px',
-};
-
-const ErrorMessage = styled.div`
-  color: red;
-  font-size: 13px;
-`;

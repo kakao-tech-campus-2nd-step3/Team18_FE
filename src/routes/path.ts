@@ -9,13 +9,9 @@ export const APPLY = {
   APPLYPAGE: '/apply',
 };
 
-export const EMPLOYER = {
-  MY_ACCOUNT: '/employer-my-account',
-} as const;
-
-export const EMPLOYEE = {
-  VISA_REGISTRATION: '/visa-registration',
-} as const;
+export const MY_ACCOUNT = {
+  EMPLOYER: '/employer-my-account',
+};
 
 const ROUTE_PATH = {
   HOME: '/',
@@ -27,6 +23,9 @@ const ROUTE_PATH = {
   EMPLOYER,
   EMPLOYEE,
   RESUME: '/resume',
+  MY_COMPANY: '/my-company',
+  VISA_REGISTRATION: '/visa-registration',
+  MY_ACCOUNT,
 } as const;
 
 export default ROUTE_PATH;

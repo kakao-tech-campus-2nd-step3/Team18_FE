@@ -1,8 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react';
-import EmployerMyAccount from '../../employer/myAccount';
+import EmployerMyAccount from '.';
 
 const meta: Meta<typeof EmployerMyAccount> = {
-  title: 'pages/Employer/MyAccount',
+  title: 'pages/MyAccount/Employer',
   component: EmployerMyAccount,
   tags: ['autodocs'],
 };
