@@ -13,6 +13,7 @@ export const EMPLOYER = {
 } as const;
 
 export const EMPLOYEE = {
+  EMPLOYEE_PAGE: '/employee-my-page',
   VISA_REGISTRATION: '/visa-registration',
 } as const;
 
