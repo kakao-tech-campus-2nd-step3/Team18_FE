@@ -1,8 +1,35 @@
+import { FetchPostNotice } from '@/apis/employer/hooks/usePostNotice';
 import { Button, Flex, Input, Typo } from '@/components/common';
 import Layout from '@/features/layout';
 import styled from '@emotion/styled';
+import { useState } from 'react';
 
-const PostNotice = () => {
+export default function PostNotice() {
+  const mutation = FetchPostNotice();
+  const [inputs, setInputs] = useState({
+    salary: '',
+    workingDuration: '',
+    workDays: '',
+    workHours: '',
+    workType: '',
+    eligibilityCriteria: '',
+    preferredConditions: '',
+  });
+
+  const { salary, workingDuration, workDays, workHours, workType, eligibilityCriteria, preferredConditions } = inputs;
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, name } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
+  };
+
+  const handlePostNotice = () => {
+    mutation.mutate(inputs);
+  };
+
   return (
     <Layout>
       <section>
@@ -13,27 +40,27 @@ const PostNotice = () => {
                 구인 글 업로드
               </Typo>
               <InputContainer>
-                <Input label="급여" style={{ width: '700px', height: '48px', marginTop: '12px' }}></Input>
+                <Input label="급여" style={InputStyle} value={salary} onChange={onChange}></Input>
               </InputContainer>
               <InputContainer>
-                <Input label="근무기간" style={{ width: '700px', height: '48px', marginTop: '12px' }}></Input>
+                <Input label="근무기간" style={InputStyle} value={workingDuration} onChange={onChange}></Input>
               </InputContainer>
               <InputContainer>
-                <Input label="근무요일" style={{ width: '700px', height: '48px', marginTop: '12px' }}></Input>
+                <Input label="근무요일" style={InputStyle} value={workDays} onChange={onChange}></Input>
               </InputContainer>
               <InputContainer>
-                <Input label="근무시간" style={{ width: '700px', height: '48px', marginTop: '12px' }}></Input>
+                <Input label="근무시간" style={InputStyle} value={workHours} onChange={onChange}></Input>
               </InputContainer>
               <InputContainer>
-                <Input label="고용형태" style={{ width: '700px', height: '48px', marginTop: '12px' }}></Input>
+                <Input label="고용형태" style={InputStyle} value={workType} onChange={onChange}></Input>
               </InputContainer>
               <InputContainer>
-                <Input label="비자조건" style={{ width: '700px', height: '48px', marginTop: '12px' }}></Input>
+                <Input label="비자조건" style={InputStyle} value={eligibilityCriteria} onChange={onChange}></Input>
               </InputContainer>
               <InputContainer>
-                <Input label="우대사항" style={{ width: '700px', height: '48px', marginTop: '12px' }}></Input>
+                <Input label="우대사항" style={InputStyle} value={preferredConditions} onChange={onChange}></Input>
               </InputContainer>
-              <Button theme="default" style={{ marginTop: '52px' }}>
+              <Button onClick={handlePostNotice} design="default" style={{ marginTop: '52px' }}>
                 등록하기
               </Button>
             </Flex>
@@ -42,7 +69,7 @@ const PostNotice = () => {
       </section>
     </Layout>
   );
-};
+}
 
 const LineWrapper = styled.div`
   border: 1px solid #e9e9e9;
@@ -57,4 +84,4 @@ const InputContainer = styled.div`
   margin-top: 32px;
 `;
 
-export default PostNotice;
+const InputStyle = { width: '700px', height: '48px', marginTop: '12px' };
