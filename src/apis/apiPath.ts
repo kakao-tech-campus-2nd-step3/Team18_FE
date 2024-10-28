@@ -1,3 +1,5 @@
+const BASE_URL = '/api';
+
 export const APIPath = {
   postNotice: '/api/recruitments',
   allApplication: '/api/application/all',
@@ -5,6 +7,7 @@ export const APIPath = {
   makeEmployerContract: '/api/categories',
   downloadContract: '/api/contract/:applyId/download',
   registerSign: '/api/sign',
+  allCompanies: `${BASE_URL}/company`,
 };
 
 export const getDynamicAPIPath = {
