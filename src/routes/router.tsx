@@ -38,7 +38,6 @@ export const router = createBrowserRouter([
       { path: ROUTE_PATH.APPLY.APPLYPAGE, element: <ApplyPage /> },
       { path: ROUTE_PATH.RECRUIT, element: <Recruit /> },
       { path: ROUTE_PATH.VISA_REGISTRATION, element: <VisaRegistration /> },
-      { path: ROUTE_PATH.EMPLOYEE.VISA_REGISTRATION, element: <VisaRegistration /> },
       { path: ROUTE_PATH.EMPLOYEE.EMPLOYEE_PAGE, element: <EmployeeMyPage /> },
       { path: ROUTE_PATH.POST_NOTICE, element: <PostNotice /> },
       { path: ROUTE_PATH.MY_COMPANY, element: <MyCompany /> },

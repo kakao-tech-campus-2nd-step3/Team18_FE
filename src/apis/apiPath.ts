@@ -7,9 +7,11 @@ export const APIPath = {
   makeEmployerContract: '/api/categories',
   downloadContract: '/api/contract/:applyId/download',
   registerSign: '/api/sign',
-  allCompanies: `${BASE_URL}/company`,
+  getMyCompanies: `${BASE_URL}/company`,
+  getMyRecruitments: `${BASE_URL}/recruitments/company/:companyId`,
 };
 
 export const getDynamicAPIPath = {
   downloadContract: (applyId: number) => APIPath.downloadContract.replace(':applyId', applyId.toString()),
+  getMyRecruitments: (companyId: number) => APIPath.getMyRecruitments.replace(':companyId', companyId.toString()),
 };

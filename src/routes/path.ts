@@ -15,7 +15,6 @@ export const MY_ACCOUNT = {
 
 export const EMPLOYEE = {
   EMPLOYEE_PAGE: '/employee-my-page',
-  VISA_REGISTRATION: '/visa-registration',
 } as const;
 
 const ROUTE_PATH = {
@@ -27,7 +26,7 @@ const ROUTE_PATH = {
   APPLICANTS: '/applicants',
   EMPLOYEE,
   RESUME: '/resume',
-  MY_COMPANY: '/my-company',
+  MY_COMPANY: '/my-company/:companyId',
   VISA_REGISTRATION: '/visa-registration',
   MY_ACCOUNT,
   REGISTERSIGN: '/registersign',

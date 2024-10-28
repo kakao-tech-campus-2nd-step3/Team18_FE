@@ -6,6 +6,7 @@ import { useGetMyCompanies } from '@/apis/myAccount/employer/hooks/useGetMyCompa
 
 export default function EmployerMyAccount() {
   const { data: companyList } = useGetMyCompanies();
+
   return (
     <Layout>
       <div>

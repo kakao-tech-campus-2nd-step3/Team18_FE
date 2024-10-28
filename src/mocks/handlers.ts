@@ -4,6 +4,7 @@ import { EmployeePageMockHandler } from '@/apis/employee/mock/getMyApplication.m
 import { noticesMockHandler } from '@/apis/employer/mock/postNotice.mock';
 import { registerSignMockHandler } from '@/apis/registerSign/registerSign.mock';
 import { myCompaniesMockHandler } from '@/apis/myAccount/employer/mocks/myCompaniesMockHandler';
+import { myRecruitmentsMockHandler } from '@/apis/myCompany/mocks/myRecruitmentsMockHandler';
 
 export const handlers = [
   ...recruitmentsMockHandler,
@@ -12,4 +13,5 @@ export const handlers = [
   ...EmployeePageMockHandler,
   ...registerSignMockHandler,
   ...myCompaniesMockHandler,
+  ...myRecruitmentsMockHandler,
 ];

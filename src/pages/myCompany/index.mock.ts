@@ -1,6 +1,7 @@
 import CompanyLogo from '@assets/images/coupang.png';
 
 export const company = {
+  companyId: 1,
   name: '쿠팡 유성점',
   industryOccupation: '온라인 소매',
   brand: '쿠팡',
