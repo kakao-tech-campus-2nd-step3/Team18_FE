@@ -14,7 +14,11 @@ export default function RegisterCompany() {
               </Typo>
               <InputWrapper>
                 <InputContainer>
-                  <Input label="회사 이미지 업로드(선택)" style={{ width: '570px', height: '48px' }}></Input>
+                  <Input
+                    label="회사 이미지 업로드(선택)"
+                    type="file"
+                    // style={{ width: '570px', height: '48px' }}
+                  ></Input>
                 </InputContainer>
                 <InputContainer>
                   <Input label="회사명" style={{ width: '570px', height: '48px' }}></Input>
@@ -65,6 +69,6 @@ const ButtonWrapper = styled.div`
   width: 700px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 52px;
 `;
