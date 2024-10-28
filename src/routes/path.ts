@@ -31,6 +31,7 @@ const ROUTE_PATH = {
   VISA_REGISTRATION: '/visa-registration',
   MY_ACCOUNT,
   REGISTERSIGN: '/registersign',
+  REGISTERCOMPANY: '/register-company',
 } as const;
 
 export default ROUTE_PATH;
