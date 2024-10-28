@@ -15,6 +15,7 @@ import Applicants from '@/pages/applicants';
 import Resume from '@/pages/resume/Resume';
 import EmployerMyAccount from '@/pages/myAccount/employer';
 import EmployeeMyPage from '@/pages/employee/myPage/EmployeeMyPage';
+import RegisterSign from '@/pages/registerSign/RegisterSign';
 
 export const router = createBrowserRouter([
   {
@@ -44,6 +45,7 @@ export const router = createBrowserRouter([
       { path: ROUTE_PATH.APPLICANTS, element: <Applicants /> },
       { path: ROUTE_PATH.RESUME, element: <Resume /> },
       { path: ROUTE_PATH.MY_ACCOUNT.EMPLOYER, element: <EmployerMyAccount /> },
+      { path: ROUTE_PATH.REGISTERSIGN, element: <RegisterSign /> },
     ],
   },
 ]);

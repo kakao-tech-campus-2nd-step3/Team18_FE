@@ -4,6 +4,7 @@ export const APIPath = {
   signEmployeeContract: '/api/contract',
   makeEmployerContract: '/api/categories',
   downloadContract: '/api/contract/:applyId/download',
+  registerSign: '/api/sign',
 };
 
 export const getDynamicAPIPath = {
