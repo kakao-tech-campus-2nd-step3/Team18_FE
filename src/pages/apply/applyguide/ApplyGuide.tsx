@@ -4,6 +4,7 @@ import { Typo } from '@/components/common';
 import { ReactNode } from 'react';
 import { guideMent } from './guideMent';
 import { useNavigate } from 'react-router-dom';
+import { Button } from '@/components/common';
 
 const IndentText = ({ children }: { children: ReactNode }) => <Typo style={{ marginLeft: '20px' }}>{children}</Typo>;
 
@@ -76,20 +77,22 @@ const TextArea = styled.div`
   gap: 10px;
 `;
 
-const CustomBtn = styled.button`
+const CustomBtn = styled(Button)`
   width: 220px;
   border-radius: 4px;
   background-color: #0a65cc;
   color: #fff;
   font-size: 16px;
   padding: 20px;
-  margin-top: 20px;
+  margin: 20px;
+
+  width: 220px;
+  color: white;
+  border: 1px solid #e4e5e8;
   &:hover {
-    background-color: #fff;
+    border: '2px solid #0A65CC';
+    background: white;
     color: #0a65cc;
-    border: 1px solid #0a65cc;
-    padding: 19px;
-    cursor: pointer;
-    transition: 'background-color 200ms';
   }
+  align-self: center;
 `;

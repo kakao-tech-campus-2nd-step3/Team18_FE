@@ -85,11 +85,13 @@ const ApplyCard = styled.div`
 `;
 
 const CustomBtn = styled(Button)`
-  background-color: #0a65cc;
-  height: 50px;
-  color: #fff;
+  background: #0a65cc;
+  color: white;
+  border: 1px solid #e4e5e8;
   &:hover {
-    opacity: 0.7;
+    border: '2px solid #0A65CC';
+    background: white;
+    color: #0a65cc;
   }
   align-self: center;
 `;
