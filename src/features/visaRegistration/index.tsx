@@ -2,13 +2,16 @@ import { Button, Flex, Input, Modal } from '@/components/common';
 import { ChangeEvent, useMemo, useState } from 'react';
 import { buttonStyle, ErrorMessage, Form, inputStyle } from './index.styles';
 import { validateForeignerNumber } from './validateForeignerNumber';
+import { useRegisterVisaInfo } from '@/apis/applicants/hooks/useRegisterVisaInfo';
 
 export default function VisaRegistrationForm() {
-  const [foreignerNumber, setForeignerNumber] = useState('');
+  const [foreignerIdNumber, setForeignerNumber] = useState('');
   const [visaGenerateDate, setVisaGenerateDate] = useState('');
   const [error, setError] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const formValid = useMemo(() => !error, [error]);
+
+  const registerVisaMutation = useRegisterVisaInfo();
 
   const handleForeignerNumberChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -22,7 +25,19 @@ export default function VisaRegistrationForm() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsModalOpen(true);
+    registerVisaMutation.mutate(
+      { foreignerIdNumber, visaGenerateDate },
+      {
+        onSuccess: () => {
+          setForeignerNumber('');
+          setVisaGenerateDate('');
+          setIsModalOpen(true);
+        },
+        onError: (err) => {
+          console.error(err);
+        },
+      },
+    );
   };
 
   const closeModal = () => {
@@ -36,7 +51,7 @@ export default function VisaRegistrationForm() {
           <Input
             label="외국인 번호"
             type="text"
-            value={foreignerNumber}
+            value={foreignerIdNumber}
             onChange={handleForeignerNumberChange}
             css={inputStyle}
             required
@@ -63,7 +78,6 @@ export default function VisaRegistrationForm() {
         <Modal
           textChildren="등록이 완료되었습니다."
           buttonChildren={<Button onClick={closeModal}>확인</Button>}
-          /* onClose 부분 추후 수정 예정 */
           onClose={closeModal}
         />
       )}

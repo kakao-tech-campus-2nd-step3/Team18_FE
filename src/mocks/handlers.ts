@@ -7,6 +7,7 @@ import { myCompaniesMockHandler } from '@/apis/companies/mocks/myCompaniesMockHa
 import { myRecruitmentsMockHandler } from '@/apis/recruitments/mocks/myRecruitmentsMockHandler';
 import { myApplicantsMockHandler } from '@/apis/applicants/mocks/myApplicantsMockHandler';
 import { foreignerMockHandler } from '@/apis/applicants/mocks/foreignerMockHandler';
+import { visaMockHandler } from '@/apis/applicants/mocks/visaMockHandler';
 
 export const handlers = [
   ...recruitmentsMockHandler,
@@ -18,4 +19,5 @@ export const handlers = [
   ...myRecruitmentsMockHandler,
   ...myApplicantsMockHandler,
   ...foreignerMockHandler,
+  ...visaMockHandler,
 ];
