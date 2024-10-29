@@ -1,17 +1,20 @@
 import { Button, Flex, Icon, Modal, Typo } from '@/components/common';
 import ModalText from './ModalText';
-import { foreigner } from './index.mock';
 import { buttonTextStyle, customButtonStyle, modalStyle } from './index.styles';
+import { useGetForeigner } from '@/apis/applicants/hooks/useGetForeigner';
 
 interface ContractModalProps {
   isOpen: boolean;
   onClose: () => void;
+  userId: number;
 }
 
-export default function ContractModal({ isOpen, onClose }: ContractModalProps) {
+export default function ContractModal({ isOpen, onClose, userId }: ContractModalProps) {
+  const { data: foreigner } = useGetForeigner(userId);
+
   return (
     <>
-      {isOpen && (
+      {isOpen && foreigner && (
         <Modal
           textChildren={
             <ModalText foreignerIdNumber={foreigner.foreignerIdNumber} visaGenerateDate={foreigner.visaGenerateDate} />
@@ -29,7 +32,6 @@ export default function ContractModal({ isOpen, onClose }: ContractModalProps) {
               </Button>
             </Flex>
           }
-          /* onClose 부분 추후 수정 예정 */
           onClose={onClose}
           style={modalStyle}
         />

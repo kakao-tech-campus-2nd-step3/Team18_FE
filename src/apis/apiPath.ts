@@ -10,6 +10,7 @@ export const APIPath = {
   getMyCompanies: `${BASE_URL}/company`,
   getMyRecruitments: `${BASE_URL}/recruitments/company/:companyId`,
   getMyApplicants: `${BASE_URL}/application/:recruitmentId`,
+  getForeigner: `${BASE_URL}/visa/:userId`,
 };
 
 export const getDynamicAPIPath = {
@@ -17,4 +18,5 @@ export const getDynamicAPIPath = {
   getMyRecruitments: (companyId: number) => APIPath.getMyRecruitments.replace(':companyId', companyId.toString()),
   getMyApplicants: (recruitmentId: number) =>
     APIPath.getMyApplicants.replace(':recruitmentId', recruitmentId.toString()),
+  getForeigner: (userId: number) => APIPath.getForeigner.replace(':userId', userId.toString()),
 };
