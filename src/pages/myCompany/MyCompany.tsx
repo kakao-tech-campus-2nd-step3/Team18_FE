@@ -1,9 +1,15 @@
 import Layout from '@/features/layout';
-import { Flex, InnerContainer, Image, Typo, Button, Icon } from '@/components/common';
+import { Flex, InnerContainer, Image, Typo, Button, Icon, Spinner } from '@/components/common';
 import CompanyLogo from '@assets/images/coupang.png';
 import CompanyInfo from '@/features/companies/CompanyInfo/CompanyInfo';
 import { palettes } from '@/assets/styles/global/palettes';
-import { buttonStyle, imageStyle, companyWrapperStyle, innerContainerStyle } from './MyCompany.styles';
+import {
+  buttonStyle,
+  imageStyle,
+  companyWrapperStyle,
+  innerContainerStyle,
+  spinnerFlexStyle,
+} from './MyCompany.styles';
 import RecruitmentList from '@/features/recruitments/RecruitmentList/RecruitmentList';
 import { useParams } from 'react-router-dom';
 import { useGetMyCompanies } from '@/apis/companies/hooks/useGetMyCompanies';
@@ -18,7 +24,7 @@ interface MyCompanyProps {
 export default function MyCompany({ company, recruitmentList }: MyCompanyProps) {
   const { companyId } = useParams();
   const { data: companyList } = useGetMyCompanies();
-  const { data: recruitments } = useGetMyRecruitments(Number(companyId));
+  const { data: recruitments, isLoading } = useGetMyRecruitments(Number(companyId));
 
   const companyData = company || companyList?.find((c: CompanyData) => c.companyId.toString() === companyId);
   const recruitmentsData = recruitmentList || recruitments;
@@ -27,7 +33,12 @@ export default function MyCompany({ company, recruitmentList }: MyCompanyProps) 
     <Layout>
       <div>
         <InnerContainer css={innerContainerStyle}>
-          <Flex direction="column" alignItems="center" gap={{ y: '60px' }}>
+          <Flex
+            direction="column"
+            alignItems="center"
+            gap={{ y: '60px' }}
+            css={{ position: 'relative', minHeight: '600px' }}
+          >
             <Flex justifyContent="space-between" alignItems="center" gap={{ x: '100px' }} css={companyWrapperStyle}>
               <Image url={CompanyLogo} size={{ width: '280px', height: '120px' }} css={imageStyle} />
               <CompanyInfo
@@ -45,7 +56,13 @@ export default function MyCompany({ company, recruitmentList }: MyCompanyProps) 
                 </Flex>
               </Button>
             </Flex>
-            {recruitmentsData && <RecruitmentList recruitmentList={recruitmentsData} />}
+            {isLoading ? (
+              <Flex justifyContent="center" alignItems="center" css={spinnerFlexStyle}>
+                <Spinner />
+              </Flex>
+            ) : (
+              recruitmentsData && <RecruitmentList recruitmentList={recruitmentsData} />
+            )}
           </Flex>
         </InnerContainer>
       </div>
