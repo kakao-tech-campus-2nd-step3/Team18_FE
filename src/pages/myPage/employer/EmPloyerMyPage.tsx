@@ -3,9 +3,16 @@ import Layout from '@/features/layout';
 import CompanyList from '@/features/companies/CompanyList/CompanyList';
 import { flexStyle, innerContainerStyle, signButtonStyle, typoStyle } from './EmployerMyPage.styles';
 import { useGetMyCompanies } from '@/apis/companies/hooks/useGetMyCompanies';
+import { useNavigate } from 'react-router-dom';
+import ROUTE_PATH from '@/routes/path';
 
 export default function EmployerMyPage() {
   const { data: companyList } = useGetMyCompanies();
+  const navigate = useNavigate();
+
+  const handleSignButtonClick = () => {
+    navigate(ROUTE_PATH.REGISTERSIGN);
+  };
 
   return (
     <Layout>
@@ -16,7 +23,7 @@ export default function EmployerMyPage() {
               <Typo element="h2" size="36px" style={typoStyle} bold>
                 사장님, 안녕하세요!
               </Typo>
-              <Button design="outlined" css={signButtonStyle}>
+              <Button design="outlined" css={signButtonStyle} onClick={handleSignButtonClick}>
                 <Flex justifyContent="space-between">
                   <Typo size="20px" bold>
                     사인 등록
