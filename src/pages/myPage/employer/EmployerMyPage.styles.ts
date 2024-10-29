@@ -1,3 +1,4 @@
+import { palettes } from '@/assets/styles/global/palettes';
 import { responsiveStyle } from '@/utils/responsive';
 import { css } from '@emotion/react';
 
@@ -15,10 +16,24 @@ export const innerContainerStyle = css`
   })}
 `;
 
+export const flexStyle = css`
+  background-color: ${palettes.blue};
+  padding: 30px;
+  border-radius: 8px;
+
+  ${responsiveStyle({
+    mobile: {
+      flexDirection: 'column',
+      gap: '27px',
+      justifyContent: 'center',
+    },
+  })}
+`;
+
 export const typoStyle = {
   ...responsiveStyle({
     default: {
-      fontWeight: 'bold',
+      color: `${palettes.white}`,
     },
     tablet: {
       fontSize: '33px',
@@ -28,3 +43,9 @@ export const typoStyle = {
     },
   }),
 };
+
+export const signButtonStyle = css`
+  width: 300px;
+  padding: 25px;
+  border-radius: 8px;
+`;
