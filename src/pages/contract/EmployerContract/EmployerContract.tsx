@@ -2,7 +2,7 @@ import { Button, Flex, Input, Typo } from '@/components/common';
 import Layout from '@/features/layout';
 import styled from '@emotion/styled';
 
-export const EmployerContract = () => {
+export default function EmployerContract() {
   return (
     <Layout>
       <section>
@@ -152,7 +152,7 @@ export const EmployerContract = () => {
       </section>
     </Layout>
   );
-};
+}
 
 const LineWrapper = styled.div`
   border: 1px solid #e9e9e9;

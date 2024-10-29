@@ -12,6 +12,7 @@ export const APIPath = {
   getMyApplicants: `${BASE_URL}/application/:recruitmentId`,
   getForeigner: `${BASE_URL}/visa/:userId`,
   setVisa: `${BASE_URL}/visa`,
+  apply: '/api/application/',
 };
 
 export const getDynamicAPIPath = {
