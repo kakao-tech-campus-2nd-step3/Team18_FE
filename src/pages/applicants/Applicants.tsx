@@ -1,4 +1,4 @@
-import { Flex, InnerContainer } from '@/components/common';
+import { Flex, InnerContainer, Spinner } from '@/components/common';
 import ApplicantList from '@/features/applicants/ApplicantList/ApplicantList';
 import RecruitmentsInfo from '@/features/recruitments/RecruitmentInfo/RecruitmentInfo';
 import Layout from '@/features/layout';
@@ -7,6 +7,7 @@ import { useGetMyRecruitments } from '@/apis/recruitments/hooks/useGetMyRecruitm
 import { useParams } from 'react-router-dom';
 import { useGetMyApplicants } from '@/apis/applicants/hooks/useGetMyApplicants';
 import { ApplicantData, RecruitmentItem } from '@/types';
+import { spinnerFlexStyle } from './Applicants.styles';
 
 interface MyApplicantProps {
   recruitment?: RecruitmentItem;
@@ -16,7 +17,7 @@ interface MyApplicantProps {
 export default function Applicants({ recruitment, applicantList }: MyApplicantProps) {
   const { companyId, recruitmentId } = useParams();
   const { data: recruitmentList } = useGetMyRecruitments(Number(companyId));
-  const { data: applicants } = useGetMyApplicants(Number(recruitmentId));
+  const { data: applicants, isLoading } = useGetMyApplicants(Number(recruitmentId));
 
   const recruitmentData =
     recruitment || recruitmentList?.find((r: RecruitmentItem) => r.recruitmentId.toString() === recruitmentId);
@@ -26,7 +27,7 @@ export default function Applicants({ recruitment, applicantList }: MyApplicantPr
     <Layout>
       <MainContainer>
         <InnerContainer>
-          <Flex direction="column" gap={{ y: '60px' }}>
+          <Flex direction="column" gap={{ y: '60px' }} css={{ position: 'relative', minHeight: '600px' }}>
             <RecruitmentsInfo
               image={recruitmentData.image}
               companyName={recruitmentData.companyName}
@@ -34,7 +35,13 @@ export default function Applicants({ recruitment, applicantList }: MyApplicantPr
               area={recruitmentData.area}
               salary={recruitmentData.salary}
             />
-            {applicantsData && <ApplicantList applicantList={applicantsData} />}
+            {isLoading ? (
+              <Flex justifyContent="center" alignItems="center" css={spinnerFlexStyle}>
+                <Spinner />
+              </Flex>
+            ) : (
+              applicantsData && <ApplicantList applicantList={applicantsData} />
+            )}
           </Flex>
         </InnerContainer>
       </MainContainer>
