@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
-import Applicants from '.';
-import { recruitment, applicantList } from './index.mock';
+import Applicants from './Applicants';
+import { recruitment, applicantList } from './Applicants.mock';
 
 const meta: Meta<typeof Applicants> = {
   title: 'pages/Applicants',

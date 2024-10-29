@@ -1,10 +1,10 @@
 import Layout from '@/features/layout';
 import { Flex, InnerContainer, Image, Typo, Button, Icon } from '@/components/common';
 import CompanyLogo from '@assets/images/coupang.png';
-import CompanyInfo from '@/features/companies/CompanyInfo';
+import CompanyInfo from '@/features/companies/CompanyInfo/CompanyInfo';
 import { palettes } from '@/assets/styles/global/palettes';
-import { buttonStyle, imageStyle, companyWrapperStyle, innerContainerStyle } from './index.styles';
-import RecruitmentList from '@/features/recruitments/RecruitmentList';
+import { buttonStyle, imageStyle, companyWrapperStyle, innerContainerStyle } from './MyCompany.styles';
+import RecruitmentList from '@/features/recruitments/RecruitmentList/RecruitmentList';
 import { useParams } from 'react-router-dom';
 import { useGetMyCompanies } from '@/apis/companies/hooks/useGetMyCompanies';
 import { CompanyData, RecruitmentItem } from '@/types';

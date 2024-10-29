@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
-import MyCompany from '.';
-import { company, recruitmentList } from './index.mock';
+import MyCompany from './MyCompany';
+import { company, recruitmentList } from './MyCompany.mock';
 
 const meta: Meta<typeof MyCompany> = {
   title: 'pages/MyCompany',

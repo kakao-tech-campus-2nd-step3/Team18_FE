@@ -1,6 +1,6 @@
 import { Button, Flex, Icon, Modal, Typo } from '@/components/common';
-import ModalText from './ModalText';
-import { buttonTextStyle, customButtonStyle, modalStyle } from './index.styles';
+import ModalText from './ModalText/ModalText';
+import { buttonTextStyle, customButtonStyle, modalStyle } from './ContractModal.styles';
 import { useGetForeigner } from '@/apis/applicants/hooks/useGetForeigner';
 
 interface ContractModalProps {

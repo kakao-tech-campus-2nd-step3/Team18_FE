@@ -11,7 +11,7 @@ import {
   infoFlexStyle,
   infoGroupStyle,
   recruitmentFlexStyle,
-} from './index.styles';
+} from './RecruitmentInfo.styles';
 
 type Props = Pick<RecruitmentItem, 'image' | 'companyName' | 'koreanTitle' | 'area' | 'salary'>;
 

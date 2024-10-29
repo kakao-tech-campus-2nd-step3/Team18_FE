@@ -1,6 +1,6 @@
 import { Button, Flex, List, Table, Td, Th, Typo } from '@/components/common';
 import { RecruitmentItem } from '@/types';
-import { buttonGroupStyle, buttonStyle, recruitmentStyle, recruitmentTitleStyle } from './index.styles';
+import { buttonGroupStyle, buttonStyle, recruitmentStyle, recruitmentTitleStyle } from './RecruitmentsTable.styles';
 import { useNavigate, useParams } from 'react-router-dom';
 import ROUTE_PATH from '@/routes/path';
 

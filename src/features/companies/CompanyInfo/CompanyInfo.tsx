@@ -3,7 +3,7 @@ import { CompanyData } from '@/types';
 import IndustryIcon from '@assets/icons/companyInfo/industry.svg?react';
 import BrandIcon from '@assets/icons/companyInfo/brand.svg?react';
 import RevenueIcon from '@assets/icons/companyInfo/revenue.svg?react';
-import { companyNameStyle, infoStyle, infoWrapperStyle } from './index.styles';
+import { companyNameStyle, infoStyle, infoWrapperStyle } from './CompanyInfo.styles';
 
 type Props = Pick<CompanyData, 'name' | 'industryOccupation' | 'brand' | 'revenuePerYear'>;
 

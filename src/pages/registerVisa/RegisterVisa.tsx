@@ -1,9 +1,9 @@
 import { Flex, InnerContainer, Typo } from '@/components/common';
 import Layout from '@/features/layout';
-import VisaRegistrationForm from '@/features/visaRegistration';
-import { BreakableText, innerContainerStyle, titleStyle } from './index.styles';
+import VisaRegistrationForm from '@/features/registerVisa/VisaRegistrationForm';
+import { BreakableText, innerContainerStyle, titleStyle } from './RegisterVisa.styles';
 
-export default function VisaRegistration() {
+export default function RegisterVisa() {
   return (
     <Layout>
       <div>

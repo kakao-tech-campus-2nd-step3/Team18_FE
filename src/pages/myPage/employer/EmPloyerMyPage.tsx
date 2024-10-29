@@ -1,10 +1,10 @@
 import { Flex, InnerContainer, Typo } from '@/components/common';
 import Layout from '@/features/layout';
-import CompanyList from '@/features/companies/CompanyList';
-import { innerContainerStyle, typoStyle } from './index.styles';
+import CompanyList from '@/features/companies/CompanyList/CompanyList';
+import { innerContainerStyle, typoStyle } from './EmployerMyPage.styles';
 import { useGetMyCompanies } from '@/apis/companies/hooks/useGetMyCompanies';
 
-export default function EmployerMyAccount() {
+export default function EmployerMyPage() {
   const { data: companyList } = useGetMyCompanies();
 
   return (

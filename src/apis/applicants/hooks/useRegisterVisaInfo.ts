@@ -6,7 +6,7 @@ import { useMutation } from '@tanstack/react-query';
 type VisaRequest = Pick<ForeignerData, 'foreignerIdNumber' | 'visaGenerateDate'>;
 
 const registerVisaInfo = async (req: VisaRequest) => {
-  const res = await clientInstance.put(APIPath.setVisa, req);
+  const res = await clientInstance.put(APIPath.registerVisa, req);
   return res.data;
 };
 

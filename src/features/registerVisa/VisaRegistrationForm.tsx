@@ -1,6 +1,6 @@
 import { Button, Flex, Input, Modal } from '@/components/common';
 import { ChangeEvent, useMemo, useState } from 'react';
-import { buttonStyle, ErrorMessage, Form, inputStyle } from './index.styles';
+import { buttonStyle, ErrorMessage, Form, inputStyle } from './VisaRegistrationForm.styles';
 import { validateForeignerNumber } from './validateForeignerNumber';
 import { useRegisterVisaInfo } from '@/apis/applicants/hooks/useRegisterVisaInfo';
 
