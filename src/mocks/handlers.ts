@@ -3,8 +3,9 @@ import { slidesMockHandler } from '@/apis/home/mocks/slidesMockHandler';
 import { EmployeePageMockHandler } from '@/apis/employee/mock/getMyApplication.mock';
 import { noticesMockHandler } from '@/apis/employer/mock/postNotice.mock';
 import { registerSignMockHandler } from '@/apis/registerSign/registerSign.mock';
-import { myCompaniesMockHandler } from '@/apis/myAccount/employer/mocks/myCompaniesMockHandler';
-import { myRecruitmentsMockHandler } from '@/apis/myCompany/mocks/myRecruitmentsMockHandler';
+import { myCompaniesMockHandler } from '@/apis/companies/mocks/myCompaniesMockHandler';
+import { myRecruitmentsMockHandler } from '@/apis/recruitments/mocks/myRecruitmentsMockHandler';
+import { myApplicantsMockHandler } from '@/apis/applicants/mocks/myApplicantsMockHandler';
 
 export const handlers = [
   ...recruitmentsMockHandler,
@@ -14,4 +15,5 @@ export const handlers = [
   ...registerSignMockHandler,
   ...myCompaniesMockHandler,
   ...myRecruitmentsMockHandler,
+  ...myApplicantsMockHandler,
 ];

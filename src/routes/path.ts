@@ -23,7 +23,7 @@ const ROUTE_PATH = {
   POST_NOTICE: '/post-notice',
   APPLY,
   AUTH,
-  APPLICANTS: '/applicants',
+  APPLICANTS: '/company/:companyId/recruitment/:recruitmentId/applicants',
   EMPLOYEE,
   RESUME: '/resume',
   MY_COMPANY: '/my-company/:companyId',

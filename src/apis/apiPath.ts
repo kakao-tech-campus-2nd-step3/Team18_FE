@@ -9,9 +9,12 @@ export const APIPath = {
   registerSign: '/api/sign',
   getMyCompanies: `${BASE_URL}/company`,
   getMyRecruitments: `${BASE_URL}/recruitments/company/:companyId`,
+  getMyApplicants: `${BASE_URL}/application/:recruitmentId`,
 };
 
 export const getDynamicAPIPath = {
   downloadContract: (applyId: number) => APIPath.downloadContract.replace(':applyId', applyId.toString()),
   getMyRecruitments: (companyId: number) => APIPath.getMyRecruitments.replace(':companyId', companyId.toString()),
+  getMyApplicants: (recruitmentId: number) =>
+    APIPath.getMyApplicants.replace(':recruitmentId', recruitmentId.toString()),
 };

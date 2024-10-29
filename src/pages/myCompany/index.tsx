@@ -6,9 +6,9 @@ import { palettes } from '@/assets/styles/global/palettes';
 import { buttonStyle, imageStyle, companyWrapperStyle, innerContainerStyle } from './index.styles';
 import RecruitmentList from '@/features/recruitments/RecruitmentList';
 import { useParams } from 'react-router-dom';
-import { useGetMyCompanies } from '@/apis/myAccount/employer/hooks/useGetMyCompanies';
+import { useGetMyCompanies } from '@/apis/companies/hooks/useGetMyCompanies';
 import { CompanyData, RecruitmentItem } from '@/types';
-import { useGetMyRecruitments } from '@/apis/myCompany/hooks/useGetMyRecruitments';
+import { useGetMyRecruitments } from '@/apis/recruitments/hooks/useGetMyRecruitments';
 
 interface MyCompanyProps {
   company?: CompanyData;
@@ -21,7 +21,7 @@ export default function MyCompany({ company, recruitmentList }: MyCompanyProps) 
   const { data: recruitments } = useGetMyRecruitments(Number(companyId));
 
   const companyData = company || companyList?.find((c: CompanyData) => c.companyId.toString() === companyId);
-  const recruitmentData = recruitmentList || recruitments;
+  const recruitmentsData = recruitmentList || recruitments;
 
   return (
     <Layout>
@@ -45,7 +45,7 @@ export default function MyCompany({ company, recruitmentList }: MyCompanyProps) 
                 </Flex>
               </Button>
             </Flex>
-            {recruitmentData && <RecruitmentList recruitmentList={recruitmentData} />}
+            {recruitmentsData && <RecruitmentList recruitmentList={recruitmentsData} />}
           </Flex>
         </InnerContainer>
       </div>
