@@ -1,13 +1,13 @@
-import { Button, Flex, Icon, InnerContainer, Typo } from '@/components/common';
+import { Button, Flex, Icon, InnerContainer, Spinner, Typo } from '@/components/common';
 import Layout from '@/features/layout';
 import CompanyList from '@/features/companies/CompanyList/CompanyList';
-import { flexStyle, innerContainerStyle, signButtonStyle, typoStyle } from './EmployerMyPage.styles';
+import { flexStyle, innerContainerStyle, signButtonStyle, spinnerFlexStyle, typoStyle } from './EmployerMyPage.styles';
 import { useGetMyCompanies } from '@/apis/companies/hooks/useGetMyCompanies';
 import { useNavigate } from 'react-router-dom';
 import ROUTE_PATH from '@/routes/path';
 
 export default function EmployerMyPage() {
-  const { data: companyList } = useGetMyCompanies();
+  const { data: companyList, isLoading } = useGetMyCompanies();
   const navigate = useNavigate();
 
   const handleSignButtonClick = () => {
@@ -18,7 +18,7 @@ export default function EmployerMyPage() {
     <Layout>
       <div>
         <InnerContainer css={innerContainerStyle}>
-          <Flex direction="column" gap={{ y: '60px' }}>
+          <Flex direction="column" gap={{ y: '60px' }} css={{ position: 'relative', minHeight: '600px' }}>
             <Flex justifyContent="space-between" alignItems="center" css={flexStyle}>
               <Typo element="h2" size="36px" style={typoStyle} bold>
                 사장님, 안녕하세요!
@@ -32,7 +32,13 @@ export default function EmployerMyPage() {
                 </Flex>
               </Button>
             </Flex>
-            {companyList && <CompanyList companyList={companyList} />}
+            {isLoading ? (
+              <Flex justifyContent="center" alignItems="center" css={spinnerFlexStyle}>
+                <Spinner />
+              </Flex>
+            ) : (
+              companyList && <CompanyList companyList={companyList} />
+            )}
           </Flex>
         </InnerContainer>
       </div>
