@@ -24,7 +24,7 @@ export const CONTRACT = {
 
 const ROUTE_PATH = {
   HOME: '/',
-  RECRUIT: '/recruit',
+  RECRUIT: '/recruit/:postId',
   POST_NOTICE: '/post-notice',
   APPLY,
   AUTH,

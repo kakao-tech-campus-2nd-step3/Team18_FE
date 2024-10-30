@@ -13,6 +13,7 @@ export const APIPath = {
   getForeigner: `${BASE_URL}/visa/:userId`,
   setVisa: `${BASE_URL}/visa`,
   apply: '/api/application/',
+  recruitmentsDetail: '/api/recruitments/:postId',
 };
 
 export const getDynamicAPIPath = {
@@ -21,4 +22,5 @@ export const getDynamicAPIPath = {
   getMyApplicants: (recruitmentId: number) =>
     APIPath.getMyApplicants.replace(':recruitmentId', recruitmentId.toString()),
   getForeigner: (userId: number) => APIPath.getForeigner.replace(':userId', userId.toString()),
+  recruitmentsDetail: (postId: string) => APIPath.recruitmentsDetail.replace(':postId', postId.toString()),
 };
