@@ -23,7 +23,7 @@ export type ForeignerData = {
 };
 
 export type UserData = {
-  type: string;
+  type: 'first' | 'employee' | 'employer';
   profileImage: string;
 };
 

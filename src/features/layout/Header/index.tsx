@@ -15,11 +15,29 @@ import {
   Nav,
 } from './index.styles';
 import { UserData } from '@/types';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import ROUTE_PATH from '@/routes/path';
 
-type Props = Pick<UserData, 'profileImage'>;
-
-export default function Header({ profileImage }: Props) {
+export default function Header() {
+  const navigate = useNavigate();
   const [menuOpen, toggleMenu] = useToggle();
+  const [user, setUser] = useState<UserData | null>(null);
+
+  useEffect(() => {
+    const userData = localStorage.getItem('user');
+
+    if (userData) {
+      setUser(JSON.parse(userData));
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    setUser(null);
+    navigate(ROUTE_PATH.HOME);
+  };
 
   return (
     <HeaderContainer>
@@ -30,13 +48,23 @@ export default function Header({ profileImage }: Props) {
         </Flex>
         <Nav open={menuOpen}>
           <LanguageFilter />
-          <Button design="outlined" style={commonButtonStyle}>
-            채용공고 등록
-          </Button>
-          <Flex justifyContent="center" alignItems="center">
-            <Image url={profileImage} size={{ width: '40px', height: '40px' }} css={imageStyle} />
-          </Flex>
-          <Button style={customButtonStyle}>로그아웃</Button>
+          {!user ? (
+            <Button style={customButtonStyle}>로그인</Button>
+          ) : (
+            <>
+              {user.type === 'employer' && (
+                <Button design="outlined" style={commonButtonStyle}>
+                  채용공고 등록
+                </Button>
+              )}
+              <Flex justifyContent="center" alignItems="center">
+                <Image url={user.profileImage} size={{ width: '40px', height: '40px' }} css={imageStyle} />
+              </Flex>
+              <Button style={customButtonStyle} onClick={handleLogout}>
+                로그아웃
+              </Button>
+            </>
+          )}
         </Nav>
       </Flex>
     </HeaderContainer>

@@ -81,6 +81,7 @@ export const Nav = styled.nav<NavProps>`
     mobile: {
       flexDirection: 'column',
       alignItems: 'stretch',
+      textAlign: 'center',
     },
   })}
 
