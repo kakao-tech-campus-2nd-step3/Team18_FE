@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import RecruitCard from '../RecruitCard';
-import { RecruitCardProps } from '../RecruitCard';
+import { RecruitCardProps } from '../RecruitType';
 import cat from '../cat.jpg';
 
 const meta: Meta<RecruitCardProps> = {
@@ -8,18 +8,18 @@ const meta: Meta<RecruitCardProps> = {
   component: RecruitCard,
   tags: ['autodocs'],
   argTypes: {
-    title: { control: 'text' },
-    companySize: { control: 'text' },
+    koreanTitle: { control: 'text' },
+    companyScale: { control: 'text' },
     area: { control: 'text' },
     requestedCareer: { control: 'text' },
-    companyImage: { control: 'text' },
+    imageUrl: { control: 'text' },
   },
   args: {
-    title: '김밥천국 채용 (1년 계약직)',
-    companySize: '대기업',
+    koreanTitle: '김밥천국 채용 (1년 계약직)',
+    companyScale: '대기업',
     area: '대구 달서구',
     requestedCareer: '경력 1~2년',
-    companyImage: cat,
+    imageUrl: cat,
   },
 };
 

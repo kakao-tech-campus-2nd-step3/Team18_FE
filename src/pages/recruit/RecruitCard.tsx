@@ -1,23 +1,16 @@
 import { Button } from '@/components/common';
 import { Icon } from '@components/common';
 import styled from '@emotion/styled';
+import type { RecruitCardProps } from './RecruitType';
 
-export interface RecruitCardProps {
-  title: string;
-  companySize: string;
-  area: string;
-  requestedCareer: string;
-  companyImage?: string;
-}
-
-export default function RecruitCard({ title, companySize, area, requestedCareer, companyImage }: RecruitCardProps) {
+export default function RecruitCard({ koreanTitle, companyScale, area, requestedCareer, imageUrl }: RecruitCardProps) {
   return (
     <RecruitContainer>
-      <CompanyImg alt="a" src={companyImage} />
+      <CompanyImg alt="companyImg" src={imageUrl} />
       <Info_Div>
         <Info_p>
-          <p>{title}</p>
-          <p>{`${companySize} | ${area} | ${requestedCareer}`}</p>
+          <p>{koreanTitle}</p>
+          <p>{`${companyScale} | ${area} | ${requestedCareer}`}</p>
         </Info_p>
         <Info_Btn>
           <CustomBtn background="#0a65cc">지원하기</CustomBtn>

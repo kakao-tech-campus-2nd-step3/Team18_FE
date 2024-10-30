@@ -4,15 +4,17 @@ import RecruitDetail from './RecruitDetail';
 import Layout from '@/features/layout';
 import cat from './cat.jpg';
 
-const CardinitialData = {
-  title: '김밥천국 채용 (1년 계약직)',
-  companySize: '대기업',
+const CardInitialData = {
+  koreanTitle: '김밥천국 채용 (1년 계약직)',
+  vietnameseTitle: 'hi',
+  companyScale: '대기업',
   area: '대구 달서구',
   requestedCareer: '경력 1~2년',
-  companyImage: cat,
+  imageUrl: cat,
 };
-const DeatilinitialData = {
-  detailedDescription: '김밥 만들기 아르바이트',
+
+const DetailInitialData = {
+  detailedDescription: '김밥 만들기 알바',
   majorBusiness: [
     { id: 1, text: '김밥 만들기' },
     { id: 2, text: '재료 전처리' },
@@ -27,27 +29,24 @@ const DeatilinitialData = {
     { id: 2, text: '지각하지 않는 사람' },
     { id: 3, text: '김밥에 있는 오이를 빼지 않는 사람' },
   ],
+  employerName: '이재용',
+  companyName: '삼성전자',
+  koreanDetailedDescription: '김밥 만들기 아르바이트',
+  vietnameseDetailedDescription: 'hi',
+  workDuration: '3달',
+  workDays: '주 2회',
+  workType: '파트타임',
+  workHours: '오전 11시 ~ 오후 1시',
+  salary: '최저시급',
 };
 
 export default function Recruit() {
   return (
     <Layout>
       <Container>
-        <RecruitCard
-          title={CardinitialData.title}
-          companySize={CardinitialData.companySize}
-          area={CardinitialData.area}
-          requestedCareer={CardinitialData.requestedCareer}
-          companyImage={cat}
-        />
+        <RecruitCard {...CardInitialData} />
         <Divider />
-        <RecruitDetail
-          detailedDescription={DeatilinitialData.detailedDescription}
-          majorBusiness={DeatilinitialData.majorBusiness}
-          eligibilityCriteria={DeatilinitialData.eligibilityCriteria}
-          preferredConditions={DeatilinitialData.preferredConditions}
-          companyImage={cat}
-        />
+        <RecruitDetail {...DetailInitialData} />
       </Container>
     </Layout>
   );
@@ -64,7 +63,7 @@ const Divider = styled.div`
   width: 100%;
   height: 1px;
   opacity: 0.7;
-  margin: 100px 0;
+  margin: 70px 0;
   padding: 0 100px;
   max-width: 1320px;
   background-color: #e9e9e9;
