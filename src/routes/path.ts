@@ -15,8 +15,12 @@ export const MY_ACCOUNT = {
 
 export const EMPLOYEE = {
   EMPLOYEE_PAGE: '/employee-my-page',
-  VISA_REGISTRATION: '/visa-registration',
 } as const;
+
+export const CONTRACT = {
+  EMPLOYER: '/employer-contract',
+  EMPLOYEE: '/employee-contract',
+};
 
 const ROUTE_PATH = {
   HOME: '/',
@@ -24,14 +28,15 @@ const ROUTE_PATH = {
   POST_NOTICE: '/post-notice',
   APPLY,
   AUTH,
-  APPLICANTS: '/applicants',
+  APPLICANTS: '/company/:companyId/recruitment/:recruitmentId/applicants',
   EMPLOYEE,
   RESUME: '/resume',
-  MY_COMPANY: '/my-company',
+  MY_COMPANY: '/my-company/:companyId',
   VISA_REGISTRATION: '/visa-registration',
   MY_ACCOUNT,
   REGISTERSIGN: '/registersign',
   REGISTERCOMPANY: '/register-company',
+  CONTRACT,
 } as const;
 
 export default ROUTE_PATH;

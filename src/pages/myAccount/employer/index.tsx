@@ -1,10 +1,12 @@
 import { Flex, InnerContainer, Typo } from '@/components/common';
 import Layout from '@/features/layout';
 import CompanyList from '@/features/companies/CompanyList';
-import { companyList } from './index.mock';
 import { innerContainerStyle, typoStyle } from './index.styles';
+import { useGetMyCompanies } from '@/apis/companies/hooks/useGetMyCompanies';
 
 export default function EmployerMyAccount() {
+  const { data: companyList } = useGetMyCompanies();
+
   return (
     <Layout>
       <div>
@@ -13,7 +15,7 @@ export default function EmployerMyAccount() {
             <Typo element="h2" size="36px" style={typoStyle}>
               사장님, 안녕하세요!
             </Typo>
-            <CompanyList companyList={companyList} />
+            {companyList && <CompanyList companyList={companyList} />}
           </Flex>
         </InnerContainer>
       </div>

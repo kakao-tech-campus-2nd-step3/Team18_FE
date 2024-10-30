@@ -10,13 +10,16 @@ type Props = {
 
 export default function ApplicantsTable({ applicantList }: Props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
 
-  const handleOpenModal = () => {
+  const handleOpenModal = (userId: number) => {
+    setSelectedUserId(userId);
     setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
+    setSelectedUserId(null);
   };
 
   return (
@@ -42,7 +45,7 @@ export default function ApplicantsTable({ applicantList }: Props) {
                   <Flex justifyContent="flex-end" alignItems="center" gap={{ x: '20px' }} css={buttonGroupStyle}>
                     <Button css={buttonStyle}>이력서</Button>
                     <Button css={buttonStyle}>지원서</Button>
-                    <Button css={buttonStyle} onClick={handleOpenModal}>
+                    <Button css={buttonStyle} onClick={() => handleOpenModal(applicant.userId)}>
                       계약하기
                     </Button>
                   </Flex>
@@ -52,7 +55,7 @@ export default function ApplicantsTable({ applicantList }: Props) {
           />
         </tbody>
       </Table>
-      <ContractModal isOpen={isModalOpen} onClose={handleCloseModal} />
+      {selectedUserId && <ContractModal isOpen={isModalOpen} onClose={handleCloseModal} userId={selectedUserId} />}
     </>
   );
 }

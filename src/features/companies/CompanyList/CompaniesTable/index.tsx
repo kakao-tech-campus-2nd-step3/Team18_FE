@@ -2,12 +2,20 @@ import { Button, Flex, Icon, List, Image, Table, Th, Td } from '@/components/com
 import { CompanyData } from '@/types';
 import CompanyInfo from '@/features/companies/CompanyInfo';
 import { cellStyle, imageSize, imageStyle } from './index.styles';
+import { useNavigate } from 'react-router-dom';
+import ROUTE_PATH from '@/routes/path';
 
 type Props = {
   companyList: CompanyData[];
 };
 
 export default function CompaniesTable({ companyList }: Props) {
+  const navigate = useNavigate();
+
+  const handleCompanyClick = (companyId: number) => {
+    navigate(ROUTE_PATH.MY_COMPANY.replace(':companyId', companyId.toString()));
+  };
+
   return (
     <Table>
       <thead>
@@ -19,7 +27,7 @@ export default function CompaniesTable({ companyList }: Props) {
         <List
           items={companyList}
           renderItem={(company) => (
-            <tr key={company.id}>
+            <tr key={company.companyId}>
               <Td>
                 <Flex justifyContent="space-between" alignItems="center" gap={{ x: '100px' }} css={cellStyle}>
                   <Image url={company.logoImage} size={imageSize} css={imageStyle} />
@@ -30,7 +38,7 @@ export default function CompaniesTable({ companyList }: Props) {
                       brand={company.brand}
                       revenuePerYear={company.revenuePerYear}
                     />
-                    <Button design="textbutton">
+                    <Button design="textbutton" onClick={() => handleCompanyClick(company.companyId)}>
                       <Icon.Arrow.BigRightBlue />
                     </Button>
                   </Flex>

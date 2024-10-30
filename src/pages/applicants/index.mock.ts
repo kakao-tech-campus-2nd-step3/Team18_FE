@@ -1,11 +1,14 @@
 import CompanyImage from '@assets/images/coupang.png';
 
 export const recruitment = {
+  recruitmentId: 1,
   image: CompanyImage,
-  companyName: '쿠팡 유성점',
   koreanTitle: '쿠팡 유성점에서 아르바이트 모집합니다.',
-  area: '대전 유성구',
+  vietnameseTitle: '',
+  companyName: '쿠팡 유성점',
   salary: 50000000,
+  workHours: '',
+  area: '대전 유성구',
 };
 
 export const applicantList = [
