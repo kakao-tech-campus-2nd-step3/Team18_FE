@@ -17,6 +17,11 @@ export const EMPLOYEE = {
   EMPLOYEE_PAGE: '/employee-my-page',
 } as const;
 
+export const CONTRACT = {
+  EMPLOYER: '/employer-contract',
+  EMPLOYEE: '/employee-contract',
+};
+
 const ROUTE_PATH = {
   HOME: '/',
   RECRUIT: '/recruit',
@@ -31,6 +36,7 @@ const ROUTE_PATH = {
   MY_PAGE,
   REGISTERSIGN: '/registersign',
   REGISTERCOMPANY: '/register-company',
+  CONTRACT,
 } as const;
 
 export default ROUTE_PATH;

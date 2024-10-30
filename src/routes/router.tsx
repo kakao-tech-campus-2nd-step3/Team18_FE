@@ -17,6 +17,8 @@ import EmployeeMyPage from '@/pages/employee/myPage/EmployeeMyPage';
 import RegisterSign from '@/pages/registerSign/RegisterSign';
 import RegisterCompany from '@/pages/registerCompany/RegisterCompany';
 import EmployerMyPage from '@/pages/myPage/employer/EmPloyerMyPage';
+import EmployeeContract from '@/pages/contract/EmployeeContract/EmployeeContract';
+import EmployerContract from '@/pages/contract/EmployerContract/EmployerContract';
 
 export const router = createBrowserRouter([
   {
@@ -47,6 +49,8 @@ export const router = createBrowserRouter([
       { path: ROUTE_PATH.MY_PAGE.EMPLOYER, element: <EmployerMyPage /> },
       { path: ROUTE_PATH.REGISTERSIGN, element: <RegisterSign /> },
       { path: ROUTE_PATH.REGISTERCOMPANY, element: <RegisterCompany /> },
+      { path: ROUTE_PATH.CONTRACT.EMPLOYEE, element: <EmployeeContract /> },
+      { path: ROUTE_PATH.CONTRACT.EMPLOYER, element: <EmployerContract /> },
     ],
   },
 ]);
