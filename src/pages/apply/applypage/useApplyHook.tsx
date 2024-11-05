@@ -1,6 +1,7 @@
 import useToggle from '@/hooks/useToggle';
 import { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { FetchApply } from '@/apis/apply/useApplyHook';
 
 export interface ApplyInfoProps {
   name: string;
@@ -18,15 +19,16 @@ export function useApplyHook() {
     formState: { errors },
   } = useForm<ApplyInfoProps>();
 
+  const mutation = FetchApply();
   const onSubmit: SubmitHandler<ApplyInfoProps> = (data) => {
     setFormData(data);
     toggle();
   };
 
   const handleApplySubmit = () => {
-    // 추후 post 요청 여기서 하면 됨!.!
     if (formData) {
-      console.log(formData);
+      const data = JSON.stringify(formData);
+      mutation.mutate({ data, recruitmentId: '1' });
       alert('지원 완료!');
       toggle();
     }

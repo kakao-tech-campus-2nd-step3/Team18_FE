@@ -10,7 +10,7 @@ export default function MyRecruitList({ myRecruitList }: Props) {
   return (
     <List
       items={myRecruitList}
-      renderItem={(myRecruit) => <MyRecruitCard myRecruit={myRecruit} key={myRecruit.id} />}
+      renderItem={(myRecruit) => <MyRecruitCard myRecruit={myRecruit} key={myRecruit.applyId} />}
     />
   );
 }

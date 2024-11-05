@@ -5,16 +5,20 @@ import SignUp from '@pages/auth/SignUp';
 import LoadingPage from '@/pages/auth/Loading';
 import App from '@/App';
 import Recruit from '@/pages/recruit';
-import VisaRegistration from '@/pages/visaRegistration';
-import PostNotice from '@/pages/employer/postNotice/PostNotice';
+import RegisterVisa from '@/pages/registerVisa/RegisterVisa';
+import PostNotice from '@/pages/postNotice/PostNotice';
 import Home from '@/pages/home';
 import ApplyGuide from '@/pages/apply/applyguide/ApplyGuide';
 import ApplyPage from '@/pages/apply/applypage/ApplyPage';
-import MyCompany from '@/pages/myCompany';
-import Applicants from '@/pages/applicants';
+import MyCompany from '@/pages/myCompany/MyCompany';
+import Applicants from '@/pages/applicants/Applicants';
 import Resume from '@/pages/resume/Resume';
-import EmployerMyAccount from '@/pages/myAccount/employer';
-import EmployeeMyPage from '@/pages/employee/myPage/EmployeeMyPage';
+import EmployeeMyPage from '@/pages/myPage/employee/EmployeeMyPage';
+import RegisterSign from '@/pages/registerSign/RegisterSign';
+import RegisterCompany from '@/pages/registerCompany/RegisterCompany';
+import EmployerMyPage from '@/pages/myPage/employer/EmPloyerMyPage';
+import EmployeeContract from '@/pages/contract/EmployeeContract/EmployeeContract';
+import EmployerContract from '@/pages/contract/EmployerContract/EmployerContract';
 
 export const router = createBrowserRouter([
   {
@@ -36,14 +40,17 @@ export const router = createBrowserRouter([
       { path: ROUTE_PATH.APPLY.GUIDE, element: <ApplyGuide /> },
       { path: ROUTE_PATH.APPLY.APPLYPAGE, element: <ApplyPage /> },
       { path: ROUTE_PATH.RECRUIT, element: <Recruit /> },
-      { path: ROUTE_PATH.VISA_REGISTRATION, element: <VisaRegistration /> },
-      { path: ROUTE_PATH.EMPLOYEE.VISA_REGISTRATION, element: <VisaRegistration /> },
+      { path: ROUTE_PATH.REGISTER_VISA, element: <RegisterVisa /> },
       { path: ROUTE_PATH.EMPLOYEE.EMPLOYEE_PAGE, element: <EmployeeMyPage /> },
       { path: ROUTE_PATH.POST_NOTICE, element: <PostNotice /> },
       { path: ROUTE_PATH.MY_COMPANY, element: <MyCompany /> },
       { path: ROUTE_PATH.APPLICANTS, element: <Applicants /> },
       { path: ROUTE_PATH.RESUME, element: <Resume /> },
-      { path: ROUTE_PATH.MY_ACCOUNT.EMPLOYER, element: <EmployerMyAccount /> },
+      { path: ROUTE_PATH.MY_PAGE.EMPLOYER, element: <EmployerMyPage /> },
+      { path: ROUTE_PATH.REGISTERSIGN, element: <RegisterSign /> },
+      { path: ROUTE_PATH.REGISTERCOMPANY, element: <RegisterCompany /> },
+      { path: ROUTE_PATH.CONTRACT.EMPLOYEE, element: <EmployeeContract /> },
+      { path: ROUTE_PATH.CONTRACT.EMPLOYER, element: <EmployerContract /> },
     ],
   },
 ]);

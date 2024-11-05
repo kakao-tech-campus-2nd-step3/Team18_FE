@@ -1,8 +1,20 @@
 import theme from '@/assets/theme';
 import { Select, Icon, List } from '@/components/common';
 import useGlobalSelect from '@/components/common/Select/hooks/useGlobalSelect';
+import { responsiveStyle } from '@/utils/responsive';
 
-const triggerStyle = { minWidth: '80px', fontSize: '16px', fontWeight: '700', color: theme.palettes.blue };
+const triggerStyle = {
+  minWidth: '80px',
+  fontSize: '16px',
+  fontWeight: '700',
+  color: theme.palettes.blue,
+
+  ...responsiveStyle({
+    mobile: {
+      width: '100%',
+    },
+  }),
+};
 
 const languageOptions = [
   {

@@ -1,23 +1,25 @@
-import { ReactNode } from 'react';
+import { type SectionProps, type RecruitDetailProps } from './RecruitType';
 import styled from '@emotion/styled';
+import { Flex } from '@/components/common';
 
-interface Item {
-  id: number;
-  text: string;
-}
-export interface RecruitDetailProps {
-  detailedDescription: string;
-  majorBusiness: Item[];
-  eligibilityCriteria: Item[];
-  preferredConditions: Item[];
-  companyImage?: string;
-}
-
-const SectionWithTitle = ({ title, children }: { title: string; children: ReactNode }) => (
+const SectionWithTitle = ({ title, children }: SectionProps) => (
   <Section>
     <TitleP>{title}</TitleP>
-    {children}
+    <Flex
+      direction="column"
+      gap={{ y: '15px' }}
+      css={{ border: '1px solid #e9e9e9', padding: '50px 30px', borderRadius: '3px', fontSize: '20px' }}
+    >
+      {children}
+    </Flex>
   </Section>
+);
+
+const SectionConditions = ({ title, children }: SectionProps) => (
+  <Flex gap={{ x: '10px' }} alignItems="center">
+    <p css={{ fontSize: '18px', color: '#5E6670' }}>{title}</p>
+    <p css={{ fontSize: '20px' }}>{children}</p>
+  </Flex>
 );
 
 export default function RecruitDetail({
@@ -25,25 +27,58 @@ export default function RecruitDetail({
   majorBusiness,
   eligibilityCriteria,
   preferredConditions,
-  companyImage,
+  employerName,
+  companyName,
+  workDuration,
+  workDays,
+  workType,
+  workHours,
+  salary,
 }: RecruitDetailProps) {
   return (
     <RecruitDetailContainer>
-      <CompanyImg src={companyImage} />
-      <SectionWithTitle title="상세 설명">
-        <p>{detailedDescription}</p>
+      <SectionWithTitle title="근무조건">
+        <Flex
+          css={{
+            '@media (max-width: 1024px)': {
+              flexDirection: 'column',
+            },
+          }}
+        >
+          <Flex direction="column" gap={{ y: '15px' }}>
+            <SectionConditions title="급여">{salary}</SectionConditions>
+            <SectionConditions title="근무기간">{workDuration}</SectionConditions>
+            <SectionConditions title="근무요일">{workDays}</SectionConditions>
+            <SectionConditions title="근무시간">{workHours}</SectionConditions>
+          </Flex>
+          <Flex
+            direction="column"
+            gap={{ y: '15px' }}
+            css={{
+              '@media (max-width: 1024px)': {
+                marginTop: '15px',
+              },
+            }}
+          >
+            <SectionConditions title="대표">{employerName}</SectionConditions>
+            <SectionConditions title="회사명">{companyName}</SectionConditions>
+            <SectionConditions title="고용형태">{workType}</SectionConditions>
+          </Flex>
+        </Flex>
       </SectionWithTitle>
-      <SectionWithTitle title="주요 업무">
-        {majorBusiness.map((data) => {
-          return <li key={data.id}>{data.text}</li>;
-        })}
-      </SectionWithTitle>
-      <SectionWithTitle title="지원 자격">
+      <SectionWithTitle title="지원자격">
         {eligibilityCriteria.map((data) => {
           return <li key={data.id}>{data.text}</li>;
         })}
       </SectionWithTitle>
-      <SectionWithTitle title="우대 사항">
+      <SectionWithTitle title="상세설명">{detailedDescription}</SectionWithTitle>
+      <SectionWithTitle title="주요업무">
+        {majorBusiness.map((data) => {
+          return <li key={data.id}>{data.text}</li>;
+        })}
+      </SectionWithTitle>
+
+      <SectionWithTitle title="우대사항">
         {preferredConditions.map((data) => {
           return <li key={data.id}>{data.text}</li>;
         })}
@@ -53,30 +88,14 @@ export default function RecruitDetail({
 }
 
 const RecruitDetailContainer = styled.div`
-  width: 80%;
+  width: 70%;
   max-width: 1325px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 50px;
+  gap: 70px;
   margin-bottom: 50px;
-`;
-
-const CompanyImg = styled.img<React.ImgHTMLAttributes<HTMLImageElement>>`
-  width: 100%;
-  height: 380px;
-  border-radius: 20px;
-  object-fit: cover;
-  margin-bottom: 30px;
-  @media (max-width: 768px) {
-    height: 300px;
-    margin-bottom: 25px;
-  }
-  @media (max-width: 480px) {
-    height: 220px;
-    margin-bottom: 15px;
-  }
 `;
 
 const Section = styled.div`

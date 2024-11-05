@@ -1,8 +1,49 @@
+import { useFetchPostContract } from '@/apis/contract/hooks/usePostContract';
 import { Button, Flex, Input, Typo } from '@/components/common';
 import Layout from '@/features/layout';
+import ROUTE_PATH from '@/routes/path';
 import styled from '@emotion/styled';
+import { useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
-export const EmployerContract = () => {
+export default function EmployerContract() {
+  const { applyId: applicationId } = useParams();
+  const mutation = useFetchPostContract();
+  const navigate = useNavigate();
+
+  const [inputs, setInputs] = useState({
+    salary: '',
+    workingHours: '',
+    dayOff: '',
+    annualPaidLeave: '',
+    workingPlace: '',
+    responsibilities: '',
+    rule: '',
+    applyId: Number(`${applicationId}`),
+  });
+
+  const { salary, workingHours, dayOff, annualPaidLeave, workingPlace, responsibilities, rule } = inputs;
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, name } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
+  };
+
+  const handlePostContract = () => {
+    mutation.mutate(inputs, {
+      onSuccess: () => {
+        navigate(ROUTE_PATH.HOME);
+      },
+      onError: () => {
+        // 이부분 에러처리 결정해야함.
+        alert('값이 정상적으로 저장되지 않았습니다.');
+      },
+    });
+  };
+
   return (
     <Layout>
       <section>
@@ -10,117 +51,34 @@ export const EmployerContract = () => {
           <LineWrapper>
             <Flex direction="column" justifyContent="space-between" alignItems="center" style={{ width: '100%' }}>
               <Typo element="h1" size="24px" style={{ fontWeight: 'bold', marginBottom: '24px' }}>
-                근로계약서 작성하기
+                근 로 계 약 서
               </Typo>
               <InputWrapper>
-                <Typo element="h3" size="20px" style={{ fontWeight: 'bold', marginBottom: '24px' }}>
-                  사용자
-                </Typo>
                 <InputContainer>
-                  <Input label="업체명" style={{ width: '570px', height: '48px' }}></Input>
+                  <Input label="1. 근무장소" value={workingPlace} onChange={onChange} style={InputStyle}></Input>
                 </InputContainer>
                 <InputContainer>
-                  <Input label="소재지" style={{ width: '570px', height: '48px' }}></Input>
+                  <Input label="2. 업무내용" value={responsibilities} onChange={onChange} style={InputStyle}></Input>
                 </InputContainer>
                 <InputContainer>
-                  <Input label="전화번호" style={{ width: '570px', height: '48px' }}></Input>
+                  <Input
+                    label="3. 근로일 및 근로일별 근로시간"
+                    value={workingHours}
+                    onChange={onChange}
+                    style={InputStyle}
+                  ></Input>
                 </InputContainer>
                 <InputContainer>
-                  <Input label="성명" style={{ width: '570px', height: '48px' }}></Input>
+                  <Input label="4. 주휴일" value={dayOff} onChange={onChange} style={InputStyle}></Input>
                 </InputContainer>
                 <InputContainer>
-                  <Input label="사업자등록번호" style={{ width: '570px', height: '48px' }}></Input>
-                </InputContainer>
-              </InputWrapper>
-              <InputWrapper>
-                <Typo element="h3" size="20px" style={{ fontWeight: 'bold', marginBottom: '24px' }}>
-                  근로자
-                </Typo>
-                <InputContainer>
-                  <Input label="성명" style={{ width: '570px', height: '48px' }}></Input>
+                  <Input label="5. 임금" value={salary} onChange={onChange} style={InputStyle}></Input>
                 </InputContainer>
                 <InputContainer>
-                  <Input label="생년월일" style={{ width: '570px', height: '48px' }}></Input>
+                  <Input label="6. 연차유급휴가" value={annualPaidLeave} onChange={onChange} style={InputStyle}></Input>
                 </InputContainer>
                 <InputContainer>
-                  <Input label="본국 주소" style={{ width: '570px', height: '48px' }}></Input>
-                </InputContainer>
-              </InputWrapper>
-              <InputWrapper>
-                <Typo element="h3" size="20px" style={{ fontWeight: 'bold', marginBottom: '24px' }}>
-                  근로계약기간
-                </Typo>
-                <InputContainer>
-                  <Input label="시작일자" style={{ width: '570px', height: '48px' }}></Input>
-                </InputContainer>
-                <InputContainer>
-                  <Input label="종료일자" style={{ width: '570px', height: '48px' }}></Input>
-                </InputContainer>
-                <InputContainer>
-                  <Input label="수습기간" style={{ width: '570px', height: '48px' }}></Input>
-                </InputContainer>
-              </InputWrapper>
-              <InputWrapper>
-                <Typo element="h3" size="20px" style={{ fontWeight: 'bold', marginBottom: '24px' }}>
-                  근로장소
-                </Typo>
-                <InputContainer>
-                  <Input label="근로장소" style={{ width: '570px', height: '48px' }}></Input>
-                </InputContainer>
-              </InputWrapper>
-              <InputWrapper>
-                <Typo element="h3" size="20px" style={{ fontWeight: 'bold', marginBottom: '24px' }}>
-                  업무내용
-                </Typo>
-                <InputContainer>
-                  <Input label="업무내용" style={{ width: '570px', height: '48px' }}></Input>
-                </InputContainer>
-              </InputWrapper>
-              <InputWrapper>
-                <Typo element="h3" size="20px" style={{ fontWeight: 'bold', marginBottom: '24px' }}>
-                  근로시간
-                </Typo>
-                <InputContainer>
-                  <Input label="근로시간" style={{ width: '570px', height: '48px' }}></Input>
-                </InputContainer>
-                <InputContainer>
-                  <Input label="휴게시간" style={{ width: '570px', height: '48px' }}></Input>
-                </InputContainer>
-              </InputWrapper>
-              <InputWrapper>
-                <Typo element="h3" size="20px" style={{ fontWeight: 'bold', marginBottom: '24px' }}>
-                  휴일
-                </Typo>
-                <InputContainer>
-                  <Input label="휴일" style={{ width: '570px', height: '48px' }}></Input>
-                </InputContainer>
-              </InputWrapper>
-              <InputWrapper>
-                <Typo element="h3" size="20px" style={{ fontWeight: 'bold', marginBottom: '24px' }}>
-                  임금
-                </Typo>
-                <InputContainer>
-                  <Input label="월 통상임금" style={{ width: '570px', height: '48px' }}></Input>
-                </InputContainer>
-                <InputContainer>
-                  <Input label="수습기간 중 임금" style={{ width: '570px', height: '48px' }}></Input>
-                </InputContainer>
-                <InputContainer>
-                  <Input label="임금 지급일" style={{ width: '570px', height: '48px' }}></Input>
-                </InputContainer>
-                <InputContainer>
-                  <Input label="지급방법" style={{ width: '570px', height: '48px' }}></Input>
-                </InputContainer>
-              </InputWrapper>
-              <InputWrapper>
-                <Typo element="h3" size="20px" style={{ fontWeight: 'bold', marginBottom: '24px' }}>
-                  숙식제공
-                </Typo>
-                <InputContainer>
-                  <Input label="숙박시설 제공" style={{ width: '570px', height: '48px' }}></Input>
-                </InputContainer>
-                <InputContainer>
-                  <Input label="식사 제공" style={{ width: '570px', height: '48px' }}></Input>
+                  <Input label="7. 취업규칙" value={rule} onChange={onChange} style={InputStyle}></Input>
                 </InputContainer>
               </InputWrapper>
               <Typo element="p" size="16px" style={{ fontWeight: 'bold', marginTop: '24px' }}>
@@ -131,19 +89,15 @@ export const EmployerContract = () => {
               </Typo>
               <ButtonWrapper>
                 <div>
-                  <Button design="outlined" style={{ marginRight: '16px' }}>
-                    미리보기
-                  </Button>
                   <>
                     <input type="checkbox" />
                     <label>서명하기</label>
                   </>
                 </div>
                 <div>
-                  <Button design="default" style={{ marginRight: '16px' }}>
-                    다운로드
+                  <Button design="default" onClick={handlePostContract}>
+                    제출하기
                   </Button>
-                  <Button design="default">제출하기</Button>
                 </div>
               </ButtonWrapper>
             </Flex>
@@ -152,7 +106,7 @@ export const EmployerContract = () => {
       </section>
     </Layout>
   );
-};
+}
 
 const LineWrapper = styled.div`
   border: 1px solid #e9e9e9;
@@ -180,3 +134,5 @@ const ButtonWrapper = styled.div`
   justify-content: space-between;
   margin-top: 52px;
 `;
+
+const InputStyle = { width: '570px', height: '48px' };

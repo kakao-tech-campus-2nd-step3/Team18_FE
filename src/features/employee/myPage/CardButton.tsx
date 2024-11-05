@@ -1,12 +1,12 @@
 import { Button } from '@/components/common';
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 
 type Props = {
   design?: 'default' | 'outlined' | 'textbutton' | 'deactivate';
   children: ReactNode;
-};
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-export default function CardButton({ design, children }: Props) {
+export default function CardButton({ design, children, ...rest }: Props) {
   return (
     <Button
       design={design}
@@ -17,6 +17,7 @@ export default function CardButton({ design, children }: Props) {
         justifyContent: 'space-between',
         padding: '10px 20px',
       }}
+      {...rest}
     >
       {children}
     </Button>

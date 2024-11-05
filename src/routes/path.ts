@@ -7,29 +7,36 @@ export const AUTH = {
 export const APPLY = {
   GUIDE: '/applyguide',
   APPLYPAGE: '/apply',
-};
+}; 
 
-export const MY_ACCOUNT = {
-  EMPLOYER: '/employer-my-account',
+export const MY_PAGE = {
+  EMPLOYER: '/employer-my-page',
 };
 
 export const EMPLOYEE = {
   EMPLOYEE_PAGE: '/employee-my-page',
-  VISA_REGISTRATION: '/visa-registration',
+} as const;
+
+export const CONTRACT = {
+  EMPLOYER: '/employer-contract/:applyId',
+  EMPLOYEE: '/employee-contract/:applyId',
 } as const;
 
 const ROUTE_PATH = {
   HOME: '/',
-  RECRUIT: '/recruit',
+  RECRUIT: '/recruit/:postId',
   POST_NOTICE: '/post-notice',
   APPLY,
   AUTH,
-  APPLICANTS: '/applicants',
+  APPLICANTS: '/company/:companyId/recruitment/:recruitmentId/applicants',
   EMPLOYEE,
   RESUME: '/resume',
-  MY_COMPANY: '/my-company',
-  VISA_REGISTRATION: '/visa-registration',
-  MY_ACCOUNT,
+  MY_COMPANY: '/my-company/:companyId',
+  REGISTER_VISA: '/register-visa',
+  MY_PAGE,
+  REGISTERSIGN: '/registersign',
+  REGISTERCOMPANY: '/register-company',
+  CONTRACT,
 } as const;
 
 export default ROUTE_PATH;

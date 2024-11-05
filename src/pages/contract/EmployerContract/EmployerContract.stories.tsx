@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { EmployerContract } from './EmployerContract';
+import EmployerContract from './EmployerContract';
 
 const meta: Meta<typeof EmployerContract> = {
   title: 'pages/EmployerContract',
