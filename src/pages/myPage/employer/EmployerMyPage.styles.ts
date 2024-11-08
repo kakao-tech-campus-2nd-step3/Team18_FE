@@ -44,7 +44,25 @@ export const typoStyle = {
   }),
 };
 
-export const signButtonStyle = css`
+export const buttonGroupStyle = css`
+  ${responsiveStyle({
+    default: {
+      maxWidth: '650px',
+    },
+    tablet: {
+      flexDirection: 'column',
+      alignItems: 'flex-end',
+      gap: '15px',
+      maxWidth: '320px',
+    },
+    mobile: {
+      alignItems: 'center',
+      gap: '10px',
+    },
+  })}
+`;
+
+export const buttonStyle = css`
   width: 300px;
   padding: 25px;
   border-radius: 8px;

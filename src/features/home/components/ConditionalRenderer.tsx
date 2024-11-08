@@ -1,8 +1,11 @@
+import { userLocalStorage } from '@/utils/storage';
 import Employer from './Employer';
 import Worker from './Worker';
 
 export default function ConditionalRenderer() {
-  if (localStorage.getItem('userType') === 'employee') {
+  const userType = userLocalStorage.getUser()?.type;
+
+  if (userType === 'employee') {
     return <Worker />;
   }
   return <Employer />;

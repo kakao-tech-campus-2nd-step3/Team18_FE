@@ -1,7 +1,6 @@
 import { palettes } from '@/assets/styles/global/palettes';
 import { responsiveStyle } from '@/utils/responsive';
 import { css } from '@emotion/react';
-import styled from '@emotion/styled';
 
 export const innerContainerStyle = css`
   ${responsiveStyle({
@@ -22,16 +21,12 @@ export const innerContainerStyle = css`
 `;
 
 export const titleStyle = {
-  fontWeight: 'bold',
-};
-
-export const BreakableText = styled.span`
-  ${responsiveStyle({
+  ...responsiveStyle({
     default: {
-      display: 'inline',
+      fontWeight: 'bold',
     },
     mobile: {
-      display: 'block',
+      padding: '0 50px',
     },
-  })}
-`;
+  }),
+};

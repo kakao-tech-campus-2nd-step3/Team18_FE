@@ -13,7 +13,9 @@ const useGlobalSelect = (initialOption: SelectOptionType) => {
 
   const handleSelect = (option: SelectOptionType) => {
     setSelectedOption(option);
-    option.action();
+    if (option.action) {
+      option.action();
+    }
   };
 
   return {

@@ -3,12 +3,13 @@ import styled from '@emotion/styled';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
+  labelStyle?: React.CSSProperties;
 }
 
-export default function Input({ label, ...rest }: Props) {
+export default function Input({ label, labelStyle, ...rest }: Props) {
   return (
     <>
-      {label && <label>{label}</label>}
+      {label && <label style={{ ...labelStyle }}>{label}</label>}
       <InputContainer {...rest} />
     </>
   );

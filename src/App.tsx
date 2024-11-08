@@ -1,5 +1,6 @@
 import AppProviders from '@components/providers/index.provider';
 import { Outlet } from 'react-router-dom';
+import '@/assets/translator/i18n';
 
 function App() {
   return (

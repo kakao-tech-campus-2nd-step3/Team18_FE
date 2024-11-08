@@ -2,6 +2,7 @@ import { Flex } from '@/components/common';
 import styled from '@emotion/styled';
 import { UseFormRegister, FieldErrors } from 'react-hook-form';
 import { type ResumeInfo } from './ResumeType';
+import { useTranslation } from 'react-i18next';
 
 interface InputType {
   id: keyof ResumeInfo;
@@ -23,6 +24,7 @@ export function SelectKoreanLevel({ level, register }: { level: string; register
 }
 
 export function InputResumeInfo({ id, label, register, pattern, errors, patternMessage, placeholder }: InputType) {
+  const { t } = useTranslation();
   return (
     <Flex direction="column" gap={{ y: '20px' }}>
       <Flex gap={{ x: '10px' }} alignItems="center" justifyContent="space-between">
@@ -31,22 +33,29 @@ export function InputResumeInfo({ id, label, register, pattern, errors, patternM
         </label>
         <CustomInput id={id} {...register(id, { required: true, pattern })} placeholder={placeholder} />
       </Flex>
-      {errors[id]?.type === 'required' && <Warring>{label}을(를) 입력해주세요!</Warring>}
+      {errors[id]?.type === 'required' && (
+        <Warring>
+          {label}
+          {t('resume.errors')}
+        </Warring>
+      )}
       {errors[id]?.type === 'pattern' && <Warring>{patternMessage}</Warring>}
     </Flex>
   );
 }
 
 export function TextareaResumeInfo({ id, register, errors, placeholder }: InputType) {
+  const { t } = useTranslation();
+
   return (
     <Flex direction="column" gap={{ y: '20px' }}>
       <Flex direction="column" css={{ width: '100%' }} gap={{ y: '20px' }}>
         <label htmlFor={id} css={{ fontSize: '18px', fontWeight: 'bold' }}>
-          자기소개
+          {t('resume.introduction')}
         </label>
         <CustomTextarea id={id} {...register('introduction', { required: true })} placeholder={placeholder} />
       </Flex>
-      {errors[id]?.type === 'required' && <Warring>자기소개를 입력해주세요!</Warring>}
+      {errors[id]?.type === 'required' && <Warring> {t('resume.ResumeDescription.introduction')}</Warring>}
     </Flex>
   );
 }

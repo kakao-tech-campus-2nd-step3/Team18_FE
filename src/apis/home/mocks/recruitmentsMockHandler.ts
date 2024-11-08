@@ -1,8 +1,8 @@
+import { APIPath } from '@/apis/apiPath';
 import { http, HttpResponse } from 'msw';
-import { HOME_PATH } from '../path';
 
 export const recruitmentsMockHandler = [
-  http.get(HOME_PATH.RECRUITMENTS, () => HttpResponse.json(RECRUITMENTS_RESPONSE_DATA)),
+  http.get(APIPath.getRecruitments, () => HttpResponse.json(RECRUITMENTS_RESPONSE_DATA)),
 ];
 
 const RECRUITMENTS_RESPONSE_DATA = [

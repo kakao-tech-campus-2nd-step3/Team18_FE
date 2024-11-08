@@ -1,9 +1,66 @@
-import { Button } from '@/components/common';
-import { Icon } from '@components/common';
+import { Button, Flex, Icon, Modal, Typo } from '@/components/common';
 import styled from '@emotion/styled';
-import type { RecruitCardProps } from './RecruitType';
+import type { RecruitCardProps, RequiredFieldCheckProps } from './RecruitType';
+import { useTranslation } from 'react-i18next';
+import useToggle from '@/hooks/useToggle';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { userLocalStorage } from '@/utils/storage';
 
-export default function RecruitCard({ koreanTitle, companyScale, area, requestedCareer, imageUrl }: RecruitCardProps) {
+export default function RecruitCard({
+  koreanTitle,
+  companyScale,
+  area,
+  requestedCareer,
+  imageUrl,
+  requiredFieldCheck,
+  recruitmentId,
+}: RecruitCardProps) {
+  const { t } = useTranslation();
+  const [isToggle, toggle] = useToggle();
+  const [falseValues, setFalseValues] = useState<string[]>([]);
+  const nav = useNavigate();
+  const userType = userLocalStorage.getUser()?.type || '';
+  const checkHandler = (value: RequiredFieldCheckProps | undefined) => {
+    if (!value) return;
+    if (userType === 'employer') {
+      alert('고용주 계정으로는 지원할 수 없습니다.');
+      return;
+    }
+    const falseValues = Object.keys(value).filter((key) => !value[key as keyof RequiredFieldCheckProps]);
+    setFalseValues(falseValues);
+    if (falseValues.length === 0) {
+      nav(`/applyguide/${recruitmentId}`);
+    } else {
+      toggle();
+    }
+  };
+
+  const ModalText = (text: string[]) => {
+    const value = {
+      resumeExistence: t('recruit.Modal.resumeExistence'),
+      visaExistence: t('recruit.Modal.visaExistence'),
+      foreignerIdNumberExistence: t('recruit.Modal.foreignerIdNumberExistence'),
+    };
+    const newFalseValues = text.map((tex) => value[tex as keyof typeof value]);
+
+    return (
+      <Flex direction="column" justifyContent="center" alignItems="center" gap={{ y: '20px' }}>
+        <Flex justifyContent="center" gap={{ x: '10px' }}>
+          {newFalseValues.map((val) => (
+            <Typo bold size="20px" key={val}>
+              <p css={{ color: 'red' }}>{val}</p>
+            </Typo>
+          ))}
+        </Flex>
+        <Typo size="20px">
+          <p css={{ color: 'red' }}>{t('recruit.Modal.alert')}</p>
+        </Typo>
+        <Typo>{t('recruit.Modal.ment')}</Typo>
+      </Flex>
+    );
+  };
+
   return (
     <RecruitContainer>
       <CompanyImg alt="companyImg" src={imageUrl} />
@@ -13,7 +70,14 @@ export default function RecruitCard({ koreanTitle, companyScale, area, requested
           <p>{`${companyScale} | ${area} | ${requestedCareer}`}</p>
         </Info_p>
         <Info_Btn>
-          <CustomBtn background="#0a65cc">지원하기</CustomBtn>
+          <CustomBtn
+            background="#0a65cc"
+            onClick={() => {
+              checkHandler(requiredFieldCheck);
+            }}
+          >
+            {t('recruit.recruit')}
+          </CustomBtn>
           <CustomBtn color="0a65cc" width="10px">
             <div>
               <Icon.Social.Instagram />
@@ -21,6 +85,22 @@ export default function RecruitCard({ koreanTitle, companyScale, area, requested
           </CustomBtn>
         </Info_Btn>
       </Info_Div>
+      {isToggle && (
+        <Modal
+          textChildren={ModalText(falseValues)}
+          buttonChildren={
+            <Flex gap={{ x: '10px' }} justifyContent="center">
+              <CustomBtn background="#0a65cc" onClick={toggle}>
+                {t('recruit.Modal.close')}
+              </CustomBtn>
+              <CustomBtn background="#0a65cc" onClick={() => nav('/employee-my-page')}>
+                {t('recruit.Modal.myPage')}
+              </CustomBtn>
+            </Flex>
+          }
+          onClose={toggle}
+        />
+      )}
     </RecruitContainer>
   );
 }
@@ -98,7 +178,7 @@ const CustomBtn = styled(Button)<{ background?: string; color?: string; width?: 
   background: ${(props) => props.background || ''};
   color: ${(props) => props.color || 'white'};
   width: ${(props) => props.width || '190px'};
-  height: 56px;
+  height: 50px;
   border-radius: 4px;
   display: flex;
   &:hover {

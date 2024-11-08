@@ -1,7 +1,7 @@
 import { List, Flex, Spinner, AsyncBoundary } from '@/components/common';
 import RecruitmentCard from './RecruitmentCard';
 import { responsiveStyle } from '@utils/responsive';
-import { useFetchRecruitments } from '@/apis/home/queries/useFetchRecruitments';
+import { RecruitmentResponse } from '@/apis/home/types/response';
 
 const listContainerStyle = responsiveStyle({
   default: {
@@ -15,9 +15,11 @@ const listContainerStyle = responsiveStyle({
   },
 });
 
-export default function RecruitmentList() {
-  const { data: recruitmentList } = useFetchRecruitments();
+type Props = {
+  recruitmentList: RecruitmentResponse[];
+};
 
+export default function RecruitmentList({ recruitmentList }: Props) {
   return (
     <AsyncBoundary pendingFallback={<Spinner />}>
       <Flex justifyContent="center" alignItems="center" wrap css={listContainerStyle}>

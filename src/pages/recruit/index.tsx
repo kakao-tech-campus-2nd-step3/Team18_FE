@@ -5,11 +5,13 @@ import Layout from '@/features/layout';
 import { useParams } from 'react-router-dom';
 import { Spinner } from '@/components/common';
 import { useGetRecruitmentsDetail } from '@/apis/recruitmentsDetail/useRecruitmentsDetail';
+import { useGetRequiredFieldCheck } from '@/apis/recruitmentsDetail/useRequiredFieldCheck';
 
 export default function Recruit() {
-  const { postId = '1' } = useParams();
+  const { recruitmentId = '1' } = useParams();
 
-  const { data, isLoading } = useGetRecruitmentsDetail(postId);
+  const { data, isLoading } = useGetRecruitmentsDetail(Number(recruitmentId));
+  const { data: requiredFieldCheck } = useGetRequiredFieldCheck(Number(recruitmentId));
 
   if (isLoading || !data) {
     return <Spinner />;
@@ -18,7 +20,7 @@ export default function Recruit() {
   return (
     <Layout>
       <Container>
-        <RecruitCard {...data} />
+        <RecruitCard {...data} requiredFieldCheck={requiredFieldCheck} recruitmentId={recruitmentId} />
         <Divider />
         <RecruitDetail {...data} />
       </Container>

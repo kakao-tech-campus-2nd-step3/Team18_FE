@@ -1,6 +1,7 @@
 import { type SectionProps, type RecruitDetailProps } from './RecruitType';
 import styled from '@emotion/styled';
 import { Flex } from '@/components/common';
+import { useTranslation } from 'react-i18next';
 
 const SectionWithTitle = ({ title, children }: SectionProps) => (
   <Section>
@@ -35,9 +36,10 @@ export default function RecruitDetail({
   workHours,
   salary,
 }: RecruitDetailProps) {
+  const { t } = useTranslation();
   return (
     <RecruitDetailContainer>
-      <SectionWithTitle title="근무조건">
+      <SectionWithTitle title={t('recruit.conditions')}>
         <Flex
           css={{
             '@media (max-width: 1024px)': {
@@ -46,10 +48,10 @@ export default function RecruitDetail({
           }}
         >
           <Flex direction="column" gap={{ y: '15px' }}>
-            <SectionConditions title="급여">{salary}</SectionConditions>
-            <SectionConditions title="근무기간">{workDuration}</SectionConditions>
-            <SectionConditions title="근무요일">{workDays}</SectionConditions>
-            <SectionConditions title="근무시간">{workHours}</SectionConditions>
+            <SectionConditions title={t('recruit.conditions_detail.salary')}>{salary}</SectionConditions>
+            <SectionConditions title={t('recruit.conditions_detail.workDuration')}>{workDuration}</SectionConditions>
+            <SectionConditions title={t('recruit.conditions_detail.workDays')}>{workDays}</SectionConditions>
+            <SectionConditions title={t('recruit.conditions_detail.workHours')}>{workHours}</SectionConditions>
           </Flex>
           <Flex
             direction="column"
@@ -60,26 +62,26 @@ export default function RecruitDetail({
               },
             }}
           >
-            <SectionConditions title="대표">{employerName}</SectionConditions>
-            <SectionConditions title="회사명">{companyName}</SectionConditions>
-            <SectionConditions title="고용형태">{workType}</SectionConditions>
+            <SectionConditions title={t('recruit.conditions_detail.employerName')}>{employerName}</SectionConditions>
+            <SectionConditions title={t('recruit.conditions_detail.companyName')}>{companyName}</SectionConditions>
+            <SectionConditions title={t('recruit.conditions_detail.workType')}>{workType}</SectionConditions>
           </Flex>
         </Flex>
       </SectionWithTitle>
-      <SectionWithTitle title="지원자격">
-        {eligibilityCriteria.map((data) => {
+      <SectionWithTitle title={t('recruit.eligibilityRequirements')}>
+        {eligibilityCriteria?.map((data) => {
           return <li key={data.id}>{data.text}</li>;
         })}
       </SectionWithTitle>
-      <SectionWithTitle title="상세설명">{detailedDescription}</SectionWithTitle>
-      <SectionWithTitle title="주요업무">
-        {majorBusiness.map((data) => {
+      <SectionWithTitle title={t('recruit.detailedDescription')}>{detailedDescription}</SectionWithTitle>
+      <SectionWithTitle title={t('recruit.mainResponsibilities')}>
+        {majorBusiness?.map((data) => {
           return <li key={data.id}>{data.text}</li>;
         })}
       </SectionWithTitle>
 
-      <SectionWithTitle title="우대사항">
-        {preferredConditions.map((data) => {
+      <SectionWithTitle title={t('recruit.PreferredRequirements')}>
+        {preferredConditions?.map((data) => {
           return <li key={data.id}>{data.text}</li>;
         })}
       </SectionWithTitle>

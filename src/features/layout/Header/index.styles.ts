@@ -74,11 +74,12 @@ export const Nav = styled.nav<NavProps>`
 
   ${responsiveStyle({
     tablet: {
-      width: '100%',
+      width: '80%',
       justifyContent: 'center',
       marginTop: '10px',
     },
     mobile: {
+      width: '100%',
       flexDirection: 'column',
       alignItems: 'stretch',
       textAlign: 'center',
