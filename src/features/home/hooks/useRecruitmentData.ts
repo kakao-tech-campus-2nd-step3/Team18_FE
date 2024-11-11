@@ -1,27 +1,36 @@
 import { useFetchRecruitments } from '@/apis/home/hooks/queries/useFetchRecruitments';
-import { useState } from 'react';
+import { useState, useEffect, startTransition } from 'react';
 
-export function useRecruitmentData(initialFilter = 'all', initialPage = 1) {
+export function useRecruitmentData(initialFilter = 'all', initialPage = 0) {
   const [filter, setFilter] = useState(initialFilter);
   const [page, setPage] = useState(initialPage);
-  const [totalPages, setTotalPages] = useState(5);
+  const [totalPages, setTotalPages] = useState(1);
 
-  const { data: recruitmentList } = useFetchRecruitments(filter, page);
+  const { data: recruitmentResponse } = useFetchRecruitments(filter, page);
+
+  useEffect(() => {
+    if (recruitmentResponse?.pageable.totalPage) {
+      setTotalPages(recruitmentResponse.pageable.totalPage);
+    }
+  }, [recruitmentResponse]);
 
   const handleFilterChange = (selectedFilter: string) => {
-    setFilter(selectedFilter);
-    setPage(1);
+    startTransition(() => {
+      setFilter(selectedFilter);
+      setPage(0);
+    });
   };
 
   const handlePageChange = (newPage: number) => {
-    setPage(newPage);
+    startTransition(() => {
+      setPage(newPage);
+    });
   };
 
   return {
-    recruitmentList,
+    recruitmentList: recruitmentResponse ?? { content: [], pageable: { totalPage: 1 } },
     page,
     totalPages,
-    setTotalPages,
     handleFilterChange,
     handlePageChange,
   };

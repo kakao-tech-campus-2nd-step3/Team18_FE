@@ -1,12 +1,10 @@
+import { RecruitmentListItem } from '@/types';
+
 export type RecruitmentResponse = {
-  recruitmentId: number;
-  imageUrl: string;
-  koreanTitle: string;
-  vietnameseTitle: string;
-  companyName: string;
-  salary: number;
-  workHours: string;
-  area: string;
+  content: RecruitmentListItem[];
+  pageable: {
+    totalPage: number;
+  };
 };
 
 export type SlidesResponse = {
