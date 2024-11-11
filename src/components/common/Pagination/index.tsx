@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 import Flex from '../Flex';
 
+const DEFAULT_PADDING = { padding: '24px 0' };
+
 type PaginationProps = {
   currentPage: number;
   totalPages: number;
@@ -9,29 +11,29 @@ type PaginationProps = {
 
 export default function Pagination({ currentPage, totalPages, onPageChange }: PaginationProps) {
   const handlePrevious = () => {
-    if (currentPage > 1) onPageChange(currentPage - 1);
+    if (currentPage > 0) onPageChange(currentPage - 1);
   };
 
   const handleNext = () => {
-    if (currentPage < totalPages) onPageChange(currentPage + 1);
+    if (currentPage < totalPages - 1) onPageChange(currentPage + 1);
   };
 
   const handlePageClick = (page: number) => onPageChange(page);
 
   return (
-    <Flex justifyContent="center" alignItems="center">
-      <NavButton onClick={handlePrevious} disabled={currentPage === 1}>
+    <Flex justifyContent="center" alignItems="center" css={DEFAULT_PADDING}>
+      <NavButton onClick={handlePrevious} disabled={currentPage === 0}>
         &laquo; Previous
       </NavButton>
       {[...Array(totalPages)].map((_, index) => {
-        const page = index + 1;
+        const page = index;
         return (
           <PageButton key={page} onClick={() => handlePageClick(page)} isActive={page === currentPage}>
-            {page}
+            {page + 1}
           </PageButton>
         );
       })}
-      <NavButton onClick={handleNext} disabled={currentPage === totalPages}>
+      <NavButton onClick={handleNext} disabled={currentPage === totalPages - 1}>
         Next &raquo;
       </NavButton>
     </Flex>

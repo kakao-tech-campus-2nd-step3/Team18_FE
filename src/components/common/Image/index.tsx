@@ -19,6 +19,6 @@ const Container = styled.div<Props>`
   background-image: url(${({ url }) => url});
   background-size: cover;
   background-position: center;
-  min-width: ${({ size }) => size.width};
-  min-height: ${({ size }) => size.height};
+  width: ${({ size }) => size.width};
+  height: ${({ size }) => size.height};
 `;
