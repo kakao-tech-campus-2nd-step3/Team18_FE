@@ -14,46 +14,41 @@ import {
   menuIconStyle,
   Nav,
 } from './index.styles';
-import { UserData } from '@/types';
-import { startTransition, useEffect, useState } from 'react';
+import { startTransition } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ROUTE_PATH from '@/routes/path';
+import { useUser } from '@/components/providers/User.provider';
+import { userLocalStorage } from '@/utils/storage';
+import { useTranslation } from 'react-i18next';
 
 export default function Header() {
   const navigate = useNavigate();
   const [menuOpen, toggleMenu] = useToggle();
-  const [user, setUser] = useState<UserData | null>(null);
+  const { user, setUser } = useUser();
+  const { t } = useTranslation();
 
-  useEffect(() => {
-    const userData = localStorage.getItem('user');
-
-    if (userData) {
-      setUser(JSON.parse(userData));
-    }
-  }, []);
-
-  const handleLogoClick = () => {
+  const goToHome = () => {
     startTransition(() => {
       navigate(ROUTE_PATH.HOME);
     });
   };
 
-  const handleLogin = () => {
+  const login = () => {
     navigate(ROUTE_PATH.AUTH.SIGN_IN);
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    setUser(null);
+  const logout = () => {
+    userLocalStorage.removeToken();
+    userLocalStorage.removeUser();
+    setUser(undefined);
     navigate(ROUTE_PATH.HOME);
   };
 
-  const handlePostNotice = () => {
+  const goToPostNotice = () => {
     navigate(ROUTE_PATH.POST_NOTICE);
   };
 
-  const handleProfileClick = () => {
+  const goToMyPage = () => {
     if (user?.type === 'employer') {
       navigate(ROUTE_PATH.MY_PAGE.EMPLOYER);
     } else if (user?.type === 'employee') {
@@ -64,28 +59,28 @@ export default function Header() {
   return (
     <HeaderContainer>
       <Flex justifyContent="space-between" alignItems="center" css={flexStyle}>
-        <LogoImg onClick={handleLogoClick} />
+        <LogoImg onClick={goToHome} />
         <Flex justifyContent="flex-end" css={menuIconStyle} onClick={toggleMenu}>
           {menuOpen ? <CloseIcon /> : <MenuIcon />}
         </Flex>
         <Nav open={menuOpen}>
           <LanguageFilter />
           {!user ? (
-            <Button style={customButtonStyle} onClick={handleLogin}>
-              로그인
+            <Button style={customButtonStyle} onClick={login}>
+              {t('header.login')}
             </Button>
           ) : (
             <>
               {user.type === 'employer' && (
-                <Button design="outlined" style={commonButtonStyle} onClick={handlePostNotice}>
-                  채용공고 등록
+                <Button design="outlined" style={commonButtonStyle} onClick={goToPostNotice}>
+                  {t('header.post_notice')}
                 </Button>
               )}
-              <Flex justifyContent="center" alignItems="center" onClick={handleProfileClick}>
+              <Flex justifyContent="center" alignItems="center" onClick={goToMyPage}>
                 <Image url={user.profileImage} size={{ width: '40px', height: '40px' }} css={imageStyle} />
               </Flex>
-              <Button style={customButtonStyle} onClick={handleLogout}>
-                로그아웃
+              <Button style={customButtonStyle} onClick={logout}>
+                {t('header.logout')}
               </Button>
             </>
           )}

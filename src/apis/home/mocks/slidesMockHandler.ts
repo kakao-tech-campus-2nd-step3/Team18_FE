@@ -1,7 +1,7 @@
+import { APIPath } from '@/apis/apiPath';
 import { http, HttpResponse } from 'msw';
-import { HOME_PATH } from '../path';
 
-export const slidesMockHandler = [http.get(HOME_PATH.SLIDER, () => HttpResponse.json(SLIDER_RESPONSE_DATA))];
+export const slidesMockHandler = [http.get(APIPath.getSlides, () => HttpResponse.json(SLIDER_RESPONSE_DATA))];
 
 const SLIDER_RESPONSE_DATA = [
   {

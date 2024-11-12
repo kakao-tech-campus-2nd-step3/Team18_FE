@@ -1,0 +1,56 @@
+import { Languages } from '../Languages';
+
+export const recruitData = {
+  [Languages.KO]: {
+    recruit: '지원하기',
+    conditions: '근무조건',
+    conditions_detail: {
+      salary: '급여',
+      workDuration: '근무기간',
+      workDays: '근무요일',
+      workHours: '근무시간',
+      employerName: '대표',
+      companyName: '회사명',
+      workType: '고용형태',
+    },
+    eligibilityRequirements: '지원자격',
+    detailedDescription: '상세설명',
+    mainResponsibilities: '주요업무',
+    PreferredRequirements: '우대사항',
+    Modal: {
+      resumeExistence: '이력서',
+      visaExistence: '비자 발급 일자',
+      foreignerIdNumberExistence: '외국인 번호',
+      close: '닫기',
+      alert: '미등록!',
+      ment: '필수 정보를 등록해야 지원서를 작성할 수 있어요',
+      myPage: '마이페이지',
+    },
+  },
+  [Languages.VE]: {
+    recruit: 'Ứng tuyển',
+    conditions: 'Điều kiện làm việc',
+    conditions_detail: {
+      salary: 'Lương',
+      workDuration: 'Thời gian làm việc',
+      workDays: 'Ngày làm việc',
+      workHours: 'Giờ làm việc',
+      employerName: 'Người đại diện',
+      companyName: 'Tên công ty',
+      workType: 'Loại hình công việc',
+    },
+    eligibilityRequirements: 'Yêu cầu ứng tuyển',
+    detailedDescription: 'Mô tả chi tiết',
+    mainResponsibilities: 'Nhiệm vụ chính',
+    PreferredRequirements: 'Yêu cầu ưu tiên',
+    Modal: {
+      resumeExistence: 'Sơ yếu lý lịch',
+      visaExistence: 'Ngày cấp visa',
+      foreignerIdNumberExistence: 'Số đăng ký người nước ngoài',
+      close: 'Đóng',
+      alert: 'Chưa đăng ký!',
+      ment: 'Bạn cần đăng ký thông tin bắt buộc để có thể tạo hồ sơ ứng tuyển',
+      myPage: 'Trang của tôi',
+    },
+  },
+};

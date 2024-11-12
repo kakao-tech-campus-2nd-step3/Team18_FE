@@ -3,59 +3,64 @@ import styled from '@emotion/styled';
 import { Flex, Typo, Button, Modal } from '@/components/common';
 import { useApplyHook } from './useApplyHook';
 import ApplyInput from './ApplyInput';
+import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 
 export default function ApplyPage() {
   const { toggle, isToggle, register, handleSubmit, onSubmit, handleApplySubmit, errors } = useApplyHook();
-
+  const { t } = useTranslation();
+  const { recruitmentId } = useParams();
   return (
     <Layout>
       <Flex justifyContent="center" alignItems="center">
         <ApplyCard>
           <Typo size="24px" bold={true}>
-            지원서 작성
+            {t('apply.title')}
           </Typo>
           <StyledForm onSubmit={handleSubmit(onSubmit)}>
             <ApplyInput
               errors={errors}
-              title="이름"
+              title={t('apply.name')}
               label="name"
               register={register}
-              placeholder="이름을 입력해주세요."
+              placeholder={t('apply.description.name')}
               required
             />
             <ApplyInput
               errors={errors}
-              title="주소"
+              title={t('apply.address')}
               label="address"
               register={register}
-              placeholder="주소를 입력해주세요. (예: 대전광역시 유성구 궁동)"
+              placeholder={t('apply.description.address')}
               required
             />
             <ApplyInput
               errors={errors}
-              title="번호"
+              title={t('apply.phoneNumber')}
               label="phoneNumber"
               register={register}
               pattern={/^010-\d{4}-\d{4}$/}
-              patternMessage="올바른 전화번호 형식이 아닙니다. (예: 010-0000-0000)"
-              placeholder="010-0000-0000 형식의 번호를 입력해주세요."
+              patternMessage={t('apply.numberError')}
+              placeholder={t('apply.description.phoneNumber')}
               required
             />
             <ApplyInput
               errors={errors}
-              title="지원동기"
+              title={t('apply.applyMotivation')}
               label="applyMotivation"
               register={register}
-              placeholder="지원 동기를 입력해주세요."
+              placeholder={t('apply.description.applyMotivation')}
               required
             />
-            <CustomBtn type="submit">지원하기</CustomBtn>
+            <CustomBtn type="submit">{t('apply.submit')}</CustomBtn>
           </StyledForm>
         </ApplyCard>
-        {isToggle && (
+        {isToggle && recruitmentId && (
           <Modal
-            textChildren={<ModalContainer>정말 지원하시겠습니까?</ModalContainer>}
-            buttonChildren={<CustomBtn onClick={handleApplySubmit}>지원하기</CustomBtn>}
+            textChildren={<ModalContainer>{t('apply.submitMent')}</ModalContainer>}
+            buttonChildren={
+              <CustomBtn onClick={() => handleApplySubmit(Number(recruitmentId))}>{t('apply.submit')}</CustomBtn>
+            }
             onClose={toggle}
           />
         )}

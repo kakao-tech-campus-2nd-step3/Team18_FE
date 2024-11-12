@@ -7,7 +7,9 @@ const useSelect = (defaultOption: SelectOptionType) => {
   const handleSelect = (option: SelectOptionType) => {
     if (option.value !== selectedOption.value) {
       setSelectedOption(option);
-      option.action();
+      if (option.action) {
+        option.action();
+      }
     }
   };
 

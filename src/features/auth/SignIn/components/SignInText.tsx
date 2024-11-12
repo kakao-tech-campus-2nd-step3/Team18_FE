@@ -1,5 +1,6 @@
 import { Flex, Typo } from '@components/common';
 import { responsiveStyle } from '@utils/responsive';
+import { useTranslation } from 'react-i18next';
 
 const flexStyle = responsiveStyle({
   default: {
@@ -28,13 +29,15 @@ const paragraphTypoStyle = responsiveStyle({
 });
 
 export function SignInText() {
+  const { t } = useTranslation();
+
   return (
     <Flex direction="column" css={flexStyle}>
       <Typo element="h1" size="58px" bold style={headingTypoStyle}>
-        지금 바로 시작하세요. 🚀
+        {t('signIn.heading')}
       </Typo>
       <Typo element="p" size="18px" color="gray" style={paragraphTypoStyle}>
-        안정적이고 투명한 고용 관계의 시작, 지금 바로 경험해보세요!
+        {t('signIn.description')}
       </Typo>
     </Flex>
   );

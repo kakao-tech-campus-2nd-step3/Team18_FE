@@ -10,8 +10,6 @@ import PostNotice from '@/pages/postNotice/PostNotice';
 import Home from '@/pages/home';
 import ApplyGuide from '@/pages/apply/applyguide/ApplyGuide';
 import ApplyPage from '@/pages/apply/applypage/ApplyPage';
-import MyCompany from '@/pages/myCompany/MyCompany';
-import Applicants from '@/pages/applicants/Applicants';
 import Resume from '@/pages/resume/Resume';
 import EmployeeMyPage from '@/pages/myPage/employee/EmployeeMyPage';
 import RegisterSign from '@/pages/registerSign/RegisterSign';
@@ -19,6 +17,8 @@ import RegisterCompany from '@/pages/registerCompany/RegisterCompany';
 import EmployerMyPage from '@/pages/myPage/employer/EmPloyerMyPage';
 import EmployeeContract from '@/pages/contract/EmployeeContract/EmployeeContract';
 import EmployerContract from '@/pages/contract/EmployerContract/EmployerContract';
+import MyCompanyPage from '@/pages/myCompanyPage/MyCompanyPage';
+import ApplicantsPage from '@/pages/applicantsPage/ApplicantsPage';
 
 export const router = createBrowserRouter([
   {
@@ -43,8 +43,8 @@ export const router = createBrowserRouter([
       { path: ROUTE_PATH.REGISTER_VISA, element: <RegisterVisa /> },
       { path: ROUTE_PATH.EMPLOYEE.EMPLOYEE_PAGE, element: <EmployeeMyPage /> },
       { path: ROUTE_PATH.POST_NOTICE, element: <PostNotice /> },
-      { path: ROUTE_PATH.MY_COMPANY, element: <MyCompany /> },
-      { path: ROUTE_PATH.APPLICANTS, element: <Applicants /> },
+      { path: ROUTE_PATH.MY_COMPANY, element: <MyCompanyPage /> },
+      { path: ROUTE_PATH.APPLICANTS, element: <ApplicantsPage /> },
       { path: ROUTE_PATH.RESUME, element: <Resume /> },
       { path: ROUTE_PATH.MY_PAGE.EMPLOYER, element: <EmployerMyPage /> },
       { path: ROUTE_PATH.REGISTERSIGN, element: <RegisterSign /> },

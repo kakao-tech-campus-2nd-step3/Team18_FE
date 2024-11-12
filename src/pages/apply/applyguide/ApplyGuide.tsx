@@ -1,10 +1,9 @@
 import Layout from '@/features/layout';
 import styled from '@emotion/styled';
-import { Typo } from '@/components/common';
+import { Typo, Button } from '@/components/common';
 import { ReactNode } from 'react';
-import { guideMent } from './guideMent';
-import { useNavigate } from 'react-router-dom';
-import { Button } from '@/components/common';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const IndentText = ({ children }: { children: ReactNode }) => <Typo style={{ marginLeft: '20px' }}>{children}</Typo>;
 
@@ -16,28 +15,29 @@ const SpacingText = ({ children, bold }: { children: ReactNode; bold?: boolean }
 
 export default function ApplyGuide() {
   const nav = useNavigate();
-
+  const { recruitmentId } = useParams();
   const navigateToApply = () => {
-    nav('/apply');
+    nav(`/apply/${recruitmentId}`);
   };
+  const { t } = useTranslation();
 
   return (
     <Layout>
       <ApplyContainer>
         <Wrapper>
           <TextArea>
-            <SpacingText bold={true}>{guideMent[0].title}</SpacingText>
-            <Typo>{guideMent[0].description}</Typo>
-            <SpacingText bold={true}>{guideMent[1].title}</SpacingText>
-            <IndentText>{guideMent[1].description}</IndentText>
-            <SpacingText bold={true}>{guideMent[2].title}</SpacingText>
-            {(guideMent[2].description as string[]).map((desc: string, index: number) => {
-              return <IndentText key={index}>{desc}</IndentText>;
-            })}
-            <SpacingText>{guideMent[3].description}</SpacingText>
-            <SpacingText>{guideMent[4].description}</SpacingText>
+            <SpacingText bold={true}>{t('applyGuide.section1.title')}</SpacingText>
+            <Typo>{t('applyGuide.section1.description')}</Typo>
+            <SpacingText bold={true}>{t('applyGuide.section2.title')}</SpacingText>
+            <IndentText>{t('applyGuide.section2.description')}</IndentText>
+            <SpacingText bold={true}>{t('applyGuide.section3.title')}</SpacingText>
+            <IndentText>{t('applyGuide.section3.description.description1')}</IndentText>
+            <IndentText>{t('applyGuide.section3.description.description2')}</IndentText>
+            <IndentText>{t('applyGuide.section3.description.description3')}</IndentText>
+            <SpacingText>{t('applyGuide.section4.description')}</SpacingText>
+            <SpacingText>{t('applyGuide.section5.description')}</SpacingText>
           </TextArea>
-          <CustomBtn onClick={navigateToApply}>{guideMent[5].description}</CustomBtn>
+          <CustomBtn onClick={navigateToApply}>{t('applyGuide.section6.description')}</CustomBtn>
         </Wrapper>
       </ApplyContainer>
     </Layout>

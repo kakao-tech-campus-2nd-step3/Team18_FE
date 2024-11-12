@@ -6,8 +6,12 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { type ResumeInfo } from './ResumeType';
 import useToggle from '@/hooks/useToggle';
 import { useState } from 'react';
+import { FetchResume } from '@/apis/resume/useResumeHook';
+import { useTranslation } from 'react-i18next';
 
 export default function Resume() {
+  const { t } = useTranslation();
+
   const {
     register,
     handleSubmit,
@@ -15,7 +19,7 @@ export default function Resume() {
   } = useForm<ResumeInfo>();
   const [isToggle, toggle] = useToggle();
   const [formData, setFormData] = useState<ResumeInfo | null>(null);
-
+  const mutation = FetchResume();
   const onSubmit: SubmitHandler<ResumeInfo> = (data) => {
     setFormData(data);
     toggle();
@@ -23,17 +27,19 @@ export default function Resume() {
 
   const handleResumeSubmit = () => {
     if (formData) {
-      console.log(formData);
-      alert('제출 완료!');
+      const data = JSON.stringify(formData);
+      mutation.mutate({ data });
+
       toggle();
     }
   };
+
   return (
     <Layout>
       <Flex justifyContent="center" alignItems="center">
         <ResumeCard>
           <Typo size="24px" bold={true}>
-            이력서 작성
+            {t('resume.title')}
           </Typo>
           <CustomForm onSubmit={handleSubmit(onSubmit)}>
             <Flex
@@ -49,40 +55,40 @@ export default function Resume() {
               <Flex direction="column" css={{ flex: 7, width: '100%' }} gap={{ y: '45px' }}>
                 <InputResumeInfo
                   id="applicantName"
-                  label="이름"
+                  label={t('resume.name')}
                   register={register}
                   errors={errors}
-                  placeholder="이름을 입력하세요."
+                  placeholder={t('resume.ResumeDescription.name')}
                 />
 
                 <InputResumeInfo
                   id="address"
-                  label="주소"
+                  label={t('resume.address')}
                   register={register}
                   errors={errors}
-                  placeholder="주소를 입력하세요."
+                  placeholder={t('resume.ResumeDescription.address')}
                 />
                 <InputResumeInfo
                   id="phoneNumber"
-                  label="번호"
+                  label={t('resume.phoneNumber')}
                   register={register}
                   errors={errors}
                   pattern={/^010-\d{4}-\d{4}$/}
-                  patternMessage="올바른 전화번호 형식이 아닙니다. (예: 010-0000-0000)"
-                  placeholder="010-0000-0000 형식의 번호를 입력하세요. "
+                  patternMessage={t('resume.ResumeDescription.phoneNumberError')}
+                  placeholder={t('resume.ResumeDescription.phoneNumber')}
                 />
                 <InputResumeInfo
                   id="career"
-                  label="경력"
+                  label={t('resume.career')}
                   register={register}
                   errors={errors}
-                  placeholder="경력을 입력하세요."
+                  placeholder={t('resume.ResumeDescription.career')}
                 />
                 <TextareaResumeInfo
                   id="introduction"
                   register={register}
                   errors={errors}
-                  placeholder="자기소개를 입력하세요."
+                  placeholder={t('resume.ResumeDescription.introduction')}
                 />
               </Flex>
               {/* 라디오 */}
@@ -100,24 +106,24 @@ export default function Resume() {
                   gap={{ y: '10px' }}
                 >
                   <Typo size="18px" bold={true}>
-                    한국어 실력
+                    {t('resume.koreanLevel')}
                   </Typo>
-                  <SelectKoreanLevel level="초급" register={register} />
-                  <SelectKoreanLevel level="중급" register={register} />
-                  <SelectKoreanLevel level="고급" register={register} />
+                  <SelectKoreanLevel level={t('resume.koreanLevel_1')} register={register} />
+                  <SelectKoreanLevel level={t('resume.koreanLevel_2')} register={register} />
+                  <SelectKoreanLevel level={t('resume.koreanLevel_3')} register={register} />
                   {errors.koreanLanguageLevel && (
-                    <p css={{ color: 'red', marginTop: '10px' }}>한국어 실력을 선택해주세요!</p>
+                    <p css={{ color: 'red', marginTop: '10px' }}>{t('resume.ResumeDescription.koreanLevel')}</p>
                   )}
                 </Flex>
               </div>
             </Flex>
-            <CustomBtn type="submit">제출하기</CustomBtn>
+            <CustomBtn type="submit">{t('resume.submit')}</CustomBtn>
           </CustomForm>
         </ResumeCard>
         {isToggle && (
           <Modal
-            textChildren={<p css={{ fontSize: '24px', margin: '30px 0' }}>정말 제출하시겠습니까?</p>}
-            buttonChildren={<CustomBtn onClick={handleResumeSubmit}>제출하기</CustomBtn>}
+            textChildren={<p css={{ fontSize: '24px', margin: '30px 0' }}>{t('resume.btnSubmit')}</p>}
+            buttonChildren={<CustomBtn onClick={handleResumeSubmit}>{t('resume.submit')}</CustomBtn>}
             onClose={toggle}
           />
         )}

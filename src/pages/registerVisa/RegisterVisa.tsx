@@ -1,9 +1,12 @@
 import { Flex, InnerContainer, Typo } from '@/components/common';
 import Layout from '@/features/layout';
 import VisaRegistrationForm from '@/features/registerVisa/VisaRegistrationForm';
-import { BreakableText, innerContainerStyle, titleStyle } from './RegisterVisa.styles';
+import { innerContainerStyle, titleStyle } from './RegisterVisa.styles';
+import { useTranslation } from 'react-i18next';
 
 export default function RegisterVisa() {
+  const { t } = useTranslation();
+
   return (
     <Layout>
       <div>
@@ -16,7 +19,7 @@ export default function RegisterVisa() {
             css={{ height: '100%' }}
           >
             <Typo element="h2" size="24px" style={titleStyle}>
-              외국인 번호 및<BreakableText> 비자 발급 일자 등록</BreakableText>
+              {t('registerVisa.title')}
             </Typo>
             <VisaRegistrationForm />
           </Flex>

@@ -1,5 +1,5 @@
-import { useGoogleOAuth } from '@/apis/auth/mutations/useGoogleOAuth';
 import { Flex, Typo, Button, Icon } from '@components/common';
+import { useGoogleOAuth } from '../hooks/useGoogleOAuth';
 
 const FLEX_GAP_CONFIG = { x: '12px' };
 const BUTTON_STYLE = { fontWeight: '300' };

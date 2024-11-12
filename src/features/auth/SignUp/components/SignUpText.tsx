@@ -1,5 +1,6 @@
 import { Flex, Typo } from '@/components/common';
 import { responsiveStyle } from '@/utils/responsive';
+import { useTranslation } from 'react-i18next';
 
 const titleStyle = responsiveStyle({
   default: {
@@ -28,13 +29,14 @@ const descriptionTitle = responsiveStyle({
 });
 
 export default function SignUpText() {
+  const { t } = useTranslation();
   return (
     <Flex direction="column" justifyContent="center" alignItems="center">
       <Typo element="h1" size="24px" bold style={titleStyle}>
-        가입자 정보 선택
+        {t('signUp.heading')}
       </Typo>
       <Typo element="p" size="20px" color="gray" style={descriptionTitle}>
-        대상에 해당하는 가입자 정보를 선택해주세요.
+        {t('signUp.description')}
       </Typo>
     </Flex>
   );

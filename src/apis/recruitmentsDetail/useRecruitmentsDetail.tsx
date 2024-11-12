@@ -3,13 +3,13 @@ import { clientInstance } from '@/apis/instance';
 import { useQuery } from '@tanstack/react-query';
 import { type RecruitProps } from '@/pages/recruit/RecruitType';
 
-const getRecruitmentsDetail = async (postId: string) => {
-  const res = await clientInstance.get(getDynamicAPIPath.recruitmentsDetail(postId));
+const getRecruitmentsDetail = async (recruitmentId: number) => {
+  const res = await clientInstance.get(getDynamicAPIPath.recruitmentsDetail(recruitmentId));
   return res.data;
 };
 
-export const useGetRecruitmentsDetail = (postId: string) =>
+export const useGetRecruitmentsDetail = (recruitmentId: number) =>
   useQuery<RecruitProps, Error>({
-    queryKey: ['recruitmentsDetail', postId],
-    queryFn: () => getRecruitmentsDetail(postId),
+    queryKey: ['recruitmentsDetail', recruitmentId],
+    queryFn: () => getRecruitmentsDetail(recruitmentId),
   });

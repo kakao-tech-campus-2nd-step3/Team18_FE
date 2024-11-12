@@ -25,11 +25,10 @@ export function useApplyHook() {
     toggle();
   };
 
-  const handleApplySubmit = () => {
+  const handleApplySubmit = (recruitmentId: number) => {
     if (formData) {
       const data = JSON.stringify(formData);
-      mutation.mutate({ data, recruitmentId: '1' });
-      alert('지원 완료!');
+      mutation.mutate({ data, recruitmentId });
       toggle();
     }
   };

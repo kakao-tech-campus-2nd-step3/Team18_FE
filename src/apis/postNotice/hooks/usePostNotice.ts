@@ -1,23 +1,7 @@
 import { APIPath } from '@/apis/apiPath';
 import { clientInstance } from '@/apis/instance';
+import { NoticeRequestData } from '@/types';
 import { useMutation } from '@tanstack/react-query';
-
-export type NoticeRequestData = {
-  title?: string;
-  companyScale?: string;
-  area?: string;
-  salary?: string;
-  workDuration?: string;
-  workDays?: string;
-  workType?: string;
-  workHours?: string;
-  requestedCareer?: string;
-  majorBusiness?: string;
-  eligibilityCriteria?: string;
-  preferredConditions?: string;
-  employerName?: string;
-  companyName?: string;
-};
 
 export const getPostNoticePath = () => `${APIPath.postNotice}`;
 
@@ -26,7 +10,7 @@ export const postNotice = async (req: NoticeRequestData) => {
   return response.data;
 };
 
-export const useFetchPostNotice = () =>
+export const usePostNotice = () =>
   useMutation({
     mutationFn: postNotice,
   });

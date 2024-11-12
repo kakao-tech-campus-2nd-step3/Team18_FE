@@ -1,5 +1,5 @@
 import { Spinner, Typo } from '@/components/common';
-import { useGoogleOAuth } from '@/apis/auth/mutations/useGoogleOAuth';
+import { useGoogleOAuth } from '@/features/auth/SignIn/hooks/useGoogleOAuth';
 
 export default function LoadingPage() {
   const { isLoading } = useGoogleOAuth();

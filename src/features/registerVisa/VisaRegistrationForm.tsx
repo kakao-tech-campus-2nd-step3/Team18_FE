@@ -3,6 +3,7 @@ import { ChangeEvent, useMemo, useState } from 'react';
 import { useRegisterVisaInfo } from '@/apis/applicants/hooks/useRegisterVisaInfo';
 import { buttonStyle, ErrorMessage, Form, inputStyle } from './VisaRegistrationForm.styles';
 import { validateForeignerNumber } from './validateForeignerNumber';
+import { useTranslation } from 'react-i18next';
 
 export default function VisaRegistrationForm() {
   const [foreignerIdNumber, setForeignerNumber] = useState('');
@@ -12,11 +13,12 @@ export default function VisaRegistrationForm() {
   const formValid = useMemo(() => !error, [error]);
 
   const registerVisaMutation = useRegisterVisaInfo();
+  const { t } = useTranslation();
 
   const handleForeignerNumberChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     if (!validateForeignerNumber(value) && value !== '') {
-      setError('올바른 형식으로 입력해주세요. (형식: 000000-0000000)');
+      setError(t('registerVisa.error_message'));
     } else {
       setError('');
     }
@@ -49,7 +51,7 @@ export default function VisaRegistrationForm() {
       <Form onSubmit={handleSubmit}>
         <Flex direction="column" gap={{ y: '10px' }}>
           <Input
-            label="외국인 번호"
+            label={t('registerVisa.labels.foreigner_number')}
             type="text"
             value={foreignerIdNumber}
             onChange={handleForeignerNumberChange}
@@ -60,7 +62,7 @@ export default function VisaRegistrationForm() {
         </Flex>
         <Flex direction="column" gap={{ y: '10px' }}>
           <Input
-            label="비자 발급 일자"
+            label={t('registerVisa.labels.visa_generate_date')}
             type="date"
             value={visaGenerateDate}
             onChange={(e) => setVisaGenerateDate(e.target.value)}
@@ -70,15 +72,14 @@ export default function VisaRegistrationForm() {
         </Flex>
         <Flex justifyContent="center">
           <Button type="submit" css={buttonStyle} disabled={!formValid}>
-            등록하기
+            {t('registerVisa.submit')}
           </Button>
         </Flex>
       </Form>
       {isModalOpen && (
         <Modal
-          textChildren="등록이 완료되었습니다."
-          buttonChildren={<Button onClick={closeModal}>확인</Button>}
-          /* onClose 부분 추후 수정 예정 */
+          textChildren={t('registerVisa.complete_message')}
+          buttonChildren={<Button onClick={closeModal}>{t('registerVisa.button')}</Button>}
           onClose={closeModal}
         />
       )}

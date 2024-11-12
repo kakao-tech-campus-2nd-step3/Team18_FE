@@ -1,5 +1,5 @@
 export interface OAuthRequest {
-  token: string;
+  code: string;
 }
 
 export interface RegisterRequest {

@@ -28,7 +28,7 @@ const Wrapper = styled.button<Props>(
         border: '2px solid #0A65CC',
 
         '&:hover': {
-          backgroundColor: '#6992C0',
+          backgroundColor: '#0033cc',
           color: '#fff',
         },
       };

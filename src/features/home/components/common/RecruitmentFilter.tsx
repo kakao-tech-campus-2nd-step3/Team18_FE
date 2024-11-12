@@ -1,29 +1,41 @@
 import theme from '@/assets/theme';
 import { Select, Icon, List } from '@/components/common';
 import useSelect from '@/components/common/Select/hooks/useSelect';
-
-const filterOptions = [
-  {
-    value: 'all',
-    text: '전체',
-    action: () => console.log('All clicked'),
-  },
-  {
-    value: 'age',
-    text: '나이',
-    action: () => console.log('Age clicked'),
-  },
-  {
-    value: 'area',
-    text: '지역',
-    action: () => console.log('Area clicked'),
-  },
-];
+import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const triggerStyle = { minWidth: '80px', fontSize: '16px', fontWeight: '700', color: theme.palettes.blue };
 
-export default function RecruitmentFilter() {
+type Props = {
+  onFilterChange: (option: string) => void;
+};
+
+export default function RecruitmentFilter({ onFilterChange }: Props) {
+  const { t } = useTranslation();
+
+  const filterOptions = useMemo(
+    () => [
+      {
+        value: 'all',
+        text: t('home.recruitmentFilter.all'),
+      },
+      {
+        value: 'salary',
+        text: t('home.recruitmentFilter.salary'),
+      },
+      {
+        value: 'latestRegistration',
+        text: t('home.recruitmentFilter.latestRegistration'),
+      },
+    ],
+    [t],
+  );
   const { selectedOption, handleSelect } = useSelect(filterOptions[0]);
+
+  const handleOptionSelect = (option: { value: string; text: string }) => {
+    handleSelect(option);
+    onFilterChange(option.value);
+  };
 
   return (
     <Select.Root>
@@ -34,7 +46,7 @@ export default function RecruitmentFilter() {
         <List
           items={filterOptions}
           renderItem={(option) => (
-            <Select.Option key={option.value} value={option.value} onClick={() => handleSelect(option)}>
+            <Select.Option key={option.value} value={option.value} onClick={() => handleOptionSelect(option)}>
               {option.text}
             </Select.Option>
           )}

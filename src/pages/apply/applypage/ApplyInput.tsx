@@ -2,6 +2,7 @@ import { Flex, Typo } from '@/components/common';
 import { Path, UseFormRegister, FieldErrors } from 'react-hook-form';
 import styled from '@emotion/styled';
 import type { ApplyInfoProps } from './useApplyHook';
+import { useTranslation } from 'react-i18next';
 
 type InputProps = {
   title: string;
@@ -14,16 +15,20 @@ type InputProps = {
   patternMessage?: string;
 };
 
-const ApplyInput = ({ title, label, register, required, errors, placeholder, pattern, patternMessage }: InputProps) => (
-  <Flex direction="column" gap={{ y: '10px' }}>
-    <Typo size="18px" bold={true}>
-      {title}
-    </Typo>
-    <StyledInput {...register(label, { required, pattern })} placeholder={placeholder} />
-    {errors[label]?.type === 'required' && <Warring>{title}을(를) 입력해주세요!</Warring>}
-    {errors[label]?.type === 'pattern' && <Warring>{patternMessage}</Warring>}
-  </Flex>
-);
+const ApplyInput = ({ title, label, register, required, errors, placeholder, pattern, patternMessage }: InputProps) => {
+  const { t } = useTranslation();
+
+  return (
+    <Flex direction="column" gap={{ y: '10px' }}>
+      <Typo size="18px" bold={true}>
+        {title}
+      </Typo>
+      <StyledInput {...register(label, { required, pattern })} placeholder={placeholder} />
+      {errors[label]?.type === 'required' && <Warring>{`${title}${t('apply.errors')}`}</Warring>}
+      {errors[label]?.type === 'pattern' && <Warring>{patternMessage}</Warring>}
+    </Flex>
+  );
+};
 
 const StyledInput = styled.input`
   width: 100%;
