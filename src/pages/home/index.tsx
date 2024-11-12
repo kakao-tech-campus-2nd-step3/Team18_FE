@@ -4,7 +4,7 @@ import Layout from '@features/layout';
 import RecruitmentHeader from '@features/home/components/common/RecruitmentHeader';
 import RecruitmentFilter from '@features/home/components/common/RecruitmentFilter';
 import RecruitmentList from '@features/home/components/common/RecruitmentList';
-// import ConditionalRenderer from '@features/home/components/ConditionalRenderer';
+import ConditionalRenderer from '@features/home/components/ConditionalRenderer';
 import { useRecruitmentData } from '@/features/home/hooks/useRecruitmentData';
 
 const sectionStyle = responsiveStyle(responsiveSectionPadding);
@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <Layout>
-      {/* <ConditionalRenderer /> */}
+      <ConditionalRenderer />
       <section css={sectionStyle}>
         <InnerContainer>
           <Flex justifyContent="space-between" alignItems="center">

@@ -60,8 +60,6 @@ export type RecruitmentItem = {
   hiring?: boolean;
 };
 
-export type RecruitmentListItem = Omit<RecruitmentItem, 'hiring'>;
-
 export type NoticeRequestData = {
   title?: string;
   companyScale?: string;

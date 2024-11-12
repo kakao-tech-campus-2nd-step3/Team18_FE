@@ -21,5 +21,5 @@ const companyImageStyle = responsiveStyle({
 export default function CompanyImage() {
   const { recruitment } = useRecruitmentCardContext();
 
-  return <Image url={recruitment.image} borderRadius="8px" size={IMAGE_SIZE_CONFIG} css={companyImageStyle} />;
+  return <Image url={recruitment.imageUrl} borderRadius="8px" size={IMAGE_SIZE_CONFIG} css={companyImageStyle} />;
 }

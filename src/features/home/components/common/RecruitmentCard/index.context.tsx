@@ -1,6 +1,5 @@
 import { createContext, ReactNode, useContext } from 'react';
-// import { RecruitmentResponse } from '@/apis/home/types/response';
-import { RecruitmentListItem } from '@/types';
+import { RecruitmentListItem } from '@features/home/types/types';
 
 type RecruitmentCardContextProps = {
   recruitment: RecruitmentListItem;

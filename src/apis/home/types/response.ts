@@ -1,4 +1,4 @@
-import { RecruitmentListItem } from '@/types';
+import { RecruitmentListItem } from '@features/home/types/types';
 
 export type RecruitmentResponse = {
   content: RecruitmentListItem[];
@@ -8,6 +8,5 @@ export type RecruitmentResponse = {
 };
 
 export type SlidesResponse = {
-  id: number;
   imageUrl: string;
 };

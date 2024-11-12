@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 import { RecruitmentCardContextProvider } from './index.context';
 import { Title, Button, CompanyName, CompanyImage, Detail, Salary } from './sub-components';
 import { responsiveStyle } from '@utils/responsive';
-import { RecruitmentListItem } from '@/types';
+import { RecruitmentListItem } from '@features/home/types/types';
 import { MouseEventHandler } from 'react';
 
 const recruitmentCardStyle = responsiveStyle({
