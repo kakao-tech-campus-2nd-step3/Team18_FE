@@ -13,6 +13,7 @@ export const applicantsData = {
     buttons: {
       view_resume: '지원서',
       create_contract: '계약하기',
+      complete_contract: '계약완료',
     },
   },
   [Languages.VE]: {
@@ -25,8 +26,9 @@ export const applicantsData = {
       korean_language_level: 'Trình độ tiếng Hàn',
     },
     buttons: {
-      view_resume: 'Hồ sơ ứng tuyển',
-      create_contract: 'Ký hợp đồng',
+      view_resume: 'Hồ sơ ứng viên',
+      create_contract: 'Tạo hợp đồng',
+      complete_contract: 'Hoàn thành hợp đồng',
     },
   },
 };

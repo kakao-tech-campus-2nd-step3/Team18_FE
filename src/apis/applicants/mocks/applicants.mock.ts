@@ -20,6 +20,7 @@ export const applicantList = [
     applyId: 1,
     applicantNation: '베트남',
     koreanLanguageLevel: '중급',
+    contractExistence: false,
   },
   {
     userId: 2,
@@ -28,5 +29,6 @@ export const applicantList = [
     applyId: 2,
     applicantNation: '베트남',
     koreanLanguageLevel: '고급',
+    contractExistence: false,
   },
 ];

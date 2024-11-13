@@ -14,6 +14,7 @@ export type ApplicantData = {
   applyId: number;
   applicantNation: string;
   koreanLanguageLevel: string;
+  contractExistence: boolean;
 };
 
 export type ForeignerData = {
