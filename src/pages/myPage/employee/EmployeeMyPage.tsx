@@ -6,6 +6,7 @@ import { useGetMyApplication } from '@/apis/employee/hooks/useGetMyApplication';
 import { useTranslation } from 'react-i18next';
 import ProfileSection from '@/features/myPage/employee/components/ProfileSection';
 import { css } from '@emotion/react';
+
 export default function EmployeeMyPage() {
   const { t } = useTranslation();
   const { data: myRecruitList, isLoading } = useGetMyApplication();
