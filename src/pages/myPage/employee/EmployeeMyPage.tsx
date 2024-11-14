@@ -1,10 +1,10 @@
 import { Flex, InnerContainer, Spinner, Typo } from '@/components/common';
 import Layout from '@/features/layout';
 import styled from '@emotion/styled';
-import MyRecruitList from '../../../features/employee/myPage/MyRecruitList';
+import MyRecruitList from '../../../features/myPage/employee/components/MyRecruitList';
 import { useGetMyApplication } from '@/apis/employee/hooks/useGetMyApplication';
 import { useTranslation } from 'react-i18next';
-import ProfileSection from '@/features/employee/myPage/ProfileSection';
+import ProfileSection from '@/features/myPage/employee/components/ProfileSection';
 import { css } from '@emotion/react';
 export default function EmployeeMyPage() {
   const { t } = useTranslation();

@@ -36,22 +36,23 @@ type Props = {
 };
 
 type DownloadContractProps = {
-  imageUrl: string;
-  imageUrlV: string;
+  url: string;
+  urlV: string;
 };
 
 export default function MyRecruitCard({ myRecruit }: Props) {
   const { image, title, area, status, applyId } = myRecruit;
   const buttonStyle = getStateStyle(status);
   const navigate = useNavigate();
+  const { data: imgURLs } = useGetContractImg(applyId);
 
   // 근로계약서 이미지 다운로드
   const downloadContract = () => {
-    const { data: imgURLs } = useGetContractImg(applyId);
     const imgData: DownloadContractProps = imgURLs;
     const link = document.createElement('a');
-    link.href = imgData.imageUrlV;
+    link.href = imgData.urlV;
     link.download = 'downloaded_image';
+    console.log(imgData);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -59,7 +60,6 @@ export default function MyRecruitCard({ myRecruit }: Props) {
 
   return (
     <Card
-      borderColor="blue"
       borderRadius="4px"
       css={{
         width: '100%',
@@ -69,6 +69,7 @@ export default function MyRecruitCard({ myRecruit }: Props) {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
+        border: '1px solid #0A65CC',
       }}
     >
       <Image

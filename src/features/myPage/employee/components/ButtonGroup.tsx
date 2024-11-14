@@ -5,6 +5,7 @@ import { Button, Icon, Typo } from '@/components/common';
 import { useTranslation } from 'react-i18next';
 import { useGetRequiredFieldCheck } from '@/apis/recruitmentsDetail/useRequiredFieldCheck';
 import { type RequiredFieldCheckProps } from '@/pages/recruit/RecruitType';
+import { css } from '@emotion/react';
 
 export default function ButtonGroup() {
   const { t } = useTranslation();
@@ -21,34 +22,40 @@ export default function ButtonGroup() {
   return (
     <ColumnSection>
       <ActiveButton
-        design="outlined"
+        design={resumeExistence ? 'deactivate' : 'outlined'}
+        css={resumeExistence ? deactiveButtonStyle : activateButtonStyle}
         style={{ borderRight: '3px solid #0a65cc' }}
         onClick={() => {
           navigate(ROUTE_PATH.RESUME);
         }}
+        disabled={resumeExistence}
       >
-        <Typo bold>{resumeExistence ? t('employeeMyPage.UPDATE_RESUME') : t('employeeMyPage.REGISTER_RESUME')}</Typo>
+        <Typo bold>{resumeExistence ? t('employeeMyPage.COMPLETE_RESUME') : t('employeeMyPage.REGISTER_RESUME')}</Typo>
         {resumeExistence ? <Icon.EmployeePage.Check /> : <Icon.EmployeePage.Bag />}
       </ActiveButton>
       <ActiveButton
-        design="outlined"
+        design={signExistence ? 'deactivate' : 'outlined'}
+        css={signExistence ? deactiveButtonStyle : activateButtonStyle}
         style={{ borderRight: '3px solid #0a65cc' }}
         onClick={() => {
           navigate(ROUTE_PATH.REGISTERSIGN);
         }}
+        disabled={signExistence}
       >
-        <Typo bold>{signExistence ? t('employeeMyPage.UPDATE_SIGN') : t('employeeMyPage.REGISTER_SIGN')}</Typo>
+        <Typo bold>{signExistence ? t('employeeMyPage.COMPLETE_SIGN') : t('employeeMyPage.REGISTER_SIGN')}</Typo>
         {signExistence ? <Icon.EmployeePage.Check /> : <Icon.EmployeePage.Pen />}
       </ActiveButton>
       <ActiveButton
-        design="outlined"
+        design={visaExistence ? 'deactivate' : 'outlined'}
+        css={visaExistence ? deactiveButtonStyle : activateButtonStyle}
         onClick={() => {
           navigate(ROUTE_PATH.REGISTER_VISA);
         }}
+        disabled={visaExistence}
       >
         <Typo bold>
           {visaExistence && foreignerIdNumberExistence
-            ? t('employeeMyPage.UPDATE_VISA')
+            ? t('employeeMyPage.COMPLETE_VISA')
             : t('employeeMyPage.REGISTER_VISA')}
         </Typo>
         {visaExistence && foreignerIdNumberExistence ? <Icon.EmployeePage.Check /> : <Icon.EmployeePage.Card />}
@@ -71,10 +78,15 @@ const ActiveButton = styled(Button)`
   border-radius: 0;
   border: 0;
   color: #000;
+`;
+
+export const deactiveButtonStyle = css``;
+
+export const activateButtonStyle = css`
+  ${deactiveButtonStyle};
   transition:
     background-color 0.3s,
-    background-image 0.3s; // 배경 색상과 이미지 애니메이션
-
+    background-image 0.3s;
   &:hover {
     * {
       color: #fff;
