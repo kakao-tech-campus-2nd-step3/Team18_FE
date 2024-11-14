@@ -66,8 +66,15 @@ export default function ApplicantsTable({ applicantList }: Props) {
                     >
                       {t('applicants.buttons.view_resume')}
                     </Button>
-                    <Button css={buttonStyle} onClick={() => openModal(applicant.userId, applicant.applyId)}>
-                      {t('applicants.buttons.create_contract')}
+                    <Button
+                      design={applicant.contractExistence ? 'deactivate' : 'default'}
+                      css={buttonStyle}
+                      onClick={() => openModal(applicant.userId, applicant.applyId)}
+                      disabled={applicant.contractExistence}
+                    >
+                      {applicant.contractExistence
+                        ? t('applicants.buttons.complete_contract')
+                        : t('applicants.buttons.create_contract')}
                     </Button>
                   </Flex>
                 </Td>
