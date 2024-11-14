@@ -55,6 +55,7 @@ export default function VisaRegistrationForm() {
       <Form onSubmit={handleSubmit}>
         <Flex direction="column" gap={{ y: '10px' }}>
           <Input
+            aria-label={t('registerVisa.labels.foreigner_number')}
             label={t('registerVisa.labels.foreigner_number')}
             type="text"
             value={foreignerIdNumber}
@@ -66,6 +67,7 @@ export default function VisaRegistrationForm() {
         </Flex>
         <Flex direction="column" gap={{ y: '10px' }}>
           <Input
+            aria-label={t('registerVisa.labels.visa_generate_date')}
             label={t('registerVisa.labels.visa_generate_date')}
             type="date"
             value={visaGenerateDate}

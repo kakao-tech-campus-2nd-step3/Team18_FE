@@ -32,7 +32,9 @@ export default function Header() {
     userLocalStorage.removeToken();
     userLocalStorage.removeUser();
     setUser(undefined);
-    navigate(ROUTE_PATH.HOME);
+    startTransition(() => {
+      navigate(ROUTE_PATH.HOME);
+    });
   };
 
   const goToMyPage = () => {
@@ -46,7 +48,7 @@ export default function Header() {
   return (
     <HeaderContainer>
       <Flex justifyContent="space-between" alignItems="center" css={flexStyle}>
-        <LogoImg onClick={goToHome} />
+        <LogoImg className="logo" onClick={goToHome} />
         <Flex justifyContent="flex-end" css={menuIconStyle} onClick={toggleMenu}>
           {menuOpen ? <CloseIcon /> : <MenuIcon />}
         </Flex>
@@ -59,7 +61,12 @@ export default function Header() {
           ) : (
             <>
               <Flex justifyContent="center" alignItems="center" onClick={goToMyPage}>
-                <Image url={user.profileImage} size={{ width: '40px', height: '40px' }} css={imageStyle} />
+                <Image
+                  data-testid="profile"
+                  url={user.profileImage}
+                  size={{ width: '40px', height: '40px' }}
+                  css={imageStyle}
+                />
               </Flex>
               <Button style={customButtonStyle} onClick={logout}>
                 {t('header.logout')}
