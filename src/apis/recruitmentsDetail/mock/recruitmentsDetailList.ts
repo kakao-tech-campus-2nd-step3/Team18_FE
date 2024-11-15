@@ -8,20 +8,9 @@ export const recruitmentDetailList = {
   requestedCareer: '경력 1~2년',
   imageUrl: cat,
   detailedDescription: '김밥 만들기 알바',
-  majorBusiness: [
-    { id: 1, text: '김밥 만들기' },
-    { id: 2, text: '재료 전처리' },
-    { id: 3, text: '마감 청소' },
-  ],
-  eligibilityCriteria: [
-    { id: 1, text: '비자를 가진 사람' },
-    { id: 2, text: '주 2회 이상 근무 가능한 사람' },
-  ],
-  preferredConditions: [
-    { id: 1, text: '한국어 의사 소통이 잘 되는 사람' },
-    { id: 2, text: '지각하지 않는 사람' },
-    { id: 3, text: '김밥에 있는 오이를 빼지 않는 사람' },
-  ],
+  majorBusiness: '김밥 만들기',
+  eligibilityCriteria: '비자를 가진 사람',
+  preferredConditions: '한국어 의사 소통이 잘 되는 사람',
   employerName: '이재용',
   companyName: '삼성전자',
   koreanDetailedDescription: '김밥 만들기 아르바이트',
