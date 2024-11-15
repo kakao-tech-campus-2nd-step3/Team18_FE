@@ -40,6 +40,7 @@ export default function RecruitCard({
     const value = {
       resumeExistence: t('recruit.Modal.resumeExistence'),
       visaExistence: t('recruit.Modal.visaExistence'),
+      signExistence: t('recruit.Modal.signExistence'),
       foreignerIdNumberExistence: t('recruit.Modal.foreignerIdNumberExistence'),
     };
     const newFalseValues = text.map((tex) => value[tex as keyof typeof value]);
@@ -63,7 +64,7 @@ export default function RecruitCard({
 
   return (
     <RecruitContainer>
-      <CompanyImg alt="companyImg" src={imageUrl} />
+      {imageUrl ? <CompanyImg alt="companyImg" src={imageUrl} /> : <SkeletonImg />}
       <Info_Div>
         <Info_p>
           <p>{koreanTitle}</p>
@@ -125,7 +126,7 @@ const CompanyImg = styled.img<React.ImgHTMLAttributes<HTMLImageElement>>`
 
   border-radius: 20px;
   object-fit: cover;
-
+  display: ${(props) => (props.src ? 'block' : 'none')};
   @media (max-width: 768px) {
     height: 300px;
   }
@@ -187,5 +188,30 @@ const CustomBtn = styled(Button)<{ background?: string; color?: string; width?: 
 
   @media (max-width: 768px) {
     width: ${(props) => props.width || '160px'};
+  }
+`;
+
+const SkeletonImg = styled.div`
+  width: 100%;
+  height: 380px;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
+  background-size: 300% 100%;
+  animation: shimmer 5s infinite linear;
+
+  @media (max-width: 768px) {
+    height: 300px;
+  }
+  @media (max-width: 480px) {
+    height: 220px;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -300% 0;
+    }
+    100% {
+      background-position: 300% 0;
+    }
   }
 `;

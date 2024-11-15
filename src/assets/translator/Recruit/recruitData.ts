@@ -25,6 +25,7 @@ export const recruitData = {
       alert: '미등록!',
       ment: '필수 정보를 등록해야 지원서를 작성할 수 있어요',
       myPage: '마이페이지',
+      signExistence: '사인',
     },
   },
   [Languages.VE]: {
@@ -51,6 +52,7 @@ export const recruitData = {
       alert: 'Chưa đăng ký!',
       ment: 'Bạn cần đăng ký thông tin bắt buộc để có thể tạo hồ sơ ứng tuyển',
       myPage: 'Trang của tôi',
+      signExistence: 'chữ ký',
     },
   },
 };

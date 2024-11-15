@@ -1,5 +1,6 @@
 import { responsiveStyle } from '@/utils/responsive';
 import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 export const innerContainerStyle = css`
   ${responsiveStyle({
@@ -27,21 +28,30 @@ export const companyWrapperStyle = css`
   })}
 `;
 
+export const ImageWrapper = styled.div`
+  width: 280px;
+  height: 120px;
+`;
+
 export const imageStyle = css`
+  height: 100%;
+  border-radius: 6px;
+
   ${responsiveStyle({
-    default: {
-      width: '280px',
-      height: 'auto',
-    },
     tablet: {
       margin: '0 auto',
-      width: '50%',
+      width: '80%',
     },
     mobile: {
       width: '70%',
     },
   })}
 `;
+
+export const imageSize = {
+  width: '277px',
+  height: 'auto',
+};
 
 export const spinnerFlexStyle = css`
   position: absolute;

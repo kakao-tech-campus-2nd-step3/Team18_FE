@@ -93,11 +93,6 @@ export const Nav = styled.nav<NavProps>`
   }
 `;
 
-export const commonButtonStyle = {
-  whiteSpace: 'nowrap',
-  borderRadius: '4px',
-};
-
 export const imageStyle = css`
   width: 40px;
   height: 40px;
@@ -106,7 +101,8 @@ export const imageStyle = css`
 `;
 
 export const customButtonStyle = {
-  ...commonButtonStyle,
+  whiteSpace: 'nowrap',
+  borderRadius: '4px',
   backgroundColor: `${palettes.blue}`,
   color: `${palettes.white}`,
 };

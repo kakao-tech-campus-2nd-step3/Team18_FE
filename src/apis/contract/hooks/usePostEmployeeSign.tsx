@@ -13,7 +13,7 @@ export const postSignEmployeeContract = async (req: SignEmployeeContractRequestD
   return response.data;
 };
 
-export const useFetchPostContract = () =>
+export const usePostSignEmployeeContract = () =>
   useMutation({
     mutationFn: postSignEmployeeContract,
   });

@@ -8,8 +8,8 @@ const getRequiredFieldCheck = async () => {
   return res.data;
 };
 
-export const useGetRequiredFieldCheck = (recruitmentId: number) =>
+export const useGetRequiredFieldCheck = () =>
   useQuery<RequiredFieldCheckProps, Error>({
-    queryKey: ['RequiredFieldCheckProps', recruitmentId],
+    queryKey: ['RequiredFieldCheckProps'],
     queryFn: () => getRequiredFieldCheck(),
   });

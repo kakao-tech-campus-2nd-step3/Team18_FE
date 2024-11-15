@@ -4,9 +4,9 @@ import { buttonGroupStyle, buttonStyle, recruitmentStyle, recruitmentTitleStyle 
 import { useNavigate, useParams } from 'react-router-dom';
 import ROUTE_PATH from '@/routes/path';
 import { useCloseRecruitment } from '@/apis/recruitments/hooks/useCloseRecruitment';
-import { useState } from 'react';
 import { useLanguage } from '@/components/providers/Language.provider';
 import { useTranslation } from 'react-i18next';
+import { useEffect, useState } from 'react';
 
 type Props = {
   recruitmentList: RecruitmentItem[];
@@ -16,9 +16,20 @@ export default function RecruitmentsTable({ recruitmentList }: Props) {
   const navigate = useNavigate();
   const { companyId } = useParams();
   const mutation = useCloseRecruitment();
-  const [closedRecruitment, setClosedRecruitment] = useState<{ [key: number]: boolean }>({});
   const { language } = useLanguage();
   const { t } = useTranslation();
+  const [closedRecruitment, setClosedRecruitment] = useState<{ [key: number]: boolean }>({});
+
+  useEffect(() => {
+    const initialStatus = recruitmentList.reduce(
+      (acc, recruitment) => ({
+        ...acc,
+        [recruitment.recruitmentId]: !recruitment.hiring,
+      }),
+      {},
+    );
+    setClosedRecruitment(initialStatus);
+  }, [recruitmentList]);
 
   const goToApplicantsPage = (companyId: string, recruitmentId: number) => {
     navigate(
@@ -26,7 +37,7 @@ export default function RecruitmentsTable({ recruitmentList }: Props) {
     );
   };
 
-  const handleCloseRecruitmentClick = (recruitmentId: number) => {
+  const closeRecruitmentClick = (recruitmentId: number) => {
     mutation.mutate(recruitmentId, {
       onSuccess: () => {
         setClosedRecruitment((prev) => ({
@@ -67,13 +78,13 @@ export default function RecruitmentsTable({ recruitmentList }: Props) {
                     </Button>
                     <Button
                       css={buttonStyle}
-                      onClick={() => handleCloseRecruitmentClick(recruitment.recruitmentId)}
-                      design={closedRecruitment[recruitment.recruitmentId] ? 'deactivate' : 'default'}
+                      onClick={() => closeRecruitmentClick(recruitment.recruitmentId)}
+                      design={!closedRecruitment[recruitment.recruitmentId] ? 'default' : 'deactivate'}
                       disabled={closedRecruitment[recruitment.recruitmentId]}
                     >
-                      {closedRecruitment[recruitment.recruitmentId]
-                        ? t('myCompany.buttons.closed_recruitment')
-                        : t('myCompany.buttons.close_recruitment')}
+                      {!closedRecruitment[recruitment.recruitmentId]
+                        ? t('myCompany.buttons.close_recruitment')
+                        : t('myCompany.buttons.closed_recruitment')}
                     </Button>
                   </Flex>
                 </Flex>

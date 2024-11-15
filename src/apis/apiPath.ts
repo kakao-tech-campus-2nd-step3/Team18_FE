@@ -22,7 +22,7 @@ export const APIPath = {
   resume: `${BASE_URL}/resumes`,
   recruitmentsDetail: '/api/recruitments/:recruitmentId',
   getApplicantProfile: '/api/resumes/:resumeId/:applyId',
-  closeRecruitment: `${BASE_URL}/recruitment/hiringClose/:recruitmentId`,
+  closeRecruitment: `${BASE_URL}/recruitments/hiringClose/:recruitmentId`,
   requiredFieldCheck: `${BASE_URL}/application`,
 };
 

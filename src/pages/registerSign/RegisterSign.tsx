@@ -8,6 +8,7 @@ import { Flex, Button } from '@/components/common';
 import { FetchRegisterSign } from '@/apis/registerSign/useRegisterSign';
 import { useTranslation } from 'react-i18next';
 import { userLocalStorage } from '@/utils/storage';
+import Title from '@/components/common/Title';
 
 export default function RegisterSign() {
   const userType = userLocalStorage.getUser()?.type || '';
@@ -42,6 +43,8 @@ export default function RegisterSign() {
         alignItems="center"
         gap={{ y: '20px' }}
       >
+        <Title text={t('registerSign.title')} />
+
         <WrapperCanvas>
           <SignatureCanvas
             ref={signCanvas}

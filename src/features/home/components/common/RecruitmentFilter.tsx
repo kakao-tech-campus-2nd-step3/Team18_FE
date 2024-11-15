@@ -4,7 +4,7 @@ import useSelect from '@/components/common/Select/hooks/useSelect';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const triggerStyle = { minWidth: '80px', fontSize: '16px', fontWeight: '700', color: theme.palettes.blue };
+const triggerStyle = { minWidth: '90px', fontSize: '16px', fontWeight: '700', color: theme.palettes.blue };
 
 type Props = {
   onFilterChange: (option: string) => void;

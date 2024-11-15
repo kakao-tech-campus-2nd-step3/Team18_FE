@@ -3,7 +3,7 @@ import { clientInstance } from '@/apis/instance';
 import { useMutation } from '@tanstack/react-query';
 
 export type ContractRequestData = {
-  salary?: string;
+  salary?: number;
   workingHours?: string;
   dayOff?: string;
   annualPaidLeave?: string;

@@ -12,7 +12,7 @@ export const company = {
 export const recruitmentList = [
   {
     recruitmentId: 1,
-    image: CompanyLogo,
+    imageUrl: CompanyLogo,
     koreanTitle: '쿠팡 유성점에서 아르바이트 모집합니다.',
     vietnameseTitle: 'Coupang đang tuyển dụng làm việc bán thời gian tại chi nhánh Yuseong.',
     companyName: '쿠팡 유성점',
@@ -23,7 +23,7 @@ export const recruitmentList = [
   },
   {
     recruitmentId: 2,
-    image: CompanyLogo,
+    imageUrl: CompanyLogo,
     koreanTitle: '쿠팡 유성점에서 아르바이트 모집합니다.',
     vietnameseTitle: 'Coupang đang tuyển dụng làm việc bán thời gian tại chi nhánh Yuseong.',
     companyName: '쿠팡 유성점',
@@ -34,7 +34,7 @@ export const recruitmentList = [
   },
   {
     recruitmentId: 3,
-    image: CompanyLogo,
+    imageUrl: CompanyLogo,
     koreanTitle: '쿠팡 유성점에서 아르바이트 모집합니다.',
     vietnameseTitle: 'Coupang đang tuyển dụng làm việc bán thời gian tại chi nhánh Yuseong.',
     companyName: '쿠팡 유성점',

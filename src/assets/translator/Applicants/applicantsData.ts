@@ -2,7 +2,6 @@ import { Languages } from '../Languages';
 
 export const applicantsData = {
   [Languages.KO]: {
-    salary: '시급',
     applicant_list: '지원자 목록',
     total_applicants: '총 {{count}}명',
     view_details: '자세히 보러가기',
@@ -14,10 +13,10 @@ export const applicantsData = {
     buttons: {
       view_resume: '지원서',
       create_contract: '계약하기',
+      complete_contract: '계약완료',
     },
   },
   [Languages.VE]: {
-    salary: 'Lương theo giờ',
     applicant_list: 'Danh sách ứng viên',
     total_applicants: 'Tổng cộng {{count}} người',
     view_details: 'Xem chi tiết',
@@ -27,8 +26,9 @@ export const applicantsData = {
       korean_language_level: 'Trình độ tiếng Hàn',
     },
     buttons: {
-      view_resume: 'Hồ sơ ứng tuyển',
-      create_contract: 'Ký hợp đồng',
+      view_resume: 'Hồ sơ ứng viên',
+      create_contract: 'Tạo hợp đồng',
+      complete_contract: 'Hoàn thành hợp đồng',
     },
   },
 };

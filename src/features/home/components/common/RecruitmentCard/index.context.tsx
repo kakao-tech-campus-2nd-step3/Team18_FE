@@ -1,8 +1,8 @@
 import { createContext, ReactNode, useContext } from 'react';
-import { RecruitmentResponse } from '@/apis/home/types/response';
+import { RecruitmentListItem } from '@features/home/types/types';
 
 type RecruitmentCardContextProps = {
-  recruitment: RecruitmentResponse;
+  recruitment: RecruitmentListItem;
 };
 
 const RecruitmentCardContext = createContext<RecruitmentCardContextProps | undefined>(undefined);
@@ -16,7 +16,7 @@ export const useRecruitmentCardContext = () => {
 };
 
 interface ProviderProps {
-  recruitment: RecruitmentResponse;
+  recruitment: RecruitmentListItem;
   children: ReactNode;
 }
 

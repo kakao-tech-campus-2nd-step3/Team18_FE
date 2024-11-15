@@ -4,6 +4,8 @@ import { useRegisterVisaInfo } from '@/apis/applicants/hooks/useRegisterVisaInfo
 import { buttonStyle, ErrorMessage, Form, inputStyle } from './VisaRegistrationForm.styles';
 import { validateForeignerNumber } from './validateForeignerNumber';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import ROUTE_PATH from '@/routes/path';
 
 export default function VisaRegistrationForm() {
   const [foreignerIdNumber, setForeignerNumber] = useState('');
@@ -11,6 +13,7 @@ export default function VisaRegistrationForm() {
   const [error, setError] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const formValid = useMemo(() => !error, [error]);
+  const navigate = useNavigate();
 
   const registerVisaMutation = useRegisterVisaInfo();
   const { t } = useTranslation();
@@ -44,6 +47,7 @@ export default function VisaRegistrationForm() {
 
   const closeModal = () => {
     setIsModalOpen(false);
+    navigate(ROUTE_PATH.EMPLOYEE.EMPLOYEE_PAGE);
   };
 
   return (
@@ -51,6 +55,7 @@ export default function VisaRegistrationForm() {
       <Form onSubmit={handleSubmit}>
         <Flex direction="column" gap={{ y: '10px' }}>
           <Input
+            aria-label={t('registerVisa.labels.foreigner_number')}
             label={t('registerVisa.labels.foreigner_number')}
             type="text"
             value={foreignerIdNumber}
@@ -62,6 +67,7 @@ export default function VisaRegistrationForm() {
         </Flex>
         <Flex direction="column" gap={{ y: '10px' }}>
           <Input
+            aria-label={t('registerVisa.labels.visa_generate_date')}
             label={t('registerVisa.labels.visa_generate_date')}
             type="date"
             value={visaGenerateDate}

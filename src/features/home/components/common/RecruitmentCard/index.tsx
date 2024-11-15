@@ -4,7 +4,8 @@ import { ReactNode } from 'react';
 import { RecruitmentCardContextProvider } from './index.context';
 import { Title, Button, CompanyName, CompanyImage, Detail, Salary } from './sub-components';
 import { responsiveStyle } from '@utils/responsive';
-import { RecruitmentResponse } from '@/apis/home/types/response';
+import { RecruitmentListItem } from '@features/home/types/types';
+import { MouseEventHandler } from 'react';
 
 const recruitmentCardStyle = responsiveStyle({
   default: {
@@ -17,14 +18,15 @@ const recruitmentCardStyle = responsiveStyle({
 });
 
 type Props = {
-  recruitment: RecruitmentResponse;
+  recruitment: RecruitmentListItem;
   children: ReactNode;
+  onClick?: MouseEventHandler<HTMLDivElement>;
 };
 
-export default function RecruitmentCard({ recruitment, children }: Props) {
+export default function RecruitmentCard({ recruitment, children, onClick }: Props) {
   return (
     <RecruitmentCardContextProvider recruitment={recruitment}>
-      <Card borderColor="white" css={[bounceAnimation, recruitmentCardStyle]}>
+      <Card borderColor="white" css={[bounceAnimation, recruitmentCardStyle]} onClick={onClick}>
         {children}
       </Card>
     </RecruitmentCardContextProvider>

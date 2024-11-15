@@ -2,6 +2,7 @@ import { Languages } from '../Languages';
 
 export const myCompanyData = {
   [Languages.KO]: {
+    post_notice: '채용공고 등록',
     my_recruitments: '내 공고글',
     total_recruitments: '총 {{count}}건',
     table_headers: {
@@ -15,6 +16,7 @@ export const myCompanyData = {
     },
   },
   [Languages.VE]: {
+    post_notice: 'Đăng thông báo tuyển dụng',
     my_recruitments: 'Thông báo tuyển dụng của tôi',
     total_recruitments: 'Tổng cộng {{count}} bài',
     table_headers: {

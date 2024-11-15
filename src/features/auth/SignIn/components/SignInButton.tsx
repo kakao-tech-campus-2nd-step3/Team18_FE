@@ -10,7 +10,7 @@ export function SignInButton() {
   return (
     <Button design="outlined" onClick={redirectToGoogleLogin}>
       <Flex alignItems="center" gap={FLEX_GAP_CONFIG}>
-        <Icon.Social.Google />
+        <Icon.Social.Google data-testid="google-icon" />
         <Typo size="14px" color="gray" element="span" style={BUTTON_STYLE}>
           Sign up with Google
         </Typo>

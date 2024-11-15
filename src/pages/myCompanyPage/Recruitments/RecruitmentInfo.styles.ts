@@ -31,11 +31,12 @@ export const ImageWrapper = styled.div`
 
 export const imageStyle = css`
   height: 100%;
+  border-radius: 6px;
 
   ${responsiveStyle({
     tablet: {
       margin: '0 auto',
-      width: '50%',
+      width: '80%',
     },
     mobile: {
       width: '70%',

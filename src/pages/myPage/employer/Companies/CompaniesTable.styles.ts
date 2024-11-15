@@ -15,7 +15,7 @@ export const imageSize = {
 };
 
 export const imageStyle = css`
-  height: 100%;
+  border-radius: 6px;
 
   ${responsiveStyle({
     tablet: {

@@ -25,10 +25,10 @@ const Wrapper = styled.button<Props>(
       return {
         backgroundColor: '#fff',
         color: '#0A65CC',
-        border: '2px solid #0A65CC',
+        border: '3px solid #0a65cc',
 
         '&:hover': {
-          backgroundColor: '#0033cc',
+          backgroundColor: '#0a65cc',
           color: '#fff',
         },
       };
@@ -43,6 +43,7 @@ const Wrapper = styled.button<Props>(
 
     if (design === 'deactivate') {
       return {
+        cursor: 'default',
         color: '#9A9A9A',
         backgroundColor: '#D9D9D9',
       };

@@ -4,16 +4,7 @@ import Button from '@components/common/Button';
 import { Flex, Image } from '@/components/common';
 import useToggle from '@/hooks/useToggle';
 import LanguageFilter from './components/LanguageFilter';
-import {
-  commonButtonStyle,
-  customButtonStyle,
-  flexStyle,
-  HeaderContainer,
-  imageStyle,
-  LogoImg,
-  menuIconStyle,
-  Nav,
-} from './index.styles';
+import { customButtonStyle, flexStyle, HeaderContainer, imageStyle, LogoImg, menuIconStyle, Nav } from './index.styles';
 import { startTransition } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ROUTE_PATH from '@/routes/path';
@@ -41,11 +32,9 @@ export default function Header() {
     userLocalStorage.removeToken();
     userLocalStorage.removeUser();
     setUser(undefined);
-    navigate(ROUTE_PATH.HOME);
-  };
-
-  const goToPostNotice = () => {
-    navigate(ROUTE_PATH.POST_NOTICE);
+    startTransition(() => {
+      navigate(ROUTE_PATH.HOME);
+    });
   };
 
   const goToMyPage = () => {
@@ -59,7 +48,7 @@ export default function Header() {
   return (
     <HeaderContainer>
       <Flex justifyContent="space-between" alignItems="center" css={flexStyle}>
-        <LogoImg onClick={goToHome} />
+        <LogoImg className="logo" onClick={goToHome} />
         <Flex justifyContent="flex-end" css={menuIconStyle} onClick={toggleMenu}>
           {menuOpen ? <CloseIcon /> : <MenuIcon />}
         </Flex>
@@ -71,13 +60,13 @@ export default function Header() {
             </Button>
           ) : (
             <>
-              {user.type === 'employer' && (
-                <Button design="outlined" style={commonButtonStyle} onClick={goToPostNotice}>
-                  {t('header.post_notice')}
-                </Button>
-              )}
               <Flex justifyContent="center" alignItems="center" onClick={goToMyPage}>
-                <Image url={user.profileImage} size={{ width: '40px', height: '40px' }} css={imageStyle} />
+                <Image
+                  data-testid="profile"
+                  url={user.profileImage}
+                  size={{ width: '40px', height: '40px' }}
+                  css={imageStyle}
+                />
               </Flex>
               <Button style={customButtonStyle} onClick={logout}>
                 {t('header.logout')}

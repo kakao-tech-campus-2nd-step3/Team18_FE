@@ -3,7 +3,7 @@ import { getPostCompanyPath } from '../hooks/useRegisterCompany';
 
 export const registerCompanyMockHandler = [
   http.post(getPostCompanyPath(), async ({ request }) => {
-    const req = await request.json();
+    const req = await request.formData();
     return HttpResponse.json(req, { status: 201 });
   }),
 ];

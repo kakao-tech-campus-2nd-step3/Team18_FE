@@ -7,13 +7,18 @@ export type CompanyRequestData = {
   industryOccupation?: string;
   brand?: string;
   revenuePerYear?: number;
-  logoImage?: string;
+  logoImage?: File;
 };
 
 export const getPostCompanyPath = () => `${APIPath.registerCompany}`;
 
-export const postCompany = async (req: CompanyRequestData) => {
-  const response = await clientInstance.post(getPostCompanyPath(), req);
+export const postCompany = async (req: FormData) => {
+  const response = await clientInstance.post(getPostCompanyPath(), req, {
+    headers: {
+      Accept: 'multipart/form-data',
+      'Content-Type': 'multipart/form-data',
+    },
+  });
   return response.data;
 };
 

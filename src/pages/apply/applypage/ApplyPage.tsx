@@ -47,7 +47,7 @@ export default function ApplyPage() {
             <ApplyInput
               errors={errors}
               title={t('apply.applyMotivation')}
-              label="applyMotivation"
+              label="motivation"
               register={register}
               placeholder={t('apply.description.applyMotivation')}
               required

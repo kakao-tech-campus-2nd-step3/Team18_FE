@@ -5,8 +5,8 @@ export const AUTH = {
 } as const;
 
 export const APPLY = {
-  GUIDE: '/applyguide',
-  APPLYPAGE: '/apply',
+  GUIDE: '/applyguide/:recruitmentId',
+  APPLYPAGE: '/apply/:recruitmentId',
 } as const;
 
 export const MY_PAGE = {
@@ -26,7 +26,7 @@ const ROUTE_PATH = {
   PREV: -1,
   HOME: '/',
   RECRUIT: '/recruit/:recruitmentId',
-  POST_NOTICE: '/post-notice',
+  POST_NOTICE: '/post-notice/:companyId',
   APPLY,
   AUTH,
   APPLICANTS: '/applicants/:companyId/:recruitmentId',
@@ -35,7 +35,7 @@ const ROUTE_PATH = {
   MY_COMPANY: '/my-company/:companyId',
   REGISTER_VISA: '/register-visa',
   MY_PAGE,
-  REGISTERSIGN: '/registersign',
+  REGISTERSIGN: '/register-sign',
   REGISTERCOMPANY: '/register-company',
   CONTRACT,
 } as const;

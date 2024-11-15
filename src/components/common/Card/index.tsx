@@ -18,6 +18,7 @@ export default function Card({ borderColor, borderRadius = '12px', children, ...
 
 const CardContainer = styled.div<Omit<Props, 'children'>>`
   display: inline-block;
+  width: 400px;
   box-shadow: 0px 12px 32px 0px rgba(24, 25, 28, 0.08);
   border: 1px solid ${({ borderColor }) => borderColor};
   border-radius: ${({ borderRadius }) => borderRadius};

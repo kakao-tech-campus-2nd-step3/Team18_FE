@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import ROUTE_PATH from '@/routes/path';
 import { useGoogleOAuthMutation } from '@/apis/auth/hooks/mutations/useGoogleOAuthMutation';
 import { OAuthResponse } from '@/apis/auth/types/response';
+import { userLocalStorage } from '@/utils/storage';
 
 const googleClientId = import.meta.env.VITE_GOOGLE_AUTH_CLIENT_ID;
 const googleRedirectUri = import.meta.env.VITE_GOOGLE_AUTH_REDIRECT_URI;
@@ -33,8 +34,8 @@ export function useGoogleOAuth() {
         {
           onSuccess: (data: OAuthResponse) => {
             const { accessToken, type, profileImage, name } = data;
+            userLocalStorage.setUser({ profileImage, name, type });
             localStorage.setItem('token', accessToken);
-            localStorage.setItem('user', JSON.stringify({ profileImage, name, type }));
 
             if (type === 'first') {
               navigate(ROUTE_PATH.AUTH.SIGN_UP);

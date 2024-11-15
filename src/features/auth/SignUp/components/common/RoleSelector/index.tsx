@@ -8,6 +8,7 @@ import { useRegisterMutation } from '@/apis/auth/hooks/mutations/useRegisterMuta
 import { useNavigate } from 'react-router-dom';
 import ROUTE_PATH from '@/routes/path';
 import { useTranslation } from 'react-i18next';
+import { userLocalStorage } from '@/utils/storage';
 
 const cardStyle = responsiveStyle({
   default: { padding: '60px 120px', cursor: 'pointer' },
@@ -38,6 +39,11 @@ export default function RoleSelector({ role }: Props) {
       { type: role },
       {
         onSuccess: () => {
+          const userData = userLocalStorage.getUser();
+          if (userData) {
+            userData.type = role;
+            userLocalStorage.setUser(userData);
+          }
           handleOpenModal();
         },
       },

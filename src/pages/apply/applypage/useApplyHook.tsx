@@ -7,7 +7,7 @@ export interface ApplyInfoProps {
   name: string;
   address: string;
   phoneNumber: string;
-  applyMotivation: string;
+  motivation: string;
 }
 
 export function useApplyHook() {

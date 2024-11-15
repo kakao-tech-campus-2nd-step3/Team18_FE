@@ -19,7 +19,7 @@ export default function Applicants({ recruitmentData, applicantsData }: Applican
             {recruitmentData && (
               <RecruitmentsInfo
                 recruitmentId={recruitmentData.recruitmentId}
-                image={recruitmentData.image}
+                imageUrl={recruitmentData.imageUrl}
                 companyName={recruitmentData.companyName}
                 koreanTitle={recruitmentData.koreanTitle}
                 vietnameseTitle={recruitmentData.vietnameseTitle}

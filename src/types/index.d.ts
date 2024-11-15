@@ -13,7 +13,8 @@ export type ApplicantData = {
   resumeId: number;
   applyId: number;
   applicantNation: string;
-  korean: string;
+  koreanLanguageLevel: string;
+  contractExistence: boolean;
 };
 
 export type ForeignerData = {
@@ -28,43 +29,34 @@ export type UserData = {
   name: string;
 };
 
-// 백엔드에서 정하는 값에 따라 key 바꾸면 됨
-export const State = {
-  LetsSign: '근로계약서 서명하기',
-  Closed: '채용 마감',
-  Waiting: '지원서 검토중',
-  Completed: '근로계약서 다운로드',
-} as const;
-
-export type StateProps = keyof typeof State;
-export type TextProps = (typeof State)[StateProps];
+export type StateProps = '근로계약서 서명하기' | '채용마감' | '지원서 검토중' | '채용완료';
 
 export type MyRecruitListProps = {
   id: number;
   title: string;
   area: string;
   image: string;
-  state: StateProps;
+  status: StateProps;
   applyId: number;
 };
 
 export type RecruitmentItem = {
   recruitmentId: number;
-  image: string;
+  imageUrl: string;
   koreanTitle: string;
   vietnameseTitle: string;
   companyName: string;
   salary: number;
   workHours: string;
   area: string;
-  hiring?: boolean;
+  hiring: boolean;
 };
 
 export type NoticeRequestData = {
   title?: string;
   companyScale?: string;
   area?: string;
-  salary?: string;
+  salary?: number;
   workDuration?: string;
   workDays?: string;
   workType?: string;
@@ -75,4 +67,5 @@ export type NoticeRequestData = {
   preferredConditions?: string;
   employerName?: string;
   companyName?: string;
+  companyId?: number;
 };

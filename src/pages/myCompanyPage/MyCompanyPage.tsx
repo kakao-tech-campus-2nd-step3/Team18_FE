@@ -17,5 +17,5 @@ export default function MyCompanyPage() {
     return <Spinner />;
   }
 
-  return <MyCompany companyData={companyData} recruitmentsData={recruitmentsData} />;
+  return <MyCompany companyData={companyData} recruitmentsData={recruitmentsData} companyId={companyId!} />;
 }

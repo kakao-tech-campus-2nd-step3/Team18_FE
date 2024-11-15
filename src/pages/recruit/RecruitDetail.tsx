@@ -2,6 +2,7 @@ import { type SectionProps, type RecruitDetailProps } from './RecruitType';
 import styled from '@emotion/styled';
 import { Flex } from '@/components/common';
 import { useTranslation } from 'react-i18next';
+import { userLocalStorage } from '@/utils/storage';
 
 const SectionWithTitle = ({ title, children }: SectionProps) => (
   <Section>
@@ -24,7 +25,6 @@ const SectionConditions = ({ title, children }: SectionProps) => (
 );
 
 export default function RecruitDetail({
-  detailedDescription,
   majorBusiness,
   eligibilityCriteria,
   preferredConditions,
@@ -35,8 +35,11 @@ export default function RecruitDetail({
   workType,
   workHours,
   salary,
+  koreanDetailedDescription,
+  vietnameseDetailedDescription,
 }: RecruitDetailProps) {
   const { t } = useTranslation();
+  const language = userLocalStorage.getLanguage();
   return (
     <RecruitDetailContainer>
       <SectionWithTitle title={t('recruit.conditions')}>
@@ -68,23 +71,12 @@ export default function RecruitDetail({
           </Flex>
         </Flex>
       </SectionWithTitle>
-      <SectionWithTitle title={t('recruit.eligibilityRequirements')}>
-        {eligibilityCriteria?.map((data) => {
-          return <li key={data.id}>{data.text}</li>;
-        })}
+      <SectionWithTitle title={t('recruit.eligibilityRequirements')}>{eligibilityCriteria}</SectionWithTitle>
+      <SectionWithTitle title={t('recruit.detailedDescription')}>
+        {language && language === 'ko' ? koreanDetailedDescription : vietnameseDetailedDescription}
       </SectionWithTitle>
-      <SectionWithTitle title={t('recruit.detailedDescription')}>{detailedDescription}</SectionWithTitle>
-      <SectionWithTitle title={t('recruit.mainResponsibilities')}>
-        {majorBusiness?.map((data) => {
-          return <li key={data.id}>{data.text}</li>;
-        })}
-      </SectionWithTitle>
-
-      <SectionWithTitle title={t('recruit.PreferredRequirements')}>
-        {preferredConditions?.map((data) => {
-          return <li key={data.id}>{data.text}</li>;
-        })}
-      </SectionWithTitle>
+      <SectionWithTitle title={t('recruit.mainResponsibilities')}>{majorBusiness}</SectionWithTitle>
+      <SectionWithTitle title={t('recruit.PreferredRequirements')}>{preferredConditions}</SectionWithTitle>
     </RecruitDetailContainer>
   );
 }

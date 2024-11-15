@@ -11,12 +11,10 @@ export default function Recruit() {
   const { recruitmentId = '1' } = useParams();
 
   const { data, isLoading } = useGetRecruitmentsDetail(Number(recruitmentId));
-  const { data: requiredFieldCheck } = useGetRequiredFieldCheck(Number(recruitmentId));
-
+  const { data: requiredFieldCheck } = useGetRequiredFieldCheck();
   if (isLoading || !data) {
     return <Spinner />;
   }
-
   return (
     <Layout>
       <Container>
